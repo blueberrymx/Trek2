@@ -1668,6 +1668,7 @@ textarea.workshop-input {
 .ws-calc-value {
     font-family: var(--font-display);
     font-size: 1.65rem;
+    font-weight: 400;
     line-height: 1.05;
     color: #FFFFFF;
 }
@@ -3111,6 +3112,13 @@ textarea.workshop-input {
         height: calc(100vh - var(--header-height));
     }
 
+    /* En navegadores móviles (iOS/Android), background-attachment: fixed causa estiramiento borroso;
+       cambiar a scroll mantiene nítidos fondo-01.png y fondo-02.png en celular */
+    .textured-light-section,
+    .workshop-section {
+        background-attachment: scroll;
+    }
+
     .mobile-menu-toggle {
         display: flex;
     }
@@ -3217,8 +3225,102 @@ textarea.workshop-input {
 }
 
 @media (max-width: 768px) {
+    /* HEADER MÓVIL: Escalado proporcional de logos e iconos para evitar desbordamiento en celulares */
+    .header-inner {
+        gap: 10px;
+    }
+
+    .brand-logos {
+        gap: 9px;
+    }
+
+    .header-logo-cordillera {
+        height: 24px;
+    }
+
+    .brand-divider {
+        height: 22px;
+    }
+
+    .header-logo-durango {
+        height: 21px;
+    }
+
+    .header-actions {
+        gap: 8px;
+    }
+
+    .header-icon-btn,
+    .mobile-menu-toggle {
+        width: 35px;
+        height: 35px;
+    }
+
+    .header-icon-btn img {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* HERO MÓVIL: Altura completa para que junto con el menú abarque toda la pantalla del celular */
+    .hero-section {
+        height: calc(100vh - var(--header-height));
+        height: calc(100dvh - var(--header-height));
+        min-height: calc(100vh - var(--header-height));
+        min-height: calc(100dvh - var(--header-height));
+        max-height: none;
+    }
+
+    .hero-bg-image,
+    .hero-bg-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.45rem, 9.5vw, 3.25rem);
+        margin-bottom: 10px;
+    }
+
+    .hero-description {
+        font-size: 0.86rem;
+        line-height: 1.45;
+        margin-bottom: 18px;
+    }
+
+    .hero-slide[data-slide-index="0"] .hero-content-container {
+        justify-content: center;
+        padding-bottom: 44px;
+    }
+
+    .hero-slide[data-slide-index="1"] .hero-content-container {
+        justify-content: flex-end;
+        padding-bottom: 20px;
+    }
+
+    .hero-nav-controls {
+        bottom: 20px;
+        left: 0;
+        right: 0;
+    }
+
+    .hero-dot-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.88rem;
+    }
+
     /* TIENDA EN LÍNEA EN MÓVIL CELULAR:
        Navegación vertical en 2 columnas */
+    .store-section,
+    .workshop-section,
+    .news-section,
+    .about-section,
+    .contact-section {
+        padding: 58px 0 54px;
+    }
+
     .store-carousel-viewport {
         overflow: visible;
     }
@@ -3226,7 +3328,7 @@ textarea.workshop-input {
     .store-products-track {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px 14px;
+        gap: 20px 12px;
         transform: none !important;
     }
 
@@ -3242,16 +3344,32 @@ textarea.workshop-input {
         border-right: 1px solid rgba(30, 30, 30, 0.16);
     }
 
+    .product-item-top {
+        flex-wrap: wrap;
+        gap: 6px 8px;
+        margin-bottom: 6px;
+    }
+
+    .product-brand-pill {
+        font-size: 0.94rem;
+        padding: 4px 10px 3px;
+    }
+
+    .product-category-label {
+        font-size: 0.72rem;
+    }
+
     .product-image-trigger {
-        height: 150px;
+        height: 145px;
+        margin: 4px 0 10px;
     }
 
     .product-img-cutout {
-        max-height: 140px;
+        max-height: 135px;
     }
 
     .product-title-heading {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
     }
 
     .product-price-text {
@@ -3259,12 +3377,13 @@ textarea.workshop-input {
     }
 
     .btn-product-cart {
-        width: 44px;
+        width: 42px;
         height: 30px;
     }
 
     /* Ocultar flechas horizontales de la tienda en móvil ya que es grid vertical */
-    #store-desktop-arrows {
+    #store-desktop-arrows,
+    .store-controls-row {
         display: none;
     }
 
@@ -3276,6 +3395,7 @@ textarea.workshop-input {
 
     .store-main-title {
         white-space: normal;
+        font-size: clamp(2.1rem, 8.2vw, 2.75rem);
     }
 
     .store-inline-search-box {
@@ -3292,6 +3412,51 @@ textarea.workshop-input {
 
     .store-active-filter-bar {
         justify-content: flex-start;
+        gap: 8px;
+    }
+
+    .store-category-select {
+        width: 100%;
+        height: 36px;
+        font-size: 0.75rem;
+    }
+
+    .active-filter-pill {
+        font-size: 0.7rem;
+    }
+
+    /* TALLER BIKE MÓVIL: Evitar desbordamiento horizontal de la barra deslizante */
+    .workshop-sliding-bar {
+        left: -8px;
+        right: -8px;
+    }
+
+    .workshop-service-name {
+        font-size: 1.4rem;
+    }
+
+    .workshop-chain-icon {
+        width: 60px;
+    }
+
+    .workshop-pickup-toggle {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .pickup-price-badge {
+        font-size: 0.95rem;
+        padding: 3px 10px 2px;
+    }
+
+    .workshop-submit-row .btn-pill-cta {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* NOTICIAS Y DESTACADO MÓVIL */
+    .news-biker-icon {
+        width: 74px;
     }
 
     .news-slide-item {
@@ -3302,22 +3467,86 @@ textarea.workshop-input {
         max-width: 260px;
     }
 
+    .featured-parallax-band {
+        height: 390px;
+    }
+
+    .featured-cordillera-icon {
+        width: 90px;
+    }
+
+    .featured-parallax-title {
+        font-size: clamp(1.9rem, 7.6vw, 2.6rem);
+    }
+
     .workshop-form-row,
     .clean-form-grid,
     .ws-pay-mode-grid,
-    .workshop-calculator-strip,
     .about-caption-columns,
     .footer-top-grid {
         grid-template-columns: 1fr;
     }
 
+    /* En móvil: Costo Total, Anticipo y Saldo en una sola línea horizontal y precios sin negrita */
+    .workshop-calculator-strip {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        align-items: start;
+    }
+
+    .ws-calc-label {
+        font-size: 0.58rem;
+        letter-spacing: 0.03em;
+        white-space: nowrap;
+    }
+
+    .ws-calc-value {
+        font-size: clamp(1.1rem, 4.4vw, 1.38rem);
+        font-weight: 400 !important;
+        white-space: nowrap;
+    }
+
+    .ws-calc-col small {
+        font-size: 0.62rem;
+        line-height: 1.2;
+    }
+
+    /* En móvil: Los 4 indicadores de Nosotros en una sola fila */
     .about-stats-row {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .about-stat-number {
+        font-size: clamp(1.75rem, 6.8vw, 2.35rem);
+    }
+
+    .about-stat-label {
+        font-size: 0.62rem;
+    }
+
+    .contact-map-frame {
+        height: 290px;
+    }
+
+    .contact-actions-row .btn-pill-cta,
+    .sheet-cta-actions .btn-pill-cta {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .bento-main-photo.single-photo-mode {
+        min-height: 250px;
     }
 
     .product-sheet-window,
     .minimal-dialog-window {
-        padding: 28px 20px;
+        padding: 26px 18px;
+    }
+
+    .cart-side-drawer {
+        padding: 24px 18px;
+        max-width: 100%;
     }
 
     .footer-bottom-row {
@@ -3332,10 +3561,32 @@ textarea.workshop-input {
         justify-self: center;
         text-align: center;
     }
+}
 
-    .hero-nav-controls {
-        bottom: 20px;
-        left: 0;
-        right: 0;
+@media (max-width: 420px) {
+    .brand-logos {
+        gap: 7px;
+    }
+
+    .header-logo-cordillera {
+        height: 20px;
+    }
+
+    .brand-divider {
+        height: 18px;
+    }
+
+    .header-logo-durango {
+        height: 17px;
+    }
+
+    .header-actions {
+        gap: 6px;
+    }
+
+    .header-icon-btn,
+    .mobile-menu-toggle {
+        width: 32px;
+        height: 32px;
     }
 }
