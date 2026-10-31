@@ -305,6 +305,8 @@
 
     /* ========================================================================
        1. SPLASH SCREEN DE VIDEO INTRO
+       Al terminar el video-intro.mp4 (o al hacer clic en "Iniciar"), entra
+       automáticamente a la página posicionada desde el inicio.
        ======================================================================== */
     function initIntroSplash() {
         const introScreen = document.getElementById('intro-screen');
@@ -316,13 +318,29 @@
             return;
         }
 
+        let isDismissed = false;
+
         const dismissIntro = () => {
+            if (isDismissed) return;
+            isDismissed = true;
+
+            // Posicionar la página exactamente al inicio y reiniciar el Hero en Slide 1
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            if (typeof state.resetHeroToStart === 'function') {
+                state.resetHeroToStart();
+            }
+
             introScreen.classList.add('fade-out');
             document.body.classList.remove('locked');
             setTimeout(() => {
                 if (introVideo) introVideo.pause();
             }, 850);
         };
+
+        if (introVideo) {
+            introVideo.loop = false;
+            introVideo.addEventListener('ended', dismissIntro);
+        }
 
         btnEnter.addEventListener('click', dismissIntro);
 
@@ -537,27 +555,6 @@
             slideVideo.loop = false;
         }
 
-        // En versión PC (> 768px) carga el video panorámico 16:9 (video-slide-02_16_9.mp4)
-        // y en versión Móvil (<= 768px) mantiene video-slide-02.mp4
-        const syncHeroVideoSourceByViewport = () => {
-            if (!slideVideo) return;
-            const pcSrc = slideVideo.getAttribute('data-src-pc') || 'assets/video/video-slide-02_16_9.mp4';
-            const mobileSrc = slideVideo.getAttribute('data-src-mobile') || 'assets/video/video-slide-02.mp4';
-            const targetSrc = window.innerWidth > 768 ? pcSrc : mobileSrc;
-
-            if (slideVideo.getAttribute('data-active-src') !== targetSrc) {
-                slideVideo.setAttribute('data-active-src', targetSrc);
-                slideVideo.src = targetSrc;
-                slideVideo.load();
-                if (state.heroSlideIndex === 1) {
-                    slideVideo.play().catch(() => {});
-                }
-            }
-        };
-
-        syncHeroVideoSourceByViewport();
-        window.addEventListener('resize', syncHeroVideoSourceByViewport);
-
         const clearHeroTimer = () => {
             if (state.heroTimer) {
                 clearTimeout(state.heroTimer);
@@ -628,6 +625,8 @@
                 goToSlide(idx);
             });
         });
+
+        state.resetHeroToStart = () => goToSlide(0);
 
         scheduleCurrentSlideAdvance();
     }
@@ -717,10 +716,10 @@
             .filter(prod => prod.stock > 0 && prod.price > 0);
 
         // Cargar registros en cuarentena (stock <= 0) para el Agente Depurador
-        const demoMix = (window.ASCEND_DEMO_MIX_SYNC && Array.isArray(window.ASCEND_DEMO_MIX_SYNC.productos))
-            ? window.ASCEND_DEMO_MIX_SYNC.productos
+        const quarantineList = (window.ASCEND_RMS_SYNC && Array.isArray(window.ASCEND_RMS_SYNC.lista_roja_cuarentena))
+            ? window.ASCEND_RMS_SYNC.lista_roja_cuarentena
             : [];
-        state.quarantineProducts = demoMix.filter(item => Number(item.stock) <= 0 || Number(item.price) <= 0);
+        state.quarantineProducts = quarantineList;
 
         // Iniciar con el catálogo preseleccionado (las 3 bicicletas destacadas + 1 de cada categoría)
         resetStoreToFeatured();
