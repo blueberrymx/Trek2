@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORDILLERA TREK | Bicicletas, Equipamiento y Taller Certificado en Durango</title>
+    <meta name="description" content="Cordillera Trek (Durango Trek): 19 años de pasión ciclista. Distribuidor autorizado Trek, Cannondale y Alubike. Tienda en línea y Taller Certificado.">
+    <meta name="theme-color" content="#1E1E1E">
+    <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Tipografías Oficiales del Rediseño: Bebas Neue e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Hoja de Estilos del Rediseño Minimalista -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+    <!-- ====================================================================
+         1. VIDEO DE INTRO (SPLASH SCREEN MINIMALISTA)
+         Archivo: assets/video/video-intro.mp4
+         Sin texto, solo el Logo de Cordillera grande en medio flotando sin
+         fondos ni cuadros atrás, y abajo un botón sencillo gris "Iniciar".
+         ==================================================================== -->
+    <div id="intro-screen" class="intro-screen" aria-label="Pantalla de bienvenida Cordillera Trek">
+        <video id="intro-video" class="intro-video" autoplay muted loop playsinline preload="auto">
+            <source src="assets/video/video-intro.mp4" type="video/mp4">
+        </video>
+        <div class="intro-center-minimal">
+            <img src="assets/logos/cordillera-logo.png" alt="Cordillera Trek Logo" class="intro-logo-floating">
+            <button type="button" id="btn-enter-site" class="btn-intro-iniciar">Iniciar</button>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         2. TOP BAR & NAVEGADOR STICKY (#1E1E1E)
+         ==================================================================== -->
+    <div id="site-chrome" class="site-chrome">
+        <!-- Top Bar: Gris claro, texto #1E1E1E. En PC desaparece al iniciar scroll; en móvil oculta desde el inicio -->
+        <div id="top-notice-bar" class="top-notice-bar">
+            <div class="container top-notice-inner">
+                <span>Tienda en línea, envíos locales el mismo día en Durango - Envíos asegurados a todo México.</span>
+                <div class="top-notice-right">
+                    <a href="https://wa.me/526188230673" target="_blank" rel="noopener">Whatsapp: <strong>618 823 0673</strong></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú de Navegación Sticky (#1E1E1E) -->
+        <header id="main-header" class="main-header">
+            <div class="container header-inner">
+                <!-- Acomodo: Logo Cordillera | Logo Durango Trek -->
+                <div class="brand-logos">
+                    <a href="#inicio" class="brand-logo-link" data-scroll-to="#inicio" aria-label="Cordillera Inicio">
+                        <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera">
+                    </a>
+                    <span class="brand-divider" aria-hidden="true"></span>
+                    <a href="#inicio" class="brand-logo-link" data-scroll-to="#inicio" aria-label="Durango Trek">
+                        <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango">
+                    </a>
+                </div>
+
+                <!-- Navegación Central: Bicicletas, Equipamiento, Marcas, Taller Bike, Comunidad -->
+                <nav id="main-nav" class="main-nav" aria-label="Menú principal">
+                    <ul class="nav-list">
+                        <!-- 1. BICICLETAS -->
+                        <li class="nav-item has-dropdown" data-nav-section="tienda">
+                            <a href="#tienda" class="nav-link" data-dropdown-toggle>
+                                <span>BICICLETAS</span>
+                                <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </a>
+                            <div class="mega-dropdown" role="menu">
+                                <div class="mega-dropdown-inner mega-cols-3">
+                                    <div>
+                                        <h4 class="mega-col-title">MODALIDAD</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Montaña">Montaña</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Ruta">Ruta</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Gravel">Gravel</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="E-Bikes">E-Bikes</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Infantil">Infantil</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">MARCAS</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas TREK">TREK</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Cannondale">Cannondale</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Alubike">Alubike</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">DESTACADAS</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link mega-link-featured" data-open-product-sku="RAI16507841R">Rail+ 8 Gen</a></li>
+                                            <li><a href="#tienda" class="mega-link mega-link-featured" data-open-product-sku="FUE2228474K">Fuel EXE XT</a></li>
+                                            <li><a href="#tienda" class="mega-link mega-link-featured" data-open-product-sku="SUP30656724E">Super Six Evo</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 2. EQUIPAMIENTO (3 columnas: Accesorios, Componentes, y en la 3ra Líquidos + Herramientas + Nutrición) -->
+                        <li class="nav-item has-dropdown" data-nav-section="tienda">
+                            <a href="#tienda" class="nav-link" data-dropdown-toggle>
+                                <span>EQUIPAMIENTO</span>
+                                <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </a>
+                            <div class="mega-dropdown" role="menu">
+                                <div class="mega-dropdown-inner mega-cols-equipamiento">
+                                    <div>
+                                        <h4 class="mega-col-title">ACCESORIOS</h4>
+                                        <ul class="mega-links two-subcols">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cascos">Cascos</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bolsas de Asiento">Bolsas de Asiento</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Lentes">Lentes</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Ánforas y porta ánforas">Ánforas y porta ánforas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Ciclocomputadoras">Ciclo computadoras</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bombas">Bombas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Relojes">Relojes</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Candados">Candados</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Audífonos">Audífonos</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Lámparas">Lámparas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Jersey">Jersey</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Ciclocomputadoras">Transmisores de velocidad</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Gorras">Gorras</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Guantes">Guantes</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">COMPONENTES</h4>
+                                        <ul class="mega-links two-subcols">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Llantas">Llantas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Potencias">Potencias</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cámaras">Cámaras</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Postes de asiento">Postes de asiento</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Suspensiones">Suspensiones</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Ruedas">Ruedas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cinta tubeless">Cinta tubeless</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cadenas">Cadenas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cinta De Manubrio">Cinta De Manubrio</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Espaciadores">Espaciadores</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Manubrios">Manubrios</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Multiplicaciones">Multiplicaciones</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Asiento">Asiento</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Frenos Y Balatas">Frenos Y Balatas</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Pedales">Pedales</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Salpicaderas">Salpicaderas</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="mega-col-stacked">
+                                        <div>
+                                            <h4 class="mega-col-title">LÍQUIDOS Y LUBRICANTES</h4>
+                                            <ul class="mega-links">
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="Grasas">Grasas</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="Limpiadores">Limpiadores</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="Cementos">Cementos</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="Lubricantes">Lubricantes</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="Liquido Sellador">Líquido Sellador</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-subblock">
+                                            <h4 class="mega-col-title">HERRAMIENTAS</h4>
+                                            <ul class="mega-links">
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="multi herramientas">Multi herramientas</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="kits reparación">Kits reparación</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="mega-subblock">
+                                            <h4 class="mega-col-title">NUTRICIÓN</h4>
+                                            <ul class="mega-links">
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="sis">SiS</a></li>
+                                                <li><a href="#tienda" class="mega-link" data-store-filter="hammer">Hammer</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 3. MARCAS -->
+                        <li class="nav-item has-dropdown" data-nav-section="tienda">
+                            <a href="#tienda" class="nav-link" data-dropdown-toggle>
+                                <span>MARCAS</span>
+                                <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </a>
+                            <div class="mega-dropdown" role="menu">
+                                <div class="mega-dropdown-inner mega-cols-brands">
+                                    <div>
+                                        <h4 class="mega-col-title">BICICLETAS</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="TREK">TREK</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cannondale">Cannondale</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Alubike">Alubike</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">COMPONENTES &amp; TECH</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Shimano">Shimano</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bontrager">Bontrager</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Fox">Fox</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Garmin">Garmin</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Shokz">Shokz</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Pro">Pro</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">INDUMENTARIA &amp; ÓPTICA</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Buff">Buff</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Oakley">Oakley</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Asis">Asis</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Giro">Giro</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Peek">Peek</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Gobik">Gobik</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Fizz">Fizz</a></li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="mega-col-title">LLANTAS &amp; TALLER</h4>
+                                        <ul class="mega-links">
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Pirelli">Pirelli</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Maxxis">Maxxis</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Stans">Stans</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Look">Look</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="KMC">KMC</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Liqui Moly">Liqui Moly</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- 4. TALLER BIKE -->
+                        <li class="nav-item" data-nav-section="taller">
+                            <a href="#taller" class="nav-link" data-scroll-to="#taller">
+                                <span>TALLER BIKE</span>
+                            </a>
+                        </li>
+
+                        <!-- 5. COMUNIDAD (Sin títulos, solo los 3 botones en el orden exacto solicitado) -->
+                        <li class="nav-item has-dropdown" data-nav-section="comunidad">
+                            <a href="#noticias" class="nav-link" data-dropdown-toggle>
+                                <span>COMUNIDAD</span>
+                                <svg class="nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                            </a>
+                            <div class="mega-dropdown mega-dropdown-compact" role="menu">
+                                <div class="mega-dropdown-inner mega-cols-comunidad-clean">
+                                    <ul class="mega-links mega-links-comunidad">
+                                        <li><a href="#noticias" class="mega-link" data-scroll-to="#noticias">Noticias &amp; Eventos</a></li>
+                                        <li><a href="#nosotros" class="mega-link" data-scroll-to="#nosotros">Acerca de Nosotros</a></li>
+                                        <li><a href="#contacto" class="mega-link" data-scroll-to="#contacto">Contacto &amp; Ubicación</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Iconos Derecha: Lupa Buscador, Usuario, Carrito de Compras -->
+                <div class="header-actions">
+                    <button type="button" id="btn-toggle-search" class="header-icon-btn" aria-label="Buscar en tienda" title="Buscar productos">
+                        <img src="assets/images/buscador.svg" alt="Buscador">
+                    </button>
+                    <button type="button" id="btn-open-user" class="header-icon-btn" aria-label="Registro o Inicio de Sesión" title="Mi Cuenta">
+                        <img src="assets/images/usuario.svg" alt="Usuario">
+                        <span id="user-status-dot" class="user-status-dot"></span>
+                    </button>
+                    <button type="button" id="btn-open-cart" class="header-icon-btn" aria-label="Carrito de compras" title="Carrito de compras">
+                        <img src="assets/images/carrito.svg" alt="Carrito">
+                        <span id="header-cart-badge" class="cart-badge">0</span>
+                    </button>
+                    <button type="button" id="btn-mobile-menu" class="mobile-menu-toggle" aria-label="Abrir menú">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Cajón de Búsqueda Rápida -->
+            <div id="search-bar-drawer" class="search-bar-drawer">
+                <div class="container search-drawer-inner">
+                    <input type="search" id="global-search-input" class="search-drawer-input" placeholder="Buscar bicicleta, casco, marca, SKU o refacción (Ej. Rail, Super Six, Fox, Garmin)...">
+                    <button type="button" id="btn-close-search" class="search-drawer-close">Cerrar ✕</button>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="header-offset" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         3. INICIO (HERO DE 2 SLIDES - Trek-web-02.jpg)
+         Slide 1: Imagen assets/images/slide-01.png + Título + Descripción +
+                  Botón animado naranja "Ver Catálogo TREK"
+         Slide 2: Video assets/video/video-slide-02.mp4 + solo botón gris
+                  oscuro texto blanco "Ver Catálogo TREK"
+         ==================================================================== -->
+    <main>
+        <section id="inicio" class="hero-section" aria-label="Destacados Trek">
+            <div class="hero-slides-wrapper">
+                <!-- SLIDE 1: Imagen Fija HD -->
+                <article class="hero-slide active" data-slide-index="0">
+                    <img src="assets/images/slide-01.png" alt="Rail+ 8 Gen Trek E-Bike" class="hero-bg-image" fetchpriority="high" decoding="sync">
+                    <div class="hero-slide-overlay"></div>
+                    <div class="container hero-content-container">
+                        <div class="hero-text-block">
+                            <h1 class="hero-title">RAIL+ 8 GEN<br>TREK E-BIKE</h1>
+                            <p class="hero-description">
+                                Llega más lejos, pedalea con más potencia. Las bicis de montaña eléctricas Trek te permiten conquistar montañas y dominar vueltas con un impulso de sensación natural que hace que las pistas altísimas cuesta arriba conlleven un trabajo ligero, para que puedas llegar a la cima sin quedarte sin aliento por la bajada.
+                            </p>
+                            <button type="button" class="btn-pill-cta btn-pill-orange" data-store-filter="Bicicletas TREK">
+                                <span>Ver Catálogo TREK</span>
+                                <span class="btn-pill-icon">
+                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- SLIDE 2: Video sin texto, solo botón Gris Oscuro texto blanco (16:9 en PC / vertical en Móvil) -->
+                <article class="hero-slide" data-slide-index="1">
+                    <video
+                        id="hero-slide-video"
+                        class="hero-bg-video"
+                        data-src-pc="assets/video/video-slide-02_16_9.mp4"
+                        data-src-mobile="assets/video/video-slide-02.mp4"
+                        muted
+                        playsinline
+                        preload="auto"
+                    >
+                        <source media="(min-width: 769px)" src="assets/video/video-slide-02_16_9.mp4" type="video/mp4">
+                        <source src="assets/video/video-slide-02.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-slide-overlay minimal-overlay"></div>
+                    <div class="container hero-content-container">
+                        <div class="hero-text-block">
+                            <button type="button" class="btn-pill-cta btn-pill-darkgrey" data-store-filter="Bicicletas TREK">
+                                <span>Ver Catálogo TREK</span>
+                                <span class="btn-pill-icon">
+                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Botones Circulares de Navegación: solo 1 y 2 alineados dentro del margen del contenedor -->
+            <div class="container hero-nav-controls" aria-label="Controles de presentación">
+                <div class="hero-slide-dots">
+                    <button type="button" class="hero-dot-btn active" data-hero-go="0" aria-label="Slide 1">1</button>
+                    <button type="button" class="hero-dot-btn" data-hero-go="1" aria-label="Slide 2">2</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             4. TIENDA EN LÍNEA (Trek-web-03.jpg)
+             Fondo: assets/images/fondo-01.png (Parallax estático)
+             Inicia con catálogo preseleccionado: las 3 bicicletas destacadas del
+             menú (Rail+ 8 Gen, Fuel EXe XT, Super Six Evo) + 1 producto de cada
+             categoría. Tarjetas transparentes con foto .png sin fondo.
+             ==================================================================== -->
+        <section id="tienda" class="store-section textured-light-section">
+            <div class="container">
+                <div class="store-header-row reveal-on-scroll">
+                    <!-- Fila superior: Eyebrow -->
+                    <div class="store-top-meta-row">
+                        <span class="section-eyebrow store-eyebrow-coffee">TIENDA <strong>EN LÍNEA</strong> &middot; CATÁLOGO</span>
+                    </div>
+
+                    <!-- Fila principal: Título a la izquierda y Buscador al lado derecho en la misma línea horizontal -->
+                    <div class="store-title-search-row">
+                        <h2 class="section-title store-main-title">BICICLETAS, EQUIPO &amp; REFACCIONES</h2>
+
+                        <form id="store-inline-search-form" class="store-inline-search-box" role="search">
+                            <input type="search" id="store-inline-search-input" class="store-inline-search-input" placeholder="Buscar por nombre o marca" aria-label="Buscar por nombre o marca">
+                            <button type="submit" id="btn-store-inline-search" class="btn-store-inline-search">BUSCAR</button>
+                        </form>
+                    </div>
+
+                    <!-- Barra de botones del seleccionador de categorías debajo del título y del buscador -->
+                    <div class="store-active-filter-bar">
+                        <label for="store-category-quick-select" class="sr-only">Seleccionar categoría</label>
+                        <select id="store-category-quick-select" class="store-category-select" aria-label="Filtrar catálogo por categoría o marca">
+                            <option value="__featured__">Seleccionador: Catálogo Destacado (13)</option>
+                            <option value="__all__">Ver Todo el Inventario (68 SKUs)</option>
+                            <optgroup label="Bicicletas · Modalidad">
+                                <option value="Montaña">Bicicletas · Montaña (MTB)</option>
+                                <option value="Ruta">Bicicletas · Ruta</option>
+                                <option value="Gravel">Bicicletas · Gravel / Híbrida</option>
+                                <option value="E-Bikes">Bicicletas · E-Bikes Eléctricas</option>
+                                <option value="Infantil">Bicicletas · Infantil</option>
+                            </optgroup>
+                            <optgroup label="Bicicletas · Marcas">
+                                <option value="Bicicletas TREK">Bicicletas TREK</option>
+                                <option value="Bicicletas Cannondale">Bicicletas Cannondale</option>
+                                <option value="Bicicletas Alubike">Bicicletas Alubike</option>
+                            </optgroup>
+                            <optgroup label="Equipamiento">
+                                <option value="Accesorios">Equipamiento · Accesorios</option>
+                                <option value="Componentes">Equipamiento · Componentes</option>
+                                <option value="Líquidos y Lubricantes">Equipamiento · Líquidos y Lubricantes</option>
+                                <option value="Herramientas">Equipamiento · Herramientas</option>
+                                <option value="Nutrición">Equipamiento · Nutrición</option>
+                            </optgroup>
+                            <optgroup label="22 Marcas Oficiales">
+                                <option value="TREK">Marca · TREK</option>
+                                <option value="Cannondale">Marca · Cannondale</option>
+                                <option value="Alubike">Marca · Alubike</option>
+                                <option value="Shimano">Marca · Shimano</option>
+                                <option value="Bontrager">Marca · Bontrager</option>
+                                <option value="Fox">Marca · Fox</option>
+                                <option value="Garmin">Marca · Garmin</option>
+                                <option value="Oakley">Marca · Oakley</option>
+                                <option value="Maxxis">Marca · Maxxis</option>
+                                <option value="Pirelli">Marca · Pirelli</option>
+                                <option value="Stans">Marca · Stan's NoTubes</option>
+                                <option value="SiS">Marca · SiS Nutrition</option>
+                                <option value="Hammer">Marca · Hammer Nutrition</option>
+                            </optgroup>
+                        </select>
+
+                        <span id="store-active-filter-pill" class="active-filter-pill">
+                            Selección Destacada (13 de 68 en inventario)
+                        </span>
+                        <button type="button" id="btn-store-show-featured" class="btn-reset-catalog">
+                            Selección Inicial
+                        </button>
+                        <button type="button" id="btn-store-show-all" class="btn-reset-catalog">
+                            Ver Todo (68 SKUs)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carrusel Horizontal en PC / Grid Vertical 2 Columnas en Móvil -->
+                <div class="store-carousel-viewport reveal-on-scroll">
+                    <div id="store-products-track" class="store-products-track" aria-live="polite">
+                        <!-- Renderizado dinámicamente por main.js con imágenes .png sin fondo -->
+                    </div>
+                </div>
+
+                <!-- Controles de Navegación Horizontal de Tienda (PC) -->
+                <div class="store-controls-row">
+                    <div id="store-desktop-arrows" class="carousel-arrows-pair">
+                        <button type="button" id="store-prev-btn" class="circle-arrow-btn circle-arrow-dark" aria-label="Productos anteriores">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" id="store-next-btn" class="circle-arrow-btn circle-arrow-dark" aria-label="Siguientes productos">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             5. TALLER BIKE (Trek-web-04.jpg)
+             Fondo: assets/images/fondo-02.png (Parallax estático)
+             Barra blanca semi-transparente con bordes arriba y abajo en línea
+             blanca que se desplaza suavemente y se queda en el seleccionado.
+             Icono cadena.png a la derecha del título del formulario.
+             Incluye recolección a domicilio (+$120 MXN), calculador de anticipo y
+             pasarela de pago con verificación de usuario.
+             ==================================================================== -->
+        <section id="taller" class="workshop-section">
+            <div class="container">
+                <div class="workshop-layout">
+                    <!-- Columna Izquierda: Selector de Servicios -->
+                    <div class="workshop-left-column reveal-on-scroll">
+                        <span class="section-eyebrow eyebrow-orange">TALLER ESPECIALIZADO DE CICLISMO</span>
+                        <h2 class="section-title title-white">AGENDA TU SERVICIO DE TALLER</h2>
+                        <ul class="workshop-cert-bullets">
+                            <li>&middot; Mecánicos certificados Trek, Fox, Shimano y SRAM</li>
+                            <li>&middot; Generación de Hoja de Servicio Oficial</li>
+                        </ul>
+
+                        <div id="workshop-services-list" class="workshop-services-list" role="radiogroup" aria-label="Paquetes de servicio">
+                            <!-- Barra deslizante semi-transparente con bordes blancos -->
+                            <div id="workshop-sliding-bar" class="workshop-sliding-bar" aria-hidden="true"></div>
+
+                            <!-- Servicio 1 -->
+                            <div class="workshop-service-option active" data-service-id="Basico" data-service-name="1. AJUSTE BÁSICO EXPRESS — $350 MXN" data-service-price="350" data-service-deposit="150" tabindex="0" role="radio" aria-checked="true">
+                                <div class="workshop-service-header">
+                                    <h3 class="workshop-service-name"><span class="orange-word">1. AJUSTE</span> BÁSICO EXPRESS — $350 MXN</h3>
+                                </div>
+                                <p class="workshop-service-desc">
+                                    Nivelación de cambios, ajuste de frenos, lubricación de cadena con cera cerámica y calibración de presión de neumáticos y suspensión.
+                                </p>
+                            </div>
+
+                            <!-- Servicio 2 -->
+                            <div class="workshop-service-option" data-service-id="Integral" data-service-name="2. MANTENIMIENTO INTEGRAL — $750 MXN" data-service-price="750" data-service-deposit="300" tabindex="0" role="radio" aria-checked="false">
+                                <div class="workshop-service-header">
+                                    <h3 class="workshop-service-name"><span class="orange-word">2. MANTENIMIENTO</span> INTEGRAL — $750 MXN</h3>
+                                </div>
+                                <p class="workshop-service-desc">
+                                    Lavado profundo ultrasónico de transmisión, centrado milimétrico de rines, engrasado de telescópico y eje de centro, y ajuste con torquímetro digital.
+                                </p>
+                            </div>
+
+                            <!-- Servicio 3 -->
+                            <div class="workshop-service-option" data-service-id="Overhaul" data-service-name="3. CORDILLERA OVERHAUL (COMPLETO) — $1,450 MXN" data-service-price="1450" data-service-deposit="500" tabindex="0" role="radio" aria-checked="false">
+                                <div class="workshop-service-header">
+                                    <h3 class="workshop-service-name"><span class="orange-word">3. CORDILLERA</span> OVERHAUL (COMPLETO) — $1,450 MXN</h3>
+                                </div>
+                                <p class="workshop-service-desc">
+                                    Desarme total al cuadro, servicio de 50 hrs a horquilla y shock trasero, purgado de frenos hidráulicos, recarga de sellador Tubeless y diagnóstico Bosch/Shimano.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Formulario Sin Fondo + Icono cadena.png -->
+                    <div class="workshop-form-column reveal-on-scroll">
+                        <div class="workshop-form-header">
+                            <h3 class="workshop-form-title">Datos de tu Bicicleta y Cita</h3>
+                            <img src="assets/images/cadena.png" alt="Icono Cadena Taller" class="workshop-chain-icon">
+                        </div>
+
+                        <form id="workshop-booking-form" class="workshop-minimal-form">
+                            <input type="hidden" id="ws-selected-package" value="1. AJUSTE BÁSICO EXPRESS — $350 MXN">
+                            <input type="hidden" id="ws-selected-price" value="350">
+                            <input type="hidden" id="ws-selected-deposit" value="150">
+
+                            <div class="workshop-form-row">
+                                <div class="workshop-field">
+                                    <label for="ws-client-name">NOMBRE COMPLETO *</label>
+                                    <input type="text" id="ws-client-name" class="workshop-input" placeholder="Ej. Roberto Gómez" required>
+                                </div>
+                                <div class="workshop-field">
+                                    <label for="ws-client-phone">TELÉFONO / WHATSAPP *</label>
+                                    <input type="tel" id="ws-client-phone" class="workshop-input" placeholder="Ej. 618 123 4567" required>
+                                </div>
+                            </div>
+
+                            <div class="workshop-form-row">
+                                <div class="workshop-field">
+                                    <label for="ws-bike-brand">MARCA Y MODELO DE BICICLETA *</label>
+                                    <input type="text" id="ws-bike-brand" class="workshop-input" placeholder="Ej. Trek Marlin 7 / Supercaliber" required>
+                                </div>
+                                <div class="workshop-field">
+                                    <label for="ws-bike-type">TIPO DE BICICLETA</label>
+                                    <select id="ws-bike-type" class="workshop-input">
+                                        <option value="Montaña (MTB / Doble Suspensión)">Montaña (MTB / Doble Suspensión)</option>
+                                        <option value="Montaña (Rígida / XC)">Montaña (Rígida / XC)</option>
+                                        <option value="Ruta / Triatlón">Ruta / Triatlón</option>
+                                        <option value="Gravel / Ciclocross">Gravel / Ciclocross</option>
+                                        <option value="E-Bike (Eléctrica)">E-Bike (Eléctrica)</option>
+                                        <option value="Urbana / Infantil">Urbana / Infantil</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="workshop-form-row">
+                                <div class="workshop-field">
+                                    <label for="ws-date">FECHA DE INGRESO PREFERIDA *</label>
+                                    <input type="date" id="ws-date" class="workshop-input" required>
+                                </div>
+                                <div class="workshop-field">
+                                    <label for="ws-time">HORARIO PREFERIDO *</label>
+                                    <select id="ws-time" class="workshop-input" required>
+                                        <option value="10:30 AM (Apertura)">10:30 AM (Apertura)</option>
+                                        <option value="12:00 PM (Mediodía)">12:00 PM (Mediodía)</option>
+                                        <option value="04:30 PM (Tarde)">04:30 PM (Tarde)</option>
+                                        <option value="06:00 PM (Vespertino)">06:00 PM (Vespertino)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Botón / Toggle de Recolección a Domicilio por $120 MXN -->
+                            <div class="workshop-pickup-box">
+                                <label class="workshop-pickup-toggle" for="ws-home-pickup">
+                                    <input type="checkbox" id="ws-home-pickup" value="120">
+                                    <span class="pickup-check-ui"></span>
+                                    <span class="pickup-toggle-text">
+                                        <strong>Solicitar Recolección y Entrega a Domicilio en Durango</strong>
+                                        <small>Nuestro chofer recoge tu bicicleta en tu domicilio y te la regresa lista</small>
+                                    </span>
+                                    <span class="pickup-price-badge">+ $120 MXN</span>
+                                </label>
+                                <div id="ws-pickup-address-wrap" class="ws-pickup-address-wrap" style="display:none;">
+                                    <input type="text" id="ws-pickup-address" class="workshop-input" placeholder="Calle, número, colonia y referencias para recolección en Durango...">
+                                </div>
+                            </div>
+
+                            <div class="workshop-field">
+                                <label for="ws-notes">OBSERVACIONES O FALLAS DETECTADAS</label>
+                                <textarea id="ws-notes" class="workshop-input" placeholder="Describe ruidos, ajustes específicos o piezas que deseas cotizar..."></textarea>
+                            </div>
+
+                            <!-- Calculador en Vivo de Anticipo y Total de Taller -->
+                            <div class="workshop-calculator-strip" aria-live="polite">
+                                <div class="ws-calc-col">
+                                    <span class="ws-calc-label">COSTO TOTAL ESTIMADO</span>
+                                    <strong id="ws-calc-total" class="ws-calc-value">$350.00 MXN</strong>
+                                    <small id="ws-calc-breakdown">Servicio $350 + Envío $0</small>
+                                </div>
+                                <div class="ws-calc-col ws-calc-highlight">
+                                    <span class="ws-calc-label">ANTICIPO PARA AGENDAR</span>
+                                    <strong id="ws-calc-deposit" class="ws-calc-value ws-calc-orange">$150.00 MXN</strong>
+                                    <small>Se abona al total de tu servicio</small>
+                                </div>
+                                <div class="ws-calc-col">
+                                    <span class="ws-calc-label">SALDO AL ENTREGAR</span>
+                                    <strong id="ws-calc-remaining" class="ws-calc-value">$200.00 MXN</strong>
+                                    <small>Contra entrega en taller / domicilio</small>
+                                </div>
+                            </div>
+
+                            <div class="workshop-submit-row">
+                                <span class="selected-service-indicator">
+                                    Paquete seleccionado: <strong id="ws-active-service-label">1. AJUSTE BÁSICO EXPRESS ($350 MXN)</strong>
+                                </span>
+                                <button type="submit" class="btn-pill-cta btn-pill-orange">
+                                    <span>Agendar cita de taller</span>
+                                    <span class="btn-pill-icon">
+                                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             6. SECCIÓN DE NOTICIAS Y EVENTOS (Trek-web-05.jpg)
+             Fondo: assets/images/fondo-01.png + icono assets/images/biker.png
+             Textos idénticos a Trek-web-05.jpg.
+             ==================================================================== -->
+        <section id="noticias" class="news-section textured-light-section">
+            <div class="container">
+                <div class="news-header-row reveal-on-scroll">
+                    <div>
+                        <span class="section-eyebrow">COMUNIDAD / NOTICIAS / EVENTOS</span>
+                        <h2 class="section-title">NOTICIAS &amp; PRÓXIMOS EVENTOS</h2>
+                    </div>
+                    <img src="assets/images/biker.png" alt="Ciclista Cordillera" class="news-biker-icon">
+                </div>
+
+                <!-- Carrusel Horizontal de Noticias (PC y Móvil) -->
+                <div class="news-carousel-viewport reveal-on-scroll">
+                    <div id="news-track" class="news-track">
+                        <!-- Renderizado dinámicamente por main.js -->
+                    </div>
+                </div>
+
+                <div class="news-controls-row">
+                    <div class="carousel-arrows-pair">
+                        <button type="button" id="news-prev-btn" class="circle-arrow-btn circle-arrow-dark" aria-label="Noticia anterior">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" id="news-next-btn" class="circle-arrow-btn circle-arrow-dark" aria-label="Siguiente noticia">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             7. SECCIÓN DESTACADA PARALLAX (Trek-web-05_2.jpg)
+             El fondo (destacado.jpg), el icono (cordillera-icon.png), el título y
+             el botón van fijos y estáticos para aparecer y desaparecer con el scroll
+             a través de la ventana recortada (clip-path) de la sección.
+             ==================================================================== -->
+        <section id="destacado" class="featured-parallax-band" aria-label="Edición limitada 50 años de Trek Bicycle">
+            <div class="featured-fixed-viewport">
+                <div class="featured-fixed-bg"></div>
+                <div class="featured-parallax-overlay"></div>
+                <div class="container featured-parallax-content">
+                    <img src="assets/images/cordillera-icon.png" alt="Cordillera Icono" class="featured-cordillera-icon">
+                    <h2 class="featured-parallax-title">EDICIÓN LIMITADA 50 AÑOS DE TREK BICYCLE.</h2>
+                    <button type="button" class="btn-pill-cta btn-pill-darkgrey featured-fixed-btn" data-store-filter="Bicicletas TREK">
+                        <span>Ver Catálogo TREK</span>
+                        <span class="btn-pill-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             8. SECCIÓN NOSOTROS (Trek-web-07.jpg)
+             Textos y colores exactos de la imagen de ejemplo Trek-web-07.jpg:
+             Columna izquierda ampliada hasta el margen inferior de la columna derecha.
+             ==================================================================== -->
+        <section id="nosotros" class="about-section textured-light-section">
+            <div class="container">
+                <div class="about-grid">
+                    <!-- Columna Izquierda Ampliada hasta el margen inferior del contenido derecho -->
+                    <div class="about-left-column reveal-on-scroll">
+                        <div class="about-left-top">
+                            <span class="section-eyebrow eyebrow-orange about-eyebrow-top">19 AÑOS DE PASIÓN CICLISTA</span>
+                            <h2 class="section-title about-main-heading">DE DURANGO TREK A LA TIENDA<br>INSIGNIA MÁS GRANDE DEL ESTADO</h2>
+                            <p class="about-paragraph">
+                                Establecidos hace <strong>19 años</strong> como <strong>Durango Trek</strong>, evolucionamos para convertirnos en <strong>Cordillera Trek</strong>: la tienda insignia más grande de nuestro estado, diseñada por y para ciclistas que buscan superar sus límites en cada kilómetro.
+                            </p>
+                            <p class="about-paragraph">
+                                Nuestra filosofía combina la calidez de una comunidad local con el estándar técnico de las mejores boutiques internacionales de ciclismo. Respaldamos tu pasión con garantía directa, refacciones legítimas y mecánicos certificados.
+                            </p>
+                        </div>
+
+                        <div class="about-left-bottom">
+                            <div class="about-dotted-divider" aria-hidden="true"></div>
+
+                            <div class="about-stats-row">
+                                <div class="about-stat-item">
+                                    <span class="about-stat-number">19</span>
+                                    <span class="about-stat-label">AÑOS DE<br>HISTORIA</span>
+                                </div>
+                                <div class="about-stat-item">
+                                    <span class="about-stat-number">+1,400</span>
+                                    <span class="about-stat-label">EVENTOS Y<br>AVENTURAS</span>
+                                </div>
+                                <div class="about-stat-item">
+                                    <span class="about-stat-number">+5,000</span>
+                                    <span class="about-stat-label">BICIS EN<br>TALLER</span>
+                                </div>
+                                <div class="about-stat-item">
+                                    <span class="about-stat-number">100%</span>
+                                    <span class="about-stat-label">PASIÓN<br>CICLISTA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Foto de la Tienda + Texto a 2 Columnas -->
+                    <div class="about-right-column reveal-on-scroll">
+                        <img src="assets/images/tienda.png" alt="Fachada Cordillera Trek Durango" class="about-store-photo">
+                        <div class="about-caption-columns">
+                            <h3 class="about-caption-heading">TODO LO QUE EL CICLISTA NECESITA</h3>
+                            <p class="about-caption-text">
+                                Desde refacciones, accesorios e indumentaria técnica hasta nutrición especializada. Encontrarás todo lo necesario para tu rodada en un solo lugar, respaldado por las mejores marcas del mundo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             9. SECCIÓN CONTACTO (Mismo esquema minimalista sobre fondo-01.png)
+             Botones "Enviar WhatsApp" y "Cómo llegar en Google Maps" debajo del mapa.
+             ==================================================================== -->
+        <section id="contacto" class="contact-section textured-light-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Información de Contacto sin cajas ni tarjetas -->
+                    <div class="contact-info-column reveal-on-scroll">
+                        <span class="section-eyebrow">VISÍTANOS EN DURANGO</span>
+                        <h2 class="section-title">UBICACIÓN Y CONTACTO</h2>
+                        <p class="section-subtitle">
+                            Te esperamos en nuestra tienda insignia con estacionamiento, showroom Trek &amp; Cannondale y recepción directa de Taller Certificado.
+                        </p>
+
+                        <div class="contact-details-list">
+                            <div class="contact-detail-block">
+                                <h4>DIRECCIÓN</h4>
+                                <p>Calle Coronado #1130 Pte., Zona Centro, C.P. 34000, Victoria de Durango, Dgo., México.</p>
+                            </div>
+                            <div class="contact-detail-block">
+                                <h4>HORARIOS DE ATENCIÓN</h4>
+                                <p>Lunes a Viernes: 10:30 AM – 2:30 PM y 4:30 PM – 8:00 PM</p>
+                                <p>Sábados: 10:30 AM – 3:30 PM</p>
+                            </div>
+                            <div class="contact-detail-block">
+                                <h4>TELÉFONO Y WHATSAPP DIRECTO</h4>
+                                <p><a href="tel:6188230673">Tel. Tienda: (618) 823 0673</a></p>
+                                <p><a href="https://wa.me/526188230673" target="_blank" rel="noopener">WhatsApp Ventas y Taller: 618 823 0673</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Mapa de Google Maps + Botones debajo del mapa -->
+                    <div class="contact-map-column reveal-on-scroll">
+                        <div class="contact-map-frame">
+                            <iframe
+                                title="Mapa de ubicación Cordillera Trek Durango"
+                                src="https://www.google.com/maps?q=Coronado+1130+Zona+Centro+Durango+Mexico&output=embed"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <div class="contact-actions-row">
+                            <a href="https://wa.me/526188230673?text=Hola%20Cordillera%20Trek,%20me%20gustar%C3%ADa%20recibir%20atenci%C3%B3n%20personalizada." target="_blank" rel="noopener" class="btn-pill-cta btn-pill-orange">
+                                <span>Enviar WhatsApp</span>
+                                <span class="btn-pill-icon">
+                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </span>
+                            </a>
+                            <a href="https://maps.google.com/?q=Cordillera+Trek+Coronado+1130+Durango" target="_blank" rel="noopener" class="btn-pill-cta btn-pill-darkgrey">
+                                <span>Cómo llegar en Google Maps</span>
+                                <span class="btn-pill-icon">
+                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====================================================================
+         10. FOOTER EN FONDO NEGRO ACTUALIZADO
+         ==================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <div>
+                    <div class="footer-brand-logos">
+                        <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera">
+                        <span class="brand-divider"></span>
+                        <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango">
+                    </div>
+                    <p class="footer-brand-desc">
+                        19 años compartiendo la pasión por el ciclismo en Durango. Distribuidor autorizado Trek, Cannondale, Alubike, Shimano, Bontrager, Fox, Oakley y Garmin.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.facebook.com/durangotrek" target="_blank" rel="noopener" class="footer-social-link">Facebook</a>
+                        <a href="https://www.instagram.com/cordilleratrek" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
+                        <a href="https://wa.me/526188230673" target="_blank" rel="noopener" class="footer-social-link">WhatsApp</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">NAVEGACIÓN RÁPIDA</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#inicio" data-scroll-to="#inicio">Inicio</a></li>
+                        <li><a href="#tienda" data-scroll-to="#tienda">Tienda en Línea</a></li>
+                        <li><a href="#taller" data-scroll-to="#taller">Taller Bike Certificado</a></li>
+                        <li><a href="#noticias" data-scroll-to="#noticias">Noticias y Eventos</a></li>
+                        <li><a href="#nosotros" data-scroll-to="#nosotros">Nosotros (19 Años)</a></li>
+                        <li><a href="#contacto" data-scroll-to="#contacto">Ubicación y Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">CATEGORÍAS ESTRELLA</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#tienda" data-store-filter="Bicicletas TREK">Bicicletas TREK</a></li>
+                        <li><a href="#tienda" data-store-filter="Bicicletas Cannondale">Bicicletas Cannondale</a></li>
+                        <li><a href="#tienda" data-store-filter="E-Bikes">E-Bikes Montaña</a></li>
+                        <li><a href="#tienda" data-store-filter="Cascos">Cascos Bontrager &amp; Giro</a></li>
+                        <li><a href="#tienda" data-store-filter="Ciclocomputadoras">Garmin &amp; Tecnología</a></li>
+                        <li><a href="#tienda" data-store-filter="Suspensiones">Suspensiones FOX</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-col-title">ATENCIÓN AL CICLISTA</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#contacto" data-scroll-to="#contacto">Coronado #1130 Pte., Zona Centro, Durango</a></li>
+                        <li><a href="tel:6188230673">Teléfono: (618) 823 0673</a></li>
+                        <li><a href="#" id="footer-open-account">Mi Cuenta / Registro de Ciclista</a></li>
+                        <li><a href="#" id="footer-open-cart">Mi Carrito de Compras</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-row">
+                <div class="footer-bottom-left">
+                    <span>&copy; 2026 CORDILLERA TREK (Durango Trek). Todos los derechos reservados.</span>
+                </div>
+
+                <div class="footer-bottom-center">
+                    <button type="button" id="btn-open-chofer-panel" class="footer-logistics-link" title="Sistema PWA de Logística y Chofer en Turno">
+                        Acceso a Logística
+                    </button>
+                </div>
+
+                <div class="footer-bottom-right">
+                    <p class="footer-credit">
+                        <a href="https://wa.me/+526182103942?text=Hola%20vi%20su%20trabajo%20en%20la%20p%C3%A1gina%20web%20de%20Cordillera%20Trek%20y%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20digital." target="_blank" rel="noopener noreferrer" class="footer-dev-link">
+                            Desarrollado por <span class="blueberry-highlight-royal">Blueberry Digital</span> &rarr;
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====================================================================
+         11. FICHA DEL PRODUCTO (MODAL 2 COLUMNAS - Trek-web-06.jpg)
+         Se abre al dar clic a la foto o al texto del producto.
+         Fondo blanco, 2 columnas:
+         - Izquierda: imágenes en grid cuadrado (al dar clic abre carrusel HD).
+         - Derecha: categoría roja, título en 2 líneas, SKU con viñeta, precio en
+           café, guiones de formas de pago y entrega, y ficha técnica detallada.
+         ==================================================================== -->
+    <div id="product-sheet-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="sheet-product-title">
+        <div class="product-sheet-window">
+            <button type="button" id="btn-close-product-sheet" class="modal-close-top modal-close-darkcircle" aria-label="Cerrar ficha">✕</button>
+
+            <div class="product-sheet-grid">
+                <!-- Columna Izquierda: Grid Cuadrado de Imágenes (1 grande + 2x2 abajo) -->
+                <div>
+                    <div id="sheet-bento-gallery" class="product-bento-gallery">
+                        <!-- Renderizado dinámicamente por main.js -->
+                    </div>
+                    <p class="bento-zoom-hint">Haz clic en cualquier fotografía para abrir la galería en pantalla completa y alta resolución.</p>
+                </div>
+
+                <!-- Columna Derecha: Información de Producto, Precio, Pago/Entrega y Ficha Técnica -->
+                <div class="product-sheet-info">
+                    <span id="sheet-category-red" class="sheet-category-red">TREK E-MTB</span>
+                    <h2 id="sheet-product-title" class="sheet-product-title">RAIL+ 8 GEN 5 M<br>NEGRO/DORADO</h2>
+                    <p id="sheet-sku-bullet" class="sheet-sku-bullet">SKU: #RAI16507841R</p>
+                    <div id="sheet-price-coffee" class="sheet-price-coffee">$107,250.00 MXN</div>
+
+                    <ul id="sheet-commercial-bullets" class="sheet-commercial-bullets">
+                        <li>Mensualidades de 3, 6 y 12.</li>
+                        <li>Entrega el mismo día gratis en Durango.</li>
+                        <li>Envío asegurado a todo México vía Estafeta / DHL express.</li>
+                        <li>Garantía oficial de por vida en cuadros Trek y componentes certificados.</li>
+                        <li>Primer servicio preventivo de taller incluido sin costo en Coronado #1130.</li>
+                    </ul>
+
+                    <h3 class="sheet-section-heading">FICHA TÉCNICA</h3>
+                    <div id="sheet-specs-list" class="sheet-specs-blocks">
+                        <!-- Especificaciones dinámicas estilo Trek-web-06.jpg -->
+                    </div>
+
+                    <div class="sheet-cta-actions">
+                        <button type="button" id="sheet-btn-add-cart" class="btn-pill-cta btn-pill-orange">
+                            <span>Agregar al Carrito</span>
+                            <span class="btn-pill-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                            </span>
+                        </button>
+                        <a id="sheet-btn-whatsapp" href="#" target="_blank" rel="noopener" class="btn-pill-cta btn-pill-darkgrey">
+                            <span>Apartar / Cotizar por WhatsApp</span>
+                            <span class="btn-pill-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         12. SUB-FICHA CON CARRUSEL DE IMÁGENES EN TAMAÑO COMPLETO Y ALTA RESOLUCIÓN
+         Se despliega al dar clic a cualquier foto dentro de la ficha del producto.
+         ==================================================================== -->
+    <div id="fullscreen-gallery-modal" class="fullscreen-gallery-modal" role="dialog" aria-modal="true" aria-label="Galería en alta resolución">
+        <div class="fs-gallery-topbar">
+            <span id="fs-gallery-counter" class="fs-gallery-counter">1 / 5</span>
+            <div class="fs-gallery-actions">
+                <button type="button" id="btn-fs-toggle-zoom" class="circle-arrow-btn circle-arrow-white" title="Alternar Zoom">
+                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button type="button" id="btn-close-fs-gallery" class="circle-arrow-btn circle-arrow-white" aria-label="Cerrar galería">
+                    ✕
+                </button>
+            </div>
+        </div>
+
+        <div class="fs-gallery-stage">
+            <button type="button" id="btn-fs-prev" class="circle-arrow-btn circle-arrow-white fs-gallery-nav-btn prev" aria-label="Foto anterior">
+                <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <img id="fs-gallery-main-img" src="" alt="Vista en alta resolución" class="fs-gallery-main-img">
+            <button type="button" id="btn-fs-next" class="circle-arrow-btn circle-arrow-white fs-gallery-nav-btn next" aria-label="Siguiente foto">
+                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+            </button>
+        </div>
+
+        <div id="fs-gallery-thumbs" class="fs-gallery-thumbs">
+            <!-- Miniaturas del carrusel HD -->
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         13. SUB-VENTANA EMERGENTE: USUARIOS (REGISTRO / VERIFICACIÓN 6 DÍGITOS / PERFIL)
+         ==================================================================== -->
+    <div id="user-auth-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="user-modal-title">
+        <div class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow">COMUNIDAD CORDILLERA TREK</span>
+                    <h2 id="user-modal-title" class="section-title" style="font-size:2.6rem;margin-bottom:0;">CUENTA DE CICLISTA</h2>
+                </div>
+                <button type="button" id="btn-close-user-modal" class="modal-close-top modal-close-darkcircle" style="position:static;">✕</button>
+            </div>
+
+            <!-- Aviso contextual cuando viene desde Taller o Checkout -->
+            <div id="auth-context-banner" class="auth-context-banner" style="display:none;"></div>
+
+            <!-- Vista para Invitados (Tabs Iniciar Sesión / Crear Cuenta) -->
+            <div id="auth-guest-view">
+                <div class="minimal-tabs-bar">
+                    <button type="button" class="minimal-tab-btn active" data-auth-tab="login">INICIAR SESIÓN</button>
+                    <button type="button" class="minimal-tab-btn" data-auth-tab="register">REGISTRO DE NUEVO CICLISTA</button>
+                </div>
+
+                <!-- Tab Login -->
+                <form id="form-user-login">
+                    <div class="clean-field">
+                        <label for="login-email">CORREO ELECTRÓNICO O WHATSAPP *</label>
+                        <input type="text" id="login-email" class="clean-input" placeholder="ejemplo@correo.com o 618 123 4567" required>
+                    </div>
+                    <div class="clean-field">
+                        <label for="login-password">CONTRASEÑA *</label>
+                        <input type="password" id="login-password" class="clean-input" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-pill-cta btn-pill-orange" style="margin-top:8px;">
+                        <span>Entrar a mi Cuenta</span>
+                        <span class="btn-pill-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Tab Registro -->
+                <form id="form-user-register" style="display:none;">
+                    <div class="clean-form-grid">
+                        <div class="clean-field">
+                            <label for="reg-name">NOMBRE COMPLETO *</label>
+                            <input type="text" id="reg-name" class="clean-input" placeholder="Ej. Carlos Hernández" required>
+                        </div>
+                        <div class="clean-field">
+                            <label for="reg-phone">WHATSAPP *</label>
+                            <input type="tel" id="reg-phone" class="clean-input" placeholder="Ej. 618 123 4567" required>
+                        </div>
+                    </div>
+                    <div class="clean-form-grid">
+                        <div class="clean-field">
+                            <label for="reg-email">CORREO ELECTRÓNICO *</label>
+                            <input type="email" id="reg-email" class="clean-input" placeholder="tu@correo.com" required>
+                        </div>
+                        <div class="clean-field">
+                            <label for="reg-discipline">MODALIDAD FAVORITA</label>
+                            <select id="reg-discipline" class="clean-input">
+                                <option value="Montaña (MTB)">Montaña (MTB)</option>
+                                <option value="Ruta">Ruta</option>
+                                <option value="Gravel">Gravel</option>
+                                <option value="E-Bike">E-Bike</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="clean-field">
+                        <label for="reg-address">DIRECCIÓN PREDETERMINADA DE ENTREGA EN DURANGO</label>
+                        <input type="text" id="reg-address" class="clean-input" placeholder="Calle, Número, Colonia y Código Postal">
+                    </div>
+                    <div class="clean-field">
+                        <label for="reg-password">CREAR CONTRASEÑA *</label>
+                        <input type="password" id="reg-password" class="clean-input" placeholder="Mínimo 6 caracteres" required>
+                    </div>
+                    <button type="submit" class="btn-pill-cta btn-pill-orange" style="margin-top:8px;">
+                        <span>Enviar Código de Verificación y Crear Cuenta</span>
+                        <span class="btn-pill-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </span>
+                    </button>
+                </form>
+
+                <!-- Paso 2 de Registro: Verificación de Código de 6 Dígitos -->
+                <div id="auth-verification-step" style="display:none;padding-top:8px;">
+                    <span class="section-eyebrow eyebrow-orange">VERIFICACIÓN DE IDENTIDAD</span>
+                    <h3 class="sheet-section-heading" style="font-size:1.8rem;margin-bottom:8px;">INGRESA TU CÓDIGO DE 6 DÍGITOS</h3>
+                    <p id="auth-verification-desc" style="font-size:0.9rem;color:#444;margin-bottom:14px;"></p>
+                    <div id="auth-demo-code-banner" style="background:#FFF7ED;border-left:4px solid #FF6600;padding:12px 16px;margin-bottom:16px;font-size:0.88rem;color:#1E1E1E;"></div>
+                    <form id="form-verify-code">
+                        <div class="clean-field">
+                            <label for="verify-code-input">CÓDIGO DE VERIFICACIÓN (6 DÍGITOS) *</label>
+                            <input type="text" id="verify-code-input" class="clean-input" maxlength="6" placeholder="000000" style="font-size:1.5rem;letter-spacing:0.4em;font-weight:700;text-align:center;" required>
+                        </div>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+                            <button type="submit" class="btn-pill-cta btn-pill-orange">
+                                <span>Verificar Cuenta y Continuar</span>
+                                <span class="btn-pill-icon">
+                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                </span>
+                            </button>
+                            <button type="button" id="btn-Autofill-otp" class="btn-pill-cta btn-pill-darkgrey">
+                                <span>Autocompletar Código Demo</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Vista de Usuario Autenticado -->
+            <div id="auth-profile-view" style="display:none;">
+                <h3 id="profile-greeting-name" class="sheet-section-heading" style="font-size:2rem;">HOLA, CICLISTA</h3>
+                <p id="profile-meta-details" style="margin-bottom:20px;color:#444;"></p>
+                <div style="border-top:1px solid #ddd;padding-top:18px;margin-bottom:24px;">
+                    <h4 class="sheet-section-heading">MIS PEDIDOS Y CITAS DE TALLER</h4>
+                    <div id="profile-orders-list" style="font-size:0.9rem;color:#333;"></div>
+                </div>
+                <button type="button" id="btn-logout-user" class="btn-pill-cta btn-pill-darkgrey">
+                    <span>Cerrar Sesión</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         14. SUB-VENTANA EMERGENTE: PASARELA DE PAGO DE TALLER CERTIFICADO
+         Se abre tras verificar el registro de usuario al hacer clic en
+         "Agendar cita de taller"; procesa el pago de anticipo o total y
+         después genera la Hoja de Servicio Digital al sistema de taller.
+         ==================================================================== -->
+    <div id="workshop-payment-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ws-pay-modal-title">
+        <div class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow eyebrow-orange">PASARELA DE PAGO SEGURO · TALLER CERTIFICADO</span>
+                    <h2 id="ws-pay-modal-title" class="section-title" style="font-size:2.4rem;margin-bottom:0;">CONFIRMAR PAGO DE CITA DE TALLER</h2>
+                </div>
+                <button type="button" id="btn-close-ws-payment" class="modal-close-top modal-close-darkcircle" style="position:static;">✕</button>
+            </div>
+
+            <div id="ws-payment-user-badge" style="background:#F4F4F4;padding:12px 16px;border-left:4px solid #22C55E;margin-bottom:20px;font-size:0.86rem;"></div>
+
+            <div id="ws-payment-order-summary" style="margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid #E2E2E2;"></div>
+
+            <form id="form-workshop-payment">
+                <div class="clean-field">
+                    <label>MODALIDAD DE PAGO PARA RESERVAR ESPACIO EN TALLER *</label>
+                    <div class="ws-pay-mode-grid">
+                        <label class="ws-pay-mode-card active" id="lbl-pay-deposit">
+                            <input type="radio" name="ws_pay_amount_mode" value="deposit" checked>
+                            <span class="ws-pay-mode-title">Pagar Anticipo de Reserva</span>
+                            <strong id="ws-pay-opt-deposit-amount" class="ws-pay-mode-amount">$150.00 MXN</strong>
+                            <small>Asegura tu cita y liquida el resto al recibir tu bici</small>
+                        </label>
+                        <label class="ws-pay-mode-card" id="lbl-pay-full">
+                            <input type="radio" name="ws_pay_amount_mode" value="full">
+                            <span class="ws-pay-mode-title">Liquidar Total del Servicio (100%)</span>
+                            <strong id="ws-pay-opt-full-amount" class="ws-pay-mode-amount">$350.00 MXN</strong>
+                            <small>Cubre el servicio completo por adelantado</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="clean-form-grid">
+                    <div class="clean-field">
+                        <label for="ws-pay-method">MÉTODO DE PAGO *</label>
+                        <select id="ws-pay-method" class="clean-input" required>
+                            <option value="Tarjeta Visa / MasterCard / Amex">Tarjeta de Crédito o Débito (Visa / MasterCard / Amex)</option>
+                            <option value="Transferencia SPEI Referenciada">Transferencia SPEI Instantánea</option>
+                            <option value="Mercado Pago / PayPal">Mercado Pago / Link Digital</option>
+                        </select>
+                    </div>
+                    <div class="clean-field">
+                        <label for="ws-pay-card-holder">TITULAR DE LA TARJETA / CUENTA *</label>
+                        <input type="text" id="ws-pay-card-holder" class="clean-input" placeholder="Nombre como aparece en la tarjeta" required>
+                    </div>
+                </div>
+
+                <div id="ws-card-fields-group" class="clean-form-grid">
+                    <div class="clean-field">
+                        <label for="ws-pay-card-num">NÚMERO DE TARJETA (SIMULADOR SEGURO SSL) *</label>
+                        <input type="text" id="ws-pay-card-num" class="clean-input" placeholder="4552 •••• •••• 8841" maxlength="19" value="4552 8910 3412 8841" required>
+                    </div>
+                    <div class="clean-form-grid" style="gap:12px;">
+                        <div class="clean-field">
+                            <label for="ws-pay-exp">VENCIMIENTO *</label>
+                            <input type="text" id="ws-pay-exp" class="clean-input" placeholder="MM/AA" maxlength="5" value="08/29" required>
+                        </div>
+                        <div class="clean-field">
+                            <label for="ws-pay-cvv">CVV *</label>
+                            <input type="password" id="ws-pay-cvv" class="clean-input" placeholder="•••" maxlength="4" value="842" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:16px;padding-top:16px;border-top:1px solid #E2E2E2;">
+                    <div>
+                        <span style="font-size:0.76rem;text-transform:uppercase;color:#666;display:block;">Monto a procesar ahora:</span>
+                        <strong id="ws-pay-final-charge-label" style="font-family:var(--font-display);font-size:2.1rem;color:var(--accent-coffee);">$150.00 MXN</strong>
+                    </div>
+                    <button type="submit" id="btn-submit-ws-payment" class="btn-pill-cta btn-pill-orange">
+                        <span>Pagar Ahora y Generar Hoja de Servicio</span>
+                        <span class="btn-pill-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         14. SUB-VENTANA EMERGENTE: CARRITO DE COMPRAS Y CHECKOUT
+         ==================================================================== -->
+    <div id="cart-drawer-backdrop" class="minimal-modal-backdrop" aria-hidden="true"></div>
+    <aside id="cart-side-drawer" class="cart-side-drawer" aria-label="Carrito de compras">
+        <div class="minimal-dialog-header" style="margin-bottom:12px;">
+            <div>
+                <span class="section-eyebrow">COMPRA EN LÍNEA</span>
+                <h2 class="section-title" style="font-size:2.3rem;margin-bottom:0;">TU CARRITO</h2>
+            </div>
+            <button type="button" id="btn-close-cart" class="modal-close-top" style="position:static;">✕</button>
+        </div>
+
+        <div id="cart-items-container" class="cart-items-container">
+            <!-- Productos en el carrito -->
+        </div>
+
+        <div class="cart-footer-summary">
+            <div class="cart-total-row">
+                <span style="font-weight:700;text-transform:uppercase;letter-spacing:0.06em;">Total Estimado</span>
+                <span id="cart-total-amount" class="cart-total-amount">$0.00 MXN</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+                <button type="button" id="btn-proceed-checkout" class="btn-pill-cta btn-pill-orange" style="justify-content:space-between;width:100%;">
+                    <span>Proceder al Pago y Envío</span>
+                    <span class="btn-pill-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                    </span>
+                </button>
+                <button type="button" id="btn-clear-cart" style="font-size:0.78rem;color:#666;text-transform:uppercase;letter-spacing:0.08em;padding:6px;">
+                    Vaciar carrito
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Modal de Checkout / Finalizar Pedido -->
+    <div id="checkout-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title">
+        <div class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow"> LOGÍSTICA CORDILLERA TREK</span>
+                    <h2 id="checkout-modal-title" class="section-title" style="font-size:2.5rem;margin-bottom:0;">FINALIZAR COMPRA</h2>
+                </div>
+                <button type="button" id="btn-close-checkout" class="modal-close-top" style="position:static;">✕</button>
+            </div>
+
+            <form id="form-checkout-order">
+                <div class="clean-form-grid">
+                    <div class="clean-field">
+                        <label for="chk-name">NOMBRE DE QUIEN RECIBE *</label>
+                        <input type="text" id="chk-name" class="clean-input" required>
+                    </div>
+                    <div class="clean-field">
+                        <label for="chk-phone">WHATSAPP DE CONTACTO *</label>
+                        <input type="tel" id="chk-phone" class="clean-input" required>
+                    </div>
+                </div>
+
+                <div class="clean-form-grid">
+                    <div class="clean-field">
+                        <label for="chk-delivery-mode">MODALIDAD DE ENTREGA *</label>
+                        <select id="chk-delivery-mode" class="clean-input">
+                            <option value="Envío Local Mismo Día (Durango Capital)">Envío Local Mismo Día (Chofer Cordillera en Durango)</option>
+                            <option value="Recoger en Tienda (Coronado #1130)">Recoger en Tienda Cordillera (Sin costo)</option>
+                            <option value="Paquetería Asegurada Nacional">Envío Asegurado a otro Estado de México</option>
+                        </select>
+                    </div>
+                    <div class="clean-field">
+                        <label for="chk-payment-method">FORMA DE PAGO *</label>
+                        <select id="chk-payment-method" class="clean-input">
+                            <option value="Tarjeta de Crédito / Débito">Tarjeta de Crédito / Débito (Terminal / Link Seguro)</option>
+                            <option value="Transferencia SPEI">Transferencia Bancaria SPEI</option>
+                            <option value="Pago en Sucursal">Pago directo en Sucursal</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="clean-field">
+                    <label for="chk-address">DIRECCIÓN COMPLETA DE ENTREGA O REFERENCIAS *</label>
+                    <input type="text" id="chk-address" class="clean-input" placeholder="Calle, número, colonia, C.P. y referencias de fachada" required>
+                </div>
+
+                <div id="checkout-summary-box" style="margin:18px 0;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;"></div>
+
+                <button type="submit" class="btn-pill-cta btn-pill-orange">
+                    <span>Confirmar Pedido y Generar Folio</span>
+                    <span class="btn-pill-icon">
+                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                    </span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         15. MODAL DE HOJA DE SERVICIO DIGITAL (TALLER) & DETALLE DE NOTICIA
+         ==================================================================== -->
+    <div id="workshop-voucher-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true">
+        <div class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow">ORDEN DE INGRESO A TALLER</span>
+                    <h2 class="section-title" style="font-size:2.4rem;margin-bottom:0;">HOJA DE SERVICIO DIGITAL</h2>
+                </div>
+                <button type="button" id="btn-close-voucher" class="modal-close-top" style="position:static;">✕</button>
+            </div>
+            <div id="workshop-voucher-body"></div>
+        </div>
+    </div>
+
+    <div id="news-detail-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true">
+        <div class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span id="news-modal-category" class="section-eyebrow">EVENTO OFICIAL</span>
+                    <h2 id="news-modal-title" class="section-title" style="font-size:2.6rem;margin-bottom:0;">CONVOCATORIA</h2>
+                </div>
+                <button type="button" id="btn-close-news-modal" class="modal-close-top" style="position:static;">✕</button>
+            </div>
+            <div id="news-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         16. CONSOLA MULTI-AGENTE ASCEND RMS + AGENTE IA REMOVEDOR DE FONDOS (.PNG)
+         ==================================================================== -->
+    <div id="ascend-agent-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true">
+        <div class="minimal-dialog-window dialog-wide">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow">ARQUITECTURA MULTI-AGENTE ACTIVA</span>
+                    <h2 class="section-title" style="font-size:2.5rem;margin-bottom:0;">SISTEMA DE AGENTES ASCEND RMS + QUITA-FONDOS PNG</h2>
+                </div>
+                <button type="button" id="btn-close-ascend-agent" class="modal-close-top" style="position:static;">✕</button>
+            </div>
+            <div id="ascend-agent-console-body"></div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         17. SISTEMA PWA DE LOGÍSTICA, CHOFER EN TURNO Y TALLER (CONTRASEÑA: T1130)
+         ==================================================================== -->
+    <div id="dispatch-chofer-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="logistics-modal-heading">
+        <div id="dispatch-chofer-window" class="minimal-dialog-window">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow">PWA LOGÍSTICA &middot; CORONADO #1130</span>
+                    <h2 id="logistics-modal-heading" class="section-title" style="font-size:2.4rem;margin-bottom:0;">ACCESO A LOGÍSTICA Y RUTA DE CHOFER</h2>
+                </div>
+                <button type="button" id="btn-close-chofer-modal" class="modal-close-top" style="position:static;">✕</button>
+            </div>
+
+            <!-- Paso 1: Entrada por Contraseña (T1130) -->
+            <div id="logistics-pin-gate" class="logistics-pin-gate">
+                <p style="font-size:0.94rem;color:#444;margin-bottom:18px;">
+                    Acceso restringido para el personal de logística, taller y chofer en turno de <strong>Cordillera Trek (Coronado #1130 Pte.)</strong>. Ingresa la clave operativa para abrir el monitor PWA:
+                </p>
+                <form id="logistics-pin-form" class="logistics-pin-form" autocomplete="off">
+                    <div class="clean-field">
+                        <label for="logistics-pin-input">CONTRASEÑA DE ACCESO LOGÍSTICO *</label>
+                        <input
+                            type="password"
+                            id="logistics-pin-input"
+                            class="clean-input logistics-pin-input"
+                            placeholder="Ingresa la contraseña"
+                            maxlength="12"
+                            required>
+                    </div>
+                    <p id="logistics-pin-error" class="logistics-pin-error" style="display:none;">
+                        Contraseña incorrecta. Verifica tu clave de acceso de sucursal Coronado #1130.
+                    </p>
+                    <div style="margin-top:20px;display:flex;gap:12px;align-items:center;">
+                        <button type="submit" class="btn-pill-cta btn-pill-orange">
+                            <span>Ingresar al Sistema Logístico PWA</span>
+                            <span class="btn-pill-icon">
+                                <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Paso 2: Tablero PWA de Logística, Chofer y Taller (Visible tras validar contraseña T1130) -->
+            <div id="dispatch-chofer-body" style="display:none;"></div>
+        </div>
+    </div>
+
+    <!-- Pila de Notificaciones -->
+    <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+    <!-- Base de Datos Sincronizada de Ascend RMS (con imágenes .png sin fondo) -->
+    <script src="js/ascend_sync_data.js"></script>
+    <!-- Lógica Principal y Sistema de Agentes -->
+    <script src="js/main.js"></script>
+</body>
+</html>

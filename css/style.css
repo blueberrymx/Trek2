@@ -1,0 +1,3341 @@
+/* ==========================================================================
+   CORDILLERA TREK - REDISEÑO MINIMALISTA (UX/UI ALUBIKE / MOCKUPS CLIENTE)
+   Arquitectura Visual: Cero cajas, cero tarjetas con fondo entre texto y lienzo,
+   tipografía Bebas Neue + Inter, paleta Blanco / Negro #1E1E1E / Naranja #FF6600 /
+   Rojo #ED1C24 / Café #5C260C.
+   ========================================================================== */
+
+:root {
+    /* Paleta Oficial del Rediseño */
+    --bg-white: #FFFFFF;
+    --bg-light-grey: #EAEAEA;
+    --bg-topbar: #DCDCDC;
+    --bg-dark: #1E1E1E;
+    --bg-darker: #121212;
+
+    --text-black: #1E1E1E;
+    --text-body: #333333;
+    --text-muted: #666666;
+    --text-white: #FFFFFF;
+
+    --accent-orange: #FF6600;
+    --accent-orange-hover: #E05500;
+    --accent-red: #ED1C24;
+    --accent-cannondale: #D90000;
+    --accent-coffee: #5C260C;
+    --accent-coffee-light: #7A3514;
+
+    /* Tipografías */
+    --font-display: 'Bebas Neue', Impact, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* Dimensiones y Transiciones */
+    --topbar-height: 34px;
+    --header-height: 76px;
+    --container-max: 1400px;
+    --container-pad: 4%;
+    --transition-fast: 0.22s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --transition-smooth: 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Reset y Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img, video, svg {
+    max-width: 100%;
+    display: block;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+/* Scrollbar Personalizado Naranja (Estilo Mockup Trek-web-06) */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #E5E5E5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-orange);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-orange-hover);
+}
+
+/* Utilidades de Tipografía */
+.tracking-25 {
+    letter-spacing: 0.25em !important;
+}
+
+.section-eyebrow {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--accent-red);
+    margin-bottom: 6px;
+}
+
+.section-eyebrow.eyebrow-orange {
+    color: var(--accent-orange);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5vw, 4.4rem);
+    font-weight: 400;
+    line-height: 0.96;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text-black);
+    margin-bottom: 12px;
+}
+
+.section-title.title-white {
+    color: var(--text-white);
+}
+
+.section-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.96rem;
+    font-weight: 400;
+    color: var(--text-body);
+    max-width: 680px;
+    line-height: 1.5;
+}
+
+.section-subtitle.subtitle-white {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Animaciones Reveal al Hacer Scroll (Direccionales y Escalonadas) */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-left {
+    transform: translateX(-36px);
+}
+
+.reveal-on-scroll.reveal-right {
+    transform: translateX(36px);
+}
+
+.reveal-on-scroll.reveal-scale {
+    transform: scale(0.95) translateY(20px);
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* ==========================================================================
+   1. INTRO VIDEO SPLASH SCREEN
+   Solo video-intro.mp4, Logo de Cordillera grande flotando en medio sin fondos
+   ni cuadros atrás, y abajo un botón sencillo en color gris que diga "Iniciar".
+   ========================================================================== */
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.85s ease;
+}
+
+.intro-screen.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+.intro-center-minimal {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 42px;
+    padding: 24px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.intro-logo-floating {
+    width: clamp(260px, 38vw, 520px);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.55));
+    animation: floatIntroLogo 4.5s ease-in-out infinite;
+}
+
+@keyframes floatIntroLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.btn-intro-iniciar {
+    background-color: rgba(115, 115, 115, 0.82);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 13px 46px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(4px);
+    transition: var(--transition-smooth);
+}
+
+.btn-intro-iniciar:hover {
+    background-color: #555555;
+    border-color: #FFFFFF;
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* ==========================================================================
+   2. TOP BAR & STICKY NAVIGATION HEADER (#1E1E1E)
+   ========================================================================== */
+.site-chrome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform var(--transition-smooth);
+}
+
+/* Top Bar: Gris claro, texto #1E1E1E. En PC desaparece al iniciar scroll;
+   en versión móvil desaparece por completo desde el inicio. */
+.top-notice-bar {
+    height: var(--topbar-height);
+    background-color: var(--bg-topbar);
+    color: var(--text-black);
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.32s ease, opacity 0.28s ease;
+}
+
+.site-chrome.scrolled .top-notice-bar {
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.top-notice-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.top-notice-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.top-notice-right a:hover {
+    color: var(--accent-orange);
+}
+
+/* Sticky Navigation Header (#1E1E1E) */
+.main-header {
+    background-color: var(--bg-dark);
+    height: var(--header-height);
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.22);
+}
+
+.header-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Logos: Cordillera + Durango Trek */
+.brand-logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo-cordillera {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-divider {
+    width: 1px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.header-logo-durango {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Navegación Principal */
+.main-nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-white);
+    padding: 0 4px;
+}
+
+/* Subraya anaranjada animada al pasar el cursor, hacer click o sección activa */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 18px;
+    left: 0;
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--accent-orange);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-item:hover > .nav-link::after,
+.nav-item.open > .nav-link::after,
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.nav-chevron {
+    width: 11px;
+    height: 11px;
+    stroke: currentColor;
+    stroke-width: 2.4;
+    fill: none;
+    transition: transform 0.25s ease;
+}
+
+.nav-item:hover .nav-chevron,
+.nav-item.open .nav-chevron {
+    transform: rotate(180deg);
+}
+
+/* Iconos de Acción (Buscador, Usuario, Carrito) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.header-icon-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    transition: var(--transition-fast);
+}
+
+.header-icon-btn img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.header-icon-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 6px;
+    right: 6px;
+    height: 2px;
+    background-color: var(--accent-orange);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.header-icon-btn:hover {
+    border-color: var(--accent-orange);
+    transform: translateY(-1px);
+}
+
+.header-icon-btn:hover::after,
+.header-icon-btn.active::after {
+    transform: scaleX(1);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    font-size: 0.68rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #22C55E;
+    border: 2px solid var(--bg-dark);
+    display: none;
+}
+
+.user-status-dot.online {
+    display: block;
+}
+
+/* Botón Menú Móvil */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+}
+
+.mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #FFFFFF;
+    transition: var(--transition-fast);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   MEGA-MENÚS DESPLEGABLES (Estilo Trek-web-01.jpg: Recortados al ancho del texto)
+   ========================================================================== */
+.mega-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+    max-width: calc(100vw - 32px);
+    background-color: rgba(30, 30, 30, 0.98);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 2px solid var(--accent-orange);
+    padding: 26px 34px 30px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+    z-index: 990;
+}
+
+.mega-dropdown.mega-dropdown-compact {
+    padding: 18px 26px 20px;
+}
+
+.nav-item:hover > .mega-dropdown,
+.nav-item.open > .mega-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Replegado inmediato al dar clic en cualquier categoría para visibilidad limpia */
+.nav-item.force-closed > .mega-dropdown {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-8px) !important;
+}
+
+.mega-dropdown-inner {
+    width: max-content;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 42px;
+}
+
+.mega-cols-3,
+.mega-cols-equipamiento,
+.mega-cols-brands {
+    display: flex;
+    align-items: flex-start;
+    gap: 42px;
+}
+
+.mega-col-stacked {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mega-subblock {
+    margin-top: 2px;
+}
+
+.mega-cols-comunidad-clean {
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-links-comunidad {
+    gap: 10px;
+}
+
+.mega-links-comunidad .mega-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.mega-col-title {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    white-space: nowrap;
+}
+
+.mega-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mega-links.two-subcols {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    gap: 6px 26px;
+}
+
+.mega-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.88);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 0;
+    position: relative;
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.mega-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--accent-orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.22s ease;
+}
+
+.mega-link:hover {
+    color: #FFFFFF;
+}
+
+.mega-link:hover::after {
+    transform: scaleX(1);
+}
+
+.mega-link-featured {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+/* Barra Desplegable de Buscador en Header */
+.search-bar-drawer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #161616;
+    border-bottom: 2px solid var(--accent-orange);
+    padding: 18px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition-fast);
+    z-index: 995;
+}
+
+.search-bar-drawer.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.search-drawer-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-drawer-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-drawer-input::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.search-drawer-input:focus {
+    border-color: var(--accent-orange);
+}
+
+.search-drawer-close {
+    color: #FFFFFF;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 18px;
+}
+
+/* Espaciador superior para compensar el header fijo */
+.header-offset {
+    height: calc(var(--topbar-height) + var(--header-height));
+}
+
+/* ==========================================================================
+   3. HERO SECTION (Trek-web-02.jpg)
+   2 Slides en nitidez HD (sin filtros borrosos) y botones 1 y 2 al tamaño
+   y alineación de las flechas eliminadas.
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--topbar-height) - var(--header-height));
+    min-height: 560px;
+    max-height: 920px;
+    background-color: #0D0D0D;
+    overflow: hidden;
+}
+
+.hero-slides-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.85s;
+    z-index: 1;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.hero-bg-image,
+.hero-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.03) saturate(1.04);
+}
+
+.hero-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.38) 0%,
+        rgba(0, 0, 0, 0.14) 48%,
+        rgba(0, 0, 0, 0.0) 100%
+    );
+    z-index: 1;
+}
+
+.hero-slide-overlay.minimal-overlay {
+    background: none;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+/* En el Slide 1 (slide-01.png) el bloque de texto de la columna izquierda queda centrado verticalmente en la imagen;
+   en el Slide 2 (video) el botón permanece en la parte inferior izquierda */
+.hero-slide[data-slide-index="0"] .hero-content-container {
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+.hero-slide[data-slide-index="1"] .hero-content-container {
+    justify-content: flex-end;
+    padding-bottom: 72px;
+}
+
+.hero-text-block {
+    max-width: 650px;
+    color: var(--text-white);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.4rem, 6.4vw, 5.6rem);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+}
+
+.hero-description {
+    font-family: var(--font-sans);
+    font-size: 0.96rem;
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.96);
+    margin-bottom: 26px;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.68);
+}
+
+/* Botón Píldora Animado "Ver Catálogo TREK" */
+.btn-pill-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 8px 10px 8px 24px;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-pill-orange {
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    box-shadow: 0 10px 26px rgba(255, 102, 0, 0.36);
+}
+
+.btn-pill-orange:hover {
+    background-color: var(--accent-orange-hover);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 32px rgba(255, 102, 0, 0.5);
+}
+
+.btn-pill-darkgrey {
+    background-color: rgba(45, 45, 45, 0.88);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+}
+
+.btn-pill-darkgrey:hover {
+    background-color: #1E1E1E;
+    border-color: var(--accent-orange);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-pill-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.28s ease;
+}
+
+.btn-pill-cta:hover .btn-pill-icon {
+    transform: translateX(3px);
+}
+
+.btn-pill-icon svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    fill: none;
+}
+
+/* Controles Circulares del Hero: Solo botones 1 y 2 al tamaño (46px) alineados estrictamente al lado izquierdo de la línea roja (dentro del contenedor .container) */
+.hero-nav-controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 48px;
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 4%;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    pointer-events: none;
+}
+
+.hero-slide-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    pointer-events: auto;
+}
+
+.hero-dot-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+    background: rgba(0, 0, 0, 0.22);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.96rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.hero-dot-btn.active,
+.hero-dot-btn:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    transform: scale(1.05);
+}
+
+.circle-arrow-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.circle-arrow-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    stroke-width: 2.2;
+    fill: none;
+}
+
+.circle-arrow-white {
+    border: 2px solid #FFFFFF;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.circle-arrow-white:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #FFFFFF;
+}
+
+.circle-arrow-dark {
+    border: 2px solid var(--text-black);
+    color: var(--text-black);
+    background: transparent;
+}
+
+.circle-arrow-dark:hover {
+    background-color: var(--text-black);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. TIENDA EN LÍNEA (Trek-web-03.jpg)
+   Fondo: assets/images/fondo-01.png (Parallax estático)
+   Tarjetas transparentes sin cajas, foto .png sin fondo, Marca y Categoría
+   en fila horizontal, Título en café, Precio y Botón de Carrito naranja.
+   ========================================================================== */
+.textured-light-section {
+    position: relative;
+    background-color: var(--bg-white);
+    background-image: url('../assets/images/fondo-01.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.store-section {
+    padding: 84px 0 76px;
+}
+
+.store-header-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 42px;
+    width: 100%;
+}
+
+/* Fila superior: Eyebrow a la izquierda y Seleccionador de Categorías junto al título superior, alineados dentro del contenedor */
+.store-top-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+}
+
+.store-eyebrow-coffee {
+    color: var(--accent-coffee);
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    margin-bottom: 0;
+}
+
+.store-eyebrow-coffee strong {
+    font-weight: 800;
+}
+
+/* Fila inferior del encabezado: Título a la izquierda y Buscador al lado derecho en la MISMA línea horizontal */
+.store-title-search-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    width: 100%;
+}
+
+.store-main-title {
+    margin-bottom: 0;
+    white-space: nowrap;
+    font-size: clamp(2.35rem, 3.8vw, 3.6rem);
+    line-height: 0.94;
+    flex-shrink: 0;
+}
+
+/* Barra de Buscador Idéntica al ejemplo Trek-web-03.jpg alineada al margen derecho del contenedor */
+.store-inline-search-box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex: 1;
+    max-width: 560px;
+    margin-left: auto;
+}
+
+.store-inline-search-input {
+    flex: 1;
+    min-width: 220px;
+    width: 100%;
+    height: 42px;
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    padding: 0 18px;
+    border-radius: 7px;
+    border: 1px solid rgba(30, 30, 30, 0.14);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    transition: var(--transition-fast);
+}
+
+.store-inline-search-input::placeholder {
+    color: #999999;
+}
+
+.store-inline-search-input:focus {
+    border-color: var(--accent-orange);
+    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.15);
+}
+
+.btn-store-inline-search {
+    height: 42px;
+    padding: 0 26px;
+    border-radius: 7px;
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.28);
+}
+
+.btn-store-inline-search:hover {
+    background-color: var(--accent-orange-hover);
+    transform: translateY(-1px);
+}
+
+.store-active-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 6px;
+    width: 100%;
+}
+
+.store-category-select {
+    height: 30px;
+    padding: 0 28px 0 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(30, 30, 30, 0.32);
+    background-color: rgba(255, 255, 255, 0.85);
+    color: var(--text-black);
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.store-category-select:hover,
+.store-category-select:focus {
+    border-color: var(--accent-orange);
+    background-color: #FFFFFF;
+    outline: none;
+}
+
+.active-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-black);
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(30, 30, 30, 0.35);
+}
+
+.btn-reset-catalog {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-coffee);
+    padding: 4px 8px;
+    border-bottom: 1.5px solid transparent;
+}
+
+.btn-reset-catalog:hover {
+    color: var(--accent-orange);
+    border-bottom-color: var(--accent-orange);
+}
+
+.btn-agent-pill {
+    color: var(--accent-orange);
+}
+
+/* Carrusel Horizontal en PC */
+.store-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.store-products-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+/* Ítem de Producto Minimalista (Cero tarjetas, cero fondos, estilo Trek-web-03.jpg) */
+.store-product-item {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 12px 34px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: transparent;
+    border-right: 1px solid rgba(30, 30, 30, 0.22);
+    transition: transform 0.3s ease;
+}
+
+.store-product-item:last-child {
+    border-right: none;
+}
+
+/* Cabecera del Producto: Píldora de Marca + Categoría en la misma fila horizontal */
+.product-item-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.product-brand-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-dark);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 20px 4px;
+    border-radius: 6px;
+}
+
+.product-brand-pill.brand-cannondale {
+    background-color: var(--accent-cannondale);
+}
+
+.product-brand-pill.brand-alubike {
+    background-color: var(--accent-orange);
+}
+
+.product-category-label {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--text-black);
+}
+
+/* Imagen del Producto Transparente (.png sin fondo) */
+.product-image-trigger {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 0 16px;
+    cursor: pointer;
+    background: transparent;
+}
+
+.product-img-cutout {
+    max-width: 100%;
+    max-height: 240px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+    filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.14));
+}
+
+.store-product-item:hover .product-img-cutout {
+    transform: scale(1.05) translateY(-4px);
+    filter: drop-shadow(0 20px 26px rgba(0, 0, 0, 0.2));
+}
+
+/* Pie del Producto: Título en Café arriba, y debajo Precio + Botón Carrito Naranja */
+.product-item-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: auto;
+}
+
+.product-info-clickable {
+    cursor: pointer;
+    width: 100%;
+}
+
+.product-title-heading {
+    font-family: var(--font-display);
+    font-size: 1.62rem;
+    font-weight: 400;
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--accent-coffee);
+    margin-bottom: 2px;
+    transition: color 0.2s ease;
+}
+
+.product-info-clickable:hover .product-title-heading {
+    color: var(--accent-orange);
+}
+
+.product-price-cart-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.product-price-text {
+    font-family: var(--font-sans);
+    font-size: 1.32rem;
+    font-weight: 700;
+    color: var(--text-black);
+    cursor: pointer;
+}
+
+.btn-product-cart {
+    width: 52px;
+    height: 34px;
+    border-radius: 7px;
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition-fast);
+    box-shadow: 0 6px 16px rgba(255, 102, 0, 0.28);
+}
+
+.btn-product-cart img {
+    width: 19px;
+    height: 19px;
+    object-fit: contain;
+}
+
+.btn-product-cart:hover {
+    background-color: var(--accent-orange-hover);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Barra Inferior de Navegación de Tienda */
+.store-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+.store-counter-label {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    color: var(--text-muted);
+}
+
+.carousel-arrows-pair {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ==========================================================================
+   5. TALLER BIKE (Trek-web-04.jpg)
+   Fondo: assets/images/fondo-02.png (Parallax estático)
+   ========================================================================== */
+.workshop-section {
+    position: relative;
+    background-color: #141414;
+    background-image: url('../assets/images/fondo-02.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-white);
+    padding: 92px 0 96px;
+}
+
+.workshop-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+.workshop-cert-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 8px;
+}
+
+/* Selector de Servicios con Barra Deslizante */
+.workshop-services-list {
+    position: relative;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra blanca semi-transparente con bordes arriba y abajo en línea blanca */
+.workshop-sliding-bar {
+    position: absolute;
+    top: 0;
+    left: -24px;
+    right: -24px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.14);
+    border-top: 1.5px solid #FFFFFF;
+    border-bottom: 1.5px solid #FFFFFF;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 0.48s cubic-bezier(0.22, 1, 0.36, 1), height 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.workshop-service-option {
+    position: relative;
+    z-index: 2;
+    padding: 20px 8px;
+    cursor: pointer;
+    transition: opacity 0.25s ease;
+}
+
+.workshop-service-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 6px;
+}
+
+.workshop-service-name {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+
+.workshop-service-name .orange-word {
+    color: var(--accent-orange);
+}
+
+.workshop-service-desc {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    line-height: 1.48;
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 520px;
+}
+
+/* Columna Derecha: Formulario Sin Fondo y Títulos en Blanco + cadena.png */
+.workshop-form-column {
+    padding-top: 6px;
+}
+
+.workshop-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.workshop-form-title {
+    font-family: var(--font-sans);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.workshop-chain-icon {
+    width: 82px;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.workshop-minimal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.workshop-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.workshop-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.workshop-field label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+}
+
+.workshop-input {
+    width: 100%;
+    background-color: rgba(235, 235, 235, 0.94);
+    color: var(--text-black);
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1.5px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.workshop-input::placeholder {
+    color: #777777;
+}
+
+.workshop-input:focus {
+    background-color: #FFFFFF;
+    border-color: var(--accent-orange);
+}
+
+textarea.workshop-input {
+    min-height: 72px;
+    resize: vertical;
+}
+
+/* Recolección a domicilio (+$120 MXN) y Calculador de Anticipo */
+.workshop-pickup-box {
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 12px 0;
+}
+
+.workshop-pickup-toggle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.workshop-pickup-toggle input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-orange);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.pickup-toggle-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.pickup-toggle-text strong {
+    font-size: 0.86rem;
+    color: #FFFFFF;
+}
+
+.pickup-toggle-text small {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.pickup-price-badge {
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    padding: 4px 12px 2px;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.ws-pickup-address-wrap {
+    margin-top: 10px;
+}
+
+.workshop-calculator-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.ws-calc-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ws-calc-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.ws-calc-value {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    line-height: 1.05;
+    color: #FFFFFF;
+}
+
+.ws-calc-value.ws-calc-orange {
+    color: var(--accent-orange);
+}
+
+.ws-calc-col small {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.workshop-submit-row {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.selected-service-indicator {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.selected-service-indicator strong {
+    color: var(--accent-orange);
+}
+
+/* ==========================================================================
+   6. SECCIÓN NOTICIAS Y EVENTOS (Trek-web-05.jpg)
+   ========================================================================== */
+.news-section {
+    padding: 86px 0 80px;
+}
+
+.news-header-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.news-biker-icon {
+    width: clamp(90px, 10vw, 136px);
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.news-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.news-track {
+    display: flex;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.news-slide-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: 36px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+    background: transparent;
+}
+
+.news-poster-wrap {
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.news-poster-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
+}
+
+.news-poster-wrap:hover .news-poster-img {
+    transform: scale(1.03);
+}
+
+.news-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 6px;
+}
+
+/* Cinta Roja Inclinada del Título (Estilo Trek-web-05.jpg) */
+.news-red-ribbon {
+    background-color: var(--accent-red);
+    color: #FFFFFF;
+    padding: 8px 28px 6px 16px;
+    clip-path: polygon(0 0, 100% 0, 93% 100%, 0% 100%);
+    margin-bottom: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.news-red-ribbon:hover {
+    transform: translateX(4px);
+}
+
+.news-ribbon-title {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.news-meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.news-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-black);
+}
+
+.news-meta-row img {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.news-excerpt {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    line-height: 1.52;
+    color: var(--text-body);
+    margin-bottom: 12px;
+}
+
+.news-more-link {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-red);
+    border-bottom: 1.5px solid var(--accent-red);
+    padding-bottom: 2px;
+}
+
+.news-more-link:hover {
+    color: var(--accent-orange);
+    border-bottom-color: var(--accent-orange);
+}
+
+.news-controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+/* ==========================================================================
+   7. SECCIÓN DESTACADA PARALLAX (Trek-web-05_2.jpg)
+   Tanto el fondo (destacado.jpg) como el icono (cordillera-icon.png), el
+   título y el botón van fijos y estáticos en la pantalla, apareciendo y
+   desapareciendo con el scroll a través de la ventana clip-path de la sección.
+   ========================================================================== */
+.featured-parallax-band {
+    position: relative;
+    width: 100%;
+    height: 490px;
+    overflow: hidden;
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+}
+
+.featured-fixed-viewport {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.featured-fixed-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('../assets/images/destacado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.featured-parallax-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.54) 0%,
+        rgba(0, 0, 0, 0.22) 60%,
+        rgba(0, 0, 0, 0.12) 100%
+    );
+    z-index: 2;
+}
+
+.featured-parallax-content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    pointer-events: auto;
+}
+
+.featured-fixed-btn {
+    pointer-events: auto;
+}
+
+.featured-cordillera-icon {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55));
+}
+
+.featured-parallax-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.82);
+    margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   8. SECCIÓN NOSOTROS (Trek-web-07.jpg)
+   Columna izquierda ampliada hasta el margen inferior del contenido derecho.
+   ========================================================================== */
+.about-section {
+    padding: 92px 0 84px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: stretch;
+}
+
+.about-left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.about-eyebrow-top {
+    font-size: 0.86rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 12px;
+}
+
+.about-main-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.65rem, 4.1vw, 3.75rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    color: var(--text-black);
+    margin-bottom: 24px;
+}
+
+.about-paragraph {
+    font-family: var(--font-sans);
+    font-size: 1.06rem;
+    line-height: 1.68;
+    color: var(--text-body);
+    margin-bottom: 20px;
+}
+
+.about-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.about-paragraph strong {
+    font-weight: 700;
+    color: var(--text-black);
+}
+
+.about-left-bottom {
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.about-dotted-divider {
+    width: 100%;
+    border-top: 2px dotted rgba(30, 30, 30, 0.45);
+    margin: 0 0 28px;
+}
+
+.about-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.about-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 4.4vw, 4.15rem);
+    line-height: 0.92;
+    color: var(--text-black);
+    margin-bottom: 6px;
+}
+
+.about-stat-label {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.25;
+    color: var(--accent-orange);
+}
+
+.about-right-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    height: 100%;
+}
+
+.about-store-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.about-caption-columns {
+    display: grid;
+    grid-template-columns: 0.95fr 1.25fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.about-caption-heading {
+    font-family: var(--font-display);
+    font-size: 2.05rem;
+    line-height: 0.96;
+    text-transform: uppercase;
+    color: var(--text-black);
+}
+
+.about-caption-text {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--text-body);
+}
+
+/* ==========================================================================
+   9. SECCIÓN CONTACTO (Diseño Minimalista sin cajas sobre fondo-01.png)
+   Botones de WhatsApp y Google Maps debajo del mapa.
+   ========================================================================== */
+.contact-section {
+    padding: 72px 0 96px;
+    border-top: 1px solid rgba(30, 30, 30, 0.14);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.15fr;
+    gap: 56px;
+    align-items: start;
+}
+
+.contact-details-list {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-detail-block {
+    border-left: 3px solid var(--accent-orange);
+    padding-left: 18px;
+}
+
+.contact-detail-block h4 {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-coffee);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.contact-detail-block p,
+.contact-detail-block a {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.contact-detail-block a:hover {
+    color: var(--accent-orange);
+}
+
+.contact-map-column {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: 100%;
+}
+
+.contact-map-frame {
+    width: 100%;
+    height: 410px;
+    overflow: hidden;
+    border-bottom: 4px solid var(--accent-orange);
+}
+
+.contact-map-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.contact-actions-row {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ==========================================================================
+   10. FOOTER EN FONDO NEGRO ACTUALIZADO (Con Blueberry Digital)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    padding: 72px 0 32px;
+    border-top: 3px solid var(--accent-orange);
+}
+
+.footer-top-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+    gap: 44px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-brand-logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.footer-brand-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.76);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 340px;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-social-link {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+}
+
+.footer-social-link:hover {
+    border-color: var(--accent-orange);
+    background-color: var(--accent-orange);
+}
+
+.footer-col-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: 0.06em;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+}
+
+.footer-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.footer-links-list a {
+    font-size: 0.86rem;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.footer-links-list a:hover {
+    color: var(--accent-orange);
+    padding-left: 4px;
+}
+
+.footer-bottom-row {
+    padding-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.56);
+}
+
+.footer-bottom-left {
+    justify-self: start;
+    color: rgba(255, 255, 255, 0.56);
+}
+
+.footer-bottom-center {
+    justify-self: center;
+    text-align: center;
+}
+
+.footer-bottom-right {
+    justify-self: end;
+    text-align: right;
+}
+
+.footer-credit {
+    margin: 0;
+}
+
+/* "Desarrollado por Blueberry Digital" todo en gris claro sin píldora azul, resaltando SOLO "Blueberry Digital" en blanco al acercar el cursor */
+.footer-dev-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.82rem;
+    font-weight: 400;
+    transition: color 0.22s ease;
+}
+
+.footer-dev-link:hover {
+    color: rgba(255, 255, 255, 0.56);
+}
+
+.blueberry-highlight-royal {
+    background: none;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transition: color 0.22s ease;
+}
+
+.footer-dev-link:hover .blueberry-highlight-royal,
+.blueberry-highlight-royal:hover {
+    background: none;
+    color: #FFFFFF;
+    transform: none;
+}
+
+.footer-logistics-link {
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.52);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    transition: color 0.22s ease;
+}
+
+.footer-logistics-link:hover {
+    color: #FFFFFF;
+}
+
+/* Estilos del Sistema PWA de Logística (Contraseña T1130) */
+.logistics-pin-gate {
+    max-width: 480px;
+    margin: 12px 0 6px;
+}
+
+.logistics-pin-input {
+    font-family: var(--font-sans);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.logistics-pin-error {
+    margin-top: 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--accent-red);
+}
+
+.pwa-top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.pwa-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.pwa-kpi-item {
+    border-left: 3px solid var(--accent-orange);
+    padding-left: 14px;
+}
+
+.pwa-tabs-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 12px;
+}
+
+.pwa-tab-btn {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(30, 30, 30, 0.22);
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-black);
+    background: transparent;
+    transition: var(--transition-fast);
+}
+
+.pwa-tab-btn.active,
+.pwa-tab-btn:hover {
+    background-color: var(--text-black);
+    border-color: var(--text-black);
+    color: #FFFFFF;
+}
+
+.pwa-status-btn {
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(30, 30, 30, 0.25);
+    font-size: 0.73rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-black);
+    background: #FFFFFF;
+    transition: var(--transition-fast);
+}
+
+.pwa-status-btn.active,
+.pwa-status-btn:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #FFFFFF;
+}
+
+/* ==========================================================================
+   11. FICHA DEL PRODUCTO (MODAL 2 COLUMNAS - Trek-web-06.jpg)
+   ========================================================================== */
+.minimal-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(18, 18, 18, 0.72);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.minimal-modal-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.product-sheet-window {
+    position: relative;
+    width: 100%;
+    max-width: 1220px;
+    max-height: 92vh;
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    overflow-y: auto;
+    padding: 40px 46px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
+}
+
+.modal-close-top {
+    position: sticky;
+    top: 0;
+    float: right;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid var(--text-black);
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    font-size: 1.15rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: var(--transition-fast);
+}
+
+.modal-close-top.modal-close-darkcircle {
+    background-color: #4A4A4A;
+    color: #FFFFFF;
+    border: none;
+}
+
+.modal-close-top:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #FFFFFF;
+}
+
+.product-sheet-grid {
+    display: grid;
+    grid-template-columns: 0.96fr 1.04fr;
+    gap: 48px;
+    align-items: start;
+    clear: both;
+}
+
+/* Grid Cuadrado de Fotos a la Izquierda (Trek-web-06.jpg: 1 grande + 2x2 abajo) */
+.product-bento-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bento-main-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: zoom-in;
+    position: relative;
+}
+
+.bento-main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.bento-main-photo.contain-mode {
+    background-color: #F6F6F6;
+}
+
+.bento-main-photo.contain-mode img {
+    object-fit: contain;
+    padding: 16px;
+}
+
+.bento-main-photo.single-photo-mode {
+    aspect-ratio: 1 / 1;
+    min-height: 420px;
+    border: 1px solid #EAEAEA;
+}
+
+.bento-main-photo:hover img {
+    transform: scale(1.04);
+}
+
+.bento-subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.bento-square-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #FFFFFF;
+    border: 1px solid #EDEDED;
+    overflow: hidden;
+    cursor: zoom-in;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.bento-square-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.bento-square-thumb.contain-mode img {
+    object-fit: contain;
+    padding: 12px;
+}
+
+.bento-square-thumb:hover img {
+    transform: scale(1.06);
+}
+
+.bento-zoom-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+}
+
+/* Columna Derecha de la Ficha del Producto (Trek-web-06.jpg) */
+.product-sheet-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.sheet-category-red {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--accent-red);
+    margin-bottom: 4px;
+}
+
+.sheet-product-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4.2vw, 3.6rem);
+    font-weight: 400;
+    line-height: 0.94;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--text-black);
+    margin-bottom: 10px;
+}
+
+.sheet-sku-bullet {
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    color: var(--text-black);
+    margin-bottom: 12px;
+    padding-left: 14px;
+    position: relative;
+}
+
+.sheet-sku-bullet::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.sheet-price-coffee {
+    font-family: var(--font-sans);
+    font-size: clamp(1.9rem, 3vw, 2.55rem);
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--accent-coffee);
+    margin-bottom: 14px;
+}
+
+.sheet-commercial-bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 20px;
+    padding-left: 14px;
+}
+
+.sheet-commercial-bullets li {
+    position: relative;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    line-height: 1.42;
+    color: var(--text-black);
+}
+
+.sheet-commercial-bullets li::before {
+    content: '-';
+    position: absolute;
+    left: -12px;
+    top: 0;
+}
+
+.sheet-section-heading {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--accent-coffee);
+    margin-bottom: 8px;
+}
+
+.sheet-specs-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 24px;
+}
+
+.sheet-spec-paragraph,
+.spec-block-item {
+    font-family: var(--font-sans);
+    font-size: 0.86rem;
+    line-height: 1.46;
+    color: var(--text-black);
+}
+
+.sheet-spec-paragraph strong,
+.spec-block-item strong {
+    font-weight: 700;
+    color: var(--text-black);
+}
+
+.sheet-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+/* ==========================================================================
+   12. SUB-FICHA CARRUSEL PANTALLA COMPLETA ALTA RESOLUCIÓN
+   ========================================================================== */
+.fullscreen-gallery-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(10, 10, 10, 0.96);
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 4%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.fullscreen-gallery-modal.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.fs-gallery-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.fs-gallery-counter {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.08em;
+}
+
+.fs-gallery-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.fs-gallery-stage {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 16px 0;
+}
+
+.fs-gallery-main-img {
+    max-width: 92vw;
+    max-height: 76vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: zoom-in;
+}
+
+.fs-gallery-main-img.zoomed {
+    transform: scale(1.65);
+    cursor: zoom-out;
+}
+
+.fs-gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.fs-gallery-nav-btn.prev {
+    left: 16px;
+}
+
+.fs-gallery-nav-btn.next {
+    right: 16px;
+}
+
+.fs-gallery-thumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+}
+
+.fs-thumb-btn {
+    width: 68px;
+    height: 68px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    background-color: #FFFFFF;
+    overflow: hidden;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transition: var(--transition-fast);
+}
+
+.fs-thumb-btn.active,
+.fs-thumb-btn:hover {
+    opacity: 1;
+    border-color: var(--accent-orange);
+}
+
+.fs-thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   13. SUB-VENTANAS EMERGENTES: USUARIOS, PASARELA DE PAGO TALLER, CARRITO, AGENTES
+   ========================================================================== */
+.minimal-dialog-window {
+    position: relative;
+    width: 100%;
+    max-width: 880px;
+    max-height: 90vh;
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    overflow-y: auto;
+    padding: 42px 46px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+}
+
+.minimal-dialog-window.dialog-wide {
+    max-width: 1120px;
+}
+
+.minimal-dialog-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(30, 30, 30, 0.15);
+    margin-bottom: 24px;
+}
+
+.auth-context-banner {
+    background-color: #FFF7ED;
+    border-left: 4px solid var(--accent-orange);
+    color: var(--text-black);
+    padding: 12px 16px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Modalidad de Pago en Pasarela de Taller */
+.ws-pay-mode-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 6px;
+}
+
+.ws-pay-mode-card {
+    border: 1.5px solid #DDDDDD;
+    border-radius: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    transition: var(--transition-fast);
+}
+
+.ws-pay-mode-card input[type="radio"] {
+    accent-color: var(--accent-orange);
+    margin-bottom: 4px;
+}
+
+.ws-pay-mode-card.active,
+.ws-pay-mode-card:hover {
+    border-color: var(--accent-orange);
+    background-color: #FFFBF7;
+}
+
+.ws-pay-mode-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-black);
+    text-transform: uppercase;
+}
+
+.ws-pay-mode-amount {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    color: var(--accent-coffee);
+    line-height: 1;
+}
+
+.ws-pay-mode-card small {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Tabs Minimalistas */
+.minimal-tabs-bar {
+    display: flex;
+    gap: 28px;
+    border-bottom: 1px solid rgba(30, 30, 30, 0.15);
+    margin-bottom: 26px;
+}
+
+.minimal-tab-btn {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.minimal-tab-btn.active {
+    color: var(--text-black);
+}
+
+.minimal-tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-orange);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+}
+
+.minimal-tab-btn.active::after {
+    transform: scaleX(1);
+}
+
+/* Formularios en Ventanas Blancas */
+.clean-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.clean-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.clean-field label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-black);
+}
+
+.clean-input {
+    width: 100%;
+    background-color: #F2F2F2;
+    color: var(--text-black);
+    font-size: 0.92rem;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1.5px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.clean-input:focus {
+    background-color: #FFFFFF;
+    border-color: var(--accent-orange);
+}
+
+/* Carrito Lateral Minimalista (Fondo Blanco) */
+.cart-side-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 480px;
+    height: 100vh;
+    background-color: #FFFFFF;
+    color: var(--text-black);
+    z-index: 2200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.28);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cart-side-drawer.open {
+    transform: translateX(0);
+}
+
+.cart-items-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cart-line-item {
+    display: grid;
+    grid-template-columns: 78px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(30, 30, 30, 0.12);
+}
+
+.cart-line-thumb {
+    width: 78px;
+    height: 64px;
+    object-fit: contain;
+}
+
+.cart-line-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--accent-coffee);
+    line-height: 1.05;
+}
+
+.cart-line-price {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-black);
+}
+
+.cart-qty-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.cart-qty-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--text-black);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-qty-btn:hover {
+    background-color: var(--accent-orange);
+    border-color: var(--accent-orange);
+    color: #FFFFFF;
+}
+
+.cart-footer-summary {
+    padding-top: 20px;
+    border-top: 2px solid var(--text-black);
+}
+
+.cart-total-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cart-total-amount {
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    color: var(--accent-coffee);
+}
+
+/* Notificación Toast Minimalista */
+.toast-stack {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 4000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.minimal-toast {
+    background-color: var(--bg-dark);
+    color: #FFFFFF;
+    padding: 14px 22px;
+    border-left: 4px solid var(--accent-orange);
+    font-size: 0.88rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    animation: slideInToast 0.3s ease forwards;
+}
+
+@keyframes slideInToast {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   14. RESPONSIVE DESIGN (PC / TABLET / MÓVIL CELULAR)
+   - En el despliegue de tipo hamburguesa, recorta el cuadro de fondo a solo
+     el ancho donde quepan los textos.
+   - En móvil la Top Bar desaparece desde el inicio.
+   - En móvil la Tienda en Línea se navega verticalmente en 2 columnas.
+   ========================================================================== */
+@media (max-width: 1100px) {
+    .nav-list {
+        gap: 18px;
+    }
+    .store-product-item {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .workshop-layout,
+    .about-grid,
+    .contact-grid,
+    .product-sheet-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 960px) {
+    /* En versión móvil la Top Bar desaparece por completo desde el inicio */
+    .top-notice-bar {
+        display: none !important;
+    }
+
+    .header-offset {
+        height: var(--header-height);
+    }
+
+    .hero-section {
+        height: calc(100vh - var(--header-height));
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    /* Despliegue tipo hamburguesa recortado únicamente al ancho donde caben los textos */
+    .main-nav {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        left: auto;
+        width: max-content;
+        min-width: 245px;
+        max-width: 88vw;
+        height: auto;
+        max-height: calc(100vh - var(--header-height));
+        background-color: var(--bg-dark);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 2px solid var(--accent-orange);
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: -16px 20px 44px rgba(0, 0, 0, 0.52);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 28px 26px;
+        overflow-y: auto;
+        transform: translateX(105%);
+        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+        z-index: 998;
+    }
+
+    .main-nav.mobile-open {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: max-content;
+        min-width: 100%;
+        height: auto;
+        gap: 0;
+    }
+
+    .nav-item {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        height: auto;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+        width: 100%;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 13px 0;
+        font-size: 0.94rem;
+        white-space: nowrap;
+    }
+
+    .nav-link::after {
+        bottom: 0;
+    }
+
+    .mega-dropdown {
+        position: static;
+        width: max-content;
+        max-width: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        display: none;
+        padding: 10px 0 18px 10px;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+    }
+
+    .nav-item.open > .mega-dropdown {
+        display: block;
+    }
+
+    .mega-dropdown-inner,
+    .mega-cols-3,
+    .mega-cols-equipamiento,
+    .mega-cols-brands,
+    .mega-cols-comunidad-clean {
+        flex-direction: column;
+        gap: 18px;
+        padding: 0;
+    }
+
+    .mega-links.two-subcols {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    /* Noticias: 1 tarjeta completa por vista en carrusel horizontal móvil */
+    .news-slide-item {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* TIENDA EN LÍNEA EN MÓVIL CELULAR:
+       Navegación vertical en 2 columnas */
+    .store-carousel-viewport {
+        overflow: visible;
+    }
+
+    .store-products-track {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px 14px;
+        transform: none !important;
+    }
+
+    .store-product-item {
+        flex: none;
+        max-width: 100%;
+        padding: 10px 8px 16px;
+        border-right: none;
+        border-bottom: 1px solid rgba(30, 30, 30, 0.16);
+    }
+
+    .store-product-item:nth-child(odd) {
+        border-right: 1px solid rgba(30, 30, 30, 0.16);
+    }
+
+    .product-image-trigger {
+        height: 150px;
+    }
+
+    .product-img-cutout {
+        max-height: 140px;
+    }
+
+    .product-title-heading {
+        font-size: 1.2rem;
+    }
+
+    .product-price-text {
+        font-size: 0.95rem;
+    }
+
+    .btn-product-cart {
+        width: 44px;
+        height: 30px;
+    }
+
+    /* Ocultar flechas horizontales de la tienda en móvil ya que es grid vertical */
+    #store-desktop-arrows {
+        display: none;
+    }
+
+    .store-title-search-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .store-main-title {
+        white-space: normal;
+    }
+
+    .store-inline-search-box {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .store-inline-search-input {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+    }
+
+    .store-active-filter-bar {
+        justify-content: flex-start;
+    }
+
+    .news-slide-item {
+        grid-template-columns: 1fr;
+    }
+
+    .news-poster-wrap {
+        max-width: 260px;
+    }
+
+    .workshop-form-row,
+    .clean-form-grid,
+    .ws-pay-mode-grid,
+    .workshop-calculator-strip,
+    .about-caption-columns,
+    .footer-top-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-sheet-window,
+    .minimal-dialog-window {
+        padding: 28px 20px;
+    }
+
+    .footer-bottom-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .footer-bottom-left,
+    .footer-bottom-center,
+    .footer-bottom-right {
+        justify-self: center;
+        text-align: center;
+    }
+
+    .hero-nav-controls {
+        bottom: 20px;
+        left: 0;
+        right: 0;
+    }
+}
