@@ -26,7 +26,7 @@
          fondos ni cuadros atrás, y abajo un botón sencillo gris "Iniciar".
          ==================================================================== -->
     <div id="intro-screen" class="intro-screen" aria-label="Pantalla de bienvenida Cordillera Trek">
-        <video id="intro-video" class="intro-video" autoplay muted loop playsinline preload="auto">
+        <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto">
             <source src="assets/video/video-intro.mp4" type="video/mp4">
         </video>
         <div class="intro-center-minimal">
@@ -325,19 +325,17 @@
                     </div>
                 </article>
 
-                <!-- SLIDE 2: Video sin texto, solo botón Gris Oscuro texto blanco (16:9 en PC / vertical en Móvil) -->
+                <!-- SLIDE 2: Video 16:9 (PC y Móvil) sin texto, solo botón Gris Oscuro texto blanco -->
                 <article class="hero-slide" data-slide-index="1">
                     <video
                         id="hero-slide-video"
                         class="hero-bg-video"
-                        data-src-pc="assets/video/video-slide-02_16_9.mp4"
-                        data-src-mobile="assets/video/video-slide-02.mp4"
+                        src="assets/video/video-slide-02_16_9.mp4"
                         muted
                         playsinline
                         preload="auto"
                     >
-                        <source media="(min-width: 769px)" src="assets/video/video-slide-02_16_9.mp4" type="video/mp4">
-                        <source src="assets/video/video-slide-02.mp4" type="video/mp4">
+                        <source src="assets/video/video-slide-02_16_9.mp4" type="video/mp4">
                     </video>
                     <div class="hero-slide-overlay minimal-overlay"></div>
                     <div class="container hero-content-container">
@@ -601,17 +599,17 @@
                             <div class="workshop-calculator-strip" aria-live="polite">
                                 <div class="ws-calc-col">
                                     <span class="ws-calc-label">COSTO TOTAL ESTIMADO</span>
-                                    <strong id="ws-calc-total" class="ws-calc-value">$350.00 MXN</strong>
+                                    <span id="ws-calc-total" class="ws-calc-value">$350.00 MXN</span>
                                     <small id="ws-calc-breakdown">Servicio $350 + Envío $0</small>
                                 </div>
                                 <div class="ws-calc-col ws-calc-highlight">
                                     <span class="ws-calc-label">ANTICIPO PARA AGENDAR</span>
-                                    <strong id="ws-calc-deposit" class="ws-calc-value ws-calc-orange">$150.00 MXN</strong>
+                                    <span id="ws-calc-deposit" class="ws-calc-value ws-calc-orange">$150.00 MXN</span>
                                     <small>Se abona al total de tu servicio</small>
                                 </div>
                                 <div class="ws-calc-col">
                                     <span class="ws-calc-label">SALDO AL ENTREGAR</span>
-                                    <strong id="ws-calc-remaining" class="ws-calc-value">$200.00 MXN</strong>
+                                    <span id="ws-calc-remaining" class="ws-calc-value">$200.00 MXN</span>
                                     <small>Contra entrega en taller / domicilio</small>
                                 </div>
                             </div>
