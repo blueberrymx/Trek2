@@ -97,23 +97,35 @@ button {
     padding: 0 4%;
 }
 
-/* Scrollbar Personalizado Naranja (Estilo Mockup Trek-web-06) */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+/* Scrollbar Personalizado Naranja solo en PC (en móvil se oculta por completo) */
+@media (min-width: 961px) {
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #E5E5E5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-orange);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-orange-hover);
+    }
 }
 
-::-webkit-scrollbar-track {
-    background: #E5E5E5;
+/* Utilidades de Salto de Línea para Títulos (PC vs Móvil) */
+.mobile-only-br,
+.mobile-only-inline {
+    display: none;
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--accent-orange);
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-orange-hover);
+.desktop-only-inline {
+    display: inline;
 }
 
 /* Utilidades de Tipografía */
@@ -873,7 +885,7 @@ button {
     text-transform: uppercase;
     color: #FFFFFF;
     margin-bottom: 14px;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.8), 0 1px 3px rgba(0, 0, 0, 0.95);
 }
 
 .hero-description {
@@ -881,9 +893,9 @@ button {
     font-size: 0.96rem;
     font-weight: 400;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.96);
+    color: rgba(255, 255, 255, 0.98);
     margin-bottom: 26px;
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.68);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 4px 22px rgba(0, 0, 0, 0.85), 0 1px 2px rgba(0, 0, 0, 1);
 }
 
 /* Botón Píldora Animado "Ver Catálogo TREK" */
@@ -1047,11 +1059,35 @@ button {
 .textured-light-section {
     position: relative;
     background-color: var(--bg-white);
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+}
+
+.textured-light-section::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 100vh;
+    height: 100lvh;
     background-image: url('../assets/images/fondo-01.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.textured-light-section > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .store-section {
@@ -1163,64 +1199,30 @@ button {
 
 .store-active-filter-bar {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 24px;
     margin-top: 6px;
     width: 100%;
 }
 
-.store-category-select {
-    height: 30px;
-    padding: 0 28px 0 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(30, 30, 30, 0.32);
-    background-color: rgba(255, 255, 255, 0.85);
-    color: var(--text-black);
+.btn-reset-catalog {
     font-family: var(--font-sans);
-    font-size: 0.74rem;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    cursor: pointer;
+    letter-spacing: 0.06em;
+    color: var(--accent-coffee);
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
     transition: var(--transition-fast);
 }
 
-.store-category-select:hover,
-.store-category-select:focus {
-    border-color: var(--accent-orange);
-    background-color: #FFFFFF;
-    outline: none;
-}
-
-.active-filter-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-sans);
-    font-size: 0.74rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text-black);
-    padding: 4px 12px;
-    border-radius: 999px;
-    border: 1px solid rgba(30, 30, 30, 0.35);
-}
-
-.btn-reset-catalog {
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--accent-coffee);
-    padding: 4px 8px;
-    border-bottom: 1.5px solid transparent;
-}
-
-.btn-reset-catalog:hover {
+.btn-reset-catalog:hover,
+.btn-reset-catalog.active {
     color: var(--accent-orange);
     border-bottom-color: var(--accent-orange);
 }
@@ -1424,13 +1426,37 @@ button {
 .workshop-section {
     position: relative;
     background-color: #141414;
+    color: var(--text-white);
+    padding: 92px 0 96px;
+    clip-path: inset(0 0 0 0);
+    -webkit-clip-path: inset(0 0 0 0);
+}
+
+.workshop-section::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
+    height: 100vh;
+    height: 100lvh;
     background-image: url('../assets/images/fondo-02.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: var(--text-white);
-    padding: 92px 0 96px;
+    pointer-events: none;
+    z-index: 0;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.workshop-section > .container {
+    position: relative;
+    z-index: 1;
 }
 
 .workshop-layout {
@@ -1646,8 +1672,8 @@ textarea.workshop-input {
 
 .workshop-calculator-strip {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
     padding: 12px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.22);
 }
@@ -1867,13 +1893,20 @@ textarea.workshop-input {
 
 .featured-fixed-viewport {
     position: fixed;
-    inset: 0;
-    width: 100vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    width: 100%;
     height: 100vh;
+    height: 100lvh;
     display: flex;
     align-items: center;
     pointer-events: none;
     z-index: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
 }
 
 .featured-fixed-bg {
@@ -1884,6 +1917,10 @@ textarea.workshop-input {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 1;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .featured-parallax-overlay {
@@ -1998,14 +2035,19 @@ textarea.workshop-input {
 }
 
 .about-stats-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 16px;
 }
 
 .about-stat-item {
     display: flex;
     flex-direction: column;
+    flex: 0 0 auto;
 }
 
 .about-stat-number {
@@ -3099,6 +3141,30 @@ textarea.workshop-input {
 }
 
 @media (max-width: 960px) {
+    /* Eliminar barra lateral derecha de desplazamiento en versión móvil y bloquear desbordamientos */
+    html,
+    body {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    html::-webkit-scrollbar,
+    body::-webkit-scrollbar {
+        display: none;
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    main,
+    section,
+    .site-footer {
+        overflow-x: clip;
+        max-width: 100%;
+    }
+
     /* En versión móvil la Top Bar desaparece por completo desde el inicio */
     .top-notice-bar {
         display: none !important;
@@ -3110,13 +3176,6 @@ textarea.workshop-input {
 
     .hero-section {
         height: calc(100vh - var(--header-height));
-    }
-
-    /* En navegadores móviles (iOS/Android), background-attachment: fixed causa estiramiento borroso;
-       cambiar a scroll mantiene nítidos fondo-01.png y fondo-02.png en celular */
-    .textured-light-section,
-    .workshop-section {
-        background-attachment: scroll;
     }
 
     .mobile-menu-toggle {
@@ -3144,12 +3203,16 @@ textarea.workshop-input {
         padding: 18px 28px 26px;
         overflow-y: auto;
         transform: translateX(105%);
-        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s;
         z-index: 998;
     }
 
     .main-nav.mobile-open {
         transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-list {
@@ -3225,6 +3288,26 @@ textarea.workshop-input {
 }
 
 @media (max-width: 768px) {
+    /* Activar saltos y textos exclusivos de versión móvil */
+    .mobile-only-br {
+        display: block;
+    }
+
+    .desktop-only-inline {
+        display: none !important;
+    }
+
+    .mobile-only-inline {
+        display: inline !important;
+    }
+
+    /* Contenedor general seguro para que nada rebase el ancho de la pantalla móvil */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 18px;
+    }
+
     /* HEADER MÓVIL: Escalado proporcional de logos e iconos para evitar desbordamiento en celulares */
     .header-inner {
         gap: 10px;
@@ -3393,9 +3476,19 @@ textarea.workshop-input {
         gap: 14px;
     }
 
-    .store-main-title {
+    /* Títulos de 2 líneas en móvil: Tienda, Taller y Noticias */
+    .store-main-title,
+    #taller .section-title,
+    .news-main-title {
         white-space: normal;
-        font-size: clamp(2.1rem, 8.2vw, 2.75rem);
+        font-size: clamp(2.15rem, 8.4vw, 2.85rem);
+        line-height: 0.96;
+    }
+
+    /* Título de 3 líneas en móvil: Nosotros */
+    .about-main-heading {
+        font-size: clamp(2.0rem, 7.8vw, 2.65rem);
+        line-height: 0.96;
     }
 
     .store-inline-search-box {
@@ -3411,32 +3504,34 @@ textarea.workshop-input {
     }
 
     .store-active-filter-bar {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
         justify-content: flex-start;
-        gap: 8px;
+        gap: 22px;
+        margin-top: 12px;
     }
 
-    .store-category-select {
-        width: 100%;
-        height: 36px;
-        font-size: 0.75rem;
+    /* TALLER BIKE MÓVIL: Hacer más angosto horizontalmente el contenido de la sección de Taller */
+    #taller > .container {
+        max-width: 84%;
+        margin: 0 auto;
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    .active-filter-pill {
-        font-size: 0.7rem;
-    }
-
-    /* TALLER BIKE MÓVIL: Evitar desbordamiento horizontal de la barra deslizante */
     .workshop-sliding-bar {
-        left: -8px;
-        right: -8px;
+        left: -6px;
+        right: -6px;
     }
 
     .workshop-service-name {
-        font-size: 1.4rem;
+        font-size: 1.32rem;
     }
 
     .workshop-chain-icon {
-        width: 60px;
+        width: 56px;
     }
 
     .workshop-pickup-toggle {
@@ -3468,7 +3563,14 @@ textarea.workshop-input {
     }
 
     .featured-parallax-band {
-        height: 390px;
+        height: 400px;
+    }
+
+    .featured-fixed-content {
+        width: 100%;
+        max-width: 92%;
+        margin: 0 auto;
+        transform: translate3d(0, 0, 0);
     }
 
     .featured-cordillera-icon {
@@ -3487,34 +3589,43 @@ textarea.workshop-input {
         grid-template-columns: 1fr;
     }
 
-    /* En móvil: Costo Total, Anticipo y Saldo en una sola línea horizontal y precios sin negrita */
+    /* En móvil: Costo Total y Anticipo en una sola línea horizontal (2 columnas) y precios sin negrita */
     .workshop-calculator-strip {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
         align-items: start;
     }
 
     .ws-calc-label {
-        font-size: 0.58rem;
+        font-size: 0.62rem;
         letter-spacing: 0.03em;
         white-space: nowrap;
     }
 
     .ws-calc-value {
-        font-size: clamp(1.1rem, 4.4vw, 1.38rem);
+        font-size: clamp(1.18rem, 4.8vw, 1.45rem);
         font-weight: 400 !important;
         white-space: nowrap;
     }
 
     .ws-calc-col small {
-        font-size: 0.62rem;
-        line-height: 1.2;
+        font-size: 0.65rem;
+        line-height: 1.25;
     }
 
-    /* En móvil: Los 4 indicadores de Nosotros en una sola fila */
+    /* En móvil: Los 4 indicadores de Nosotros en una sola fila con distribución horizontal equitativa */
     .about-stats-row {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .about-stat-item {
+        flex: 0 0 auto;
     }
 
     .about-stat-number {
