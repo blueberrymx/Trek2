@@ -377,7 +377,7 @@
 
                     <!-- Fila principal: Título a la izquierda y Buscador al lado derecho en la misma línea horizontal -->
                     <div class="store-title-search-row">
-                        <h2 class="section-title store-main-title">BICICLETAS, EQUIPO &amp; REFACCIONES</h2>
+                        <h2 class="section-title store-main-title">BICICLETAS, EQUIPO <br class="mobile-only-br">&amp; REFACCIONES</h2>
 
                         <form id="store-inline-search-form" class="store-inline-search-box" role="search">
                             <input type="search" id="store-inline-search-input" class="store-inline-search-input" placeholder="Buscar por nombre o marca" aria-label="Buscar por nombre o marca">
@@ -385,56 +385,13 @@
                         </form>
                     </div>
 
-                    <!-- Barra de botones del seleccionador de categorías debajo del título y del buscador -->
+                    <!-- Textos sencillos en una fila para alternar entre Selección Inicial y Ver Todo -->
                     <div class="store-active-filter-bar">
-                        <label for="store-category-quick-select" class="sr-only">Seleccionar categoría</label>
-                        <select id="store-category-quick-select" class="store-category-select" aria-label="Filtrar catálogo por categoría o marca">
-                            <option value="__featured__">Seleccionador: Catálogo Destacado (13)</option>
-                            <option value="__all__">Ver Todo el Inventario (68 SKUs)</option>
-                            <optgroup label="Bicicletas · Modalidad">
-                                <option value="Montaña">Bicicletas · Montaña (MTB)</option>
-                                <option value="Ruta">Bicicletas · Ruta</option>
-                                <option value="Gravel">Bicicletas · Gravel / Híbrida</option>
-                                <option value="E-Bikes">Bicicletas · E-Bikes Eléctricas</option>
-                                <option value="Infantil">Bicicletas · Infantil</option>
-                            </optgroup>
-                            <optgroup label="Bicicletas · Marcas">
-                                <option value="Bicicletas TREK">Bicicletas TREK</option>
-                                <option value="Bicicletas Cannondale">Bicicletas Cannondale</option>
-                                <option value="Bicicletas Alubike">Bicicletas Alubike</option>
-                            </optgroup>
-                            <optgroup label="Equipamiento">
-                                <option value="Accesorios">Equipamiento · Accesorios</option>
-                                <option value="Componentes">Equipamiento · Componentes</option>
-                                <option value="Líquidos y Lubricantes">Equipamiento · Líquidos y Lubricantes</option>
-                                <option value="Herramientas">Equipamiento · Herramientas</option>
-                                <option value="Nutrición">Equipamiento · Nutrición</option>
-                            </optgroup>
-                            <optgroup label="22 Marcas Oficiales">
-                                <option value="TREK">Marca · TREK</option>
-                                <option value="Cannondale">Marca · Cannondale</option>
-                                <option value="Alubike">Marca · Alubike</option>
-                                <option value="Shimano">Marca · Shimano</option>
-                                <option value="Bontrager">Marca · Bontrager</option>
-                                <option value="Fox">Marca · Fox</option>
-                                <option value="Garmin">Marca · Garmin</option>
-                                <option value="Oakley">Marca · Oakley</option>
-                                <option value="Maxxis">Marca · Maxxis</option>
-                                <option value="Pirelli">Marca · Pirelli</option>
-                                <option value="Stans">Marca · Stan's NoTubes</option>
-                                <option value="SiS">Marca · SiS Nutrition</option>
-                                <option value="Hammer">Marca · Hammer Nutrition</option>
-                            </optgroup>
-                        </select>
-
-                        <span id="store-active-filter-pill" class="active-filter-pill">
-                            Selección Destacada (13 de 68 en inventario)
-                        </span>
-                        <button type="button" id="btn-store-show-featured" class="btn-reset-catalog">
+                        <button type="button" id="btn-store-show-featured" class="btn-reset-catalog active">
                             Selección Inicial
                         </button>
                         <button type="button" id="btn-store-show-all" class="btn-reset-catalog">
-                            Ver Todo (68 SKUs)
+                            Ver Todo
                         </button>
                     </div>
                 </div>
@@ -475,7 +432,7 @@
                     <!-- Columna Izquierda: Selector de Servicios -->
                     <div class="workshop-left-column reveal-on-scroll">
                         <span class="section-eyebrow eyebrow-orange">TALLER ESPECIALIZADO DE CICLISMO</span>
-                        <h2 class="section-title title-white">AGENDA TU SERVICIO DE TALLER</h2>
+                        <h2 class="section-title title-white">AGENDA TU<br>SERVICIO DE TALLER</h2>
                         <ul class="workshop-cert-bullets">
                             <li>&middot; Mecánicos certificados Trek, Fox, Shimano y SRAM</li>
                             <li>&middot; Generación de Hoja de Servicio Oficial</li>
@@ -595,7 +552,7 @@
                                 <textarea id="ws-notes" class="workshop-input" placeholder="Describe ruidos, ajustes específicos o piezas que deseas cotizar..."></textarea>
                             </div>
 
-                            <!-- Calculador en Vivo de Anticipo y Total de Taller -->
+                            <!-- Calculador en Vivo de Anticipo y Total de Taller (Solo Costo Total y Anticipo) -->
                             <div class="workshop-calculator-strip" aria-live="polite">
                                 <div class="ws-calc-col">
                                     <span class="ws-calc-label">COSTO TOTAL ESTIMADO</span>
@@ -606,11 +563,6 @@
                                     <span class="ws-calc-label">ANTICIPO PARA AGENDAR</span>
                                     <span id="ws-calc-deposit" class="ws-calc-value ws-calc-orange">$150.00 MXN</span>
                                     <small>Se abona al total de tu servicio</small>
-                                </div>
-                                <div class="ws-calc-col">
-                                    <span class="ws-calc-label">SALDO AL ENTREGAR</span>
-                                    <span id="ws-calc-remaining" class="ws-calc-value">$200.00 MXN</span>
-                                    <small>Contra entrega en taller / domicilio</small>
                                 </div>
                             </div>
 
@@ -641,7 +593,7 @@
                 <div class="news-header-row reveal-on-scroll">
                     <div>
                         <span class="section-eyebrow">COMUNIDAD / NOTICIAS / EVENTOS</span>
-                        <h2 class="section-title">NOTICIAS &amp; PRÓXIMOS EVENTOS</h2>
+                        <h2 class="section-title news-main-title">NOTICIAS &amp; <br class="mobile-only-br">PRÓXIMOS EVENTOS</h2>
                     </div>
                     <img src="assets/images/biker.png" alt="Ciclista Cordillera" class="news-biker-icon">
                 </div>
@@ -701,7 +653,10 @@
                     <div class="about-left-column reveal-on-scroll">
                         <div class="about-left-top">
                             <span class="section-eyebrow eyebrow-orange about-eyebrow-top">19 AÑOS DE PASIÓN CICLISTA</span>
-                            <h2 class="section-title about-main-heading">DE DURANGO TREK A LA TIENDA<br>INSIGNIA MÁS GRANDE DEL ESTADO</h2>
+                            <h2 class="section-title about-main-heading">
+                                <span class="desktop-only-inline">DE DURANGO TREK A LA TIENDA<br>INSIGNIA MÁS GRANDE DEL ESTADO</span>
+                                <span class="mobile-only-inline">DE DURANGO TREK<br>A LA TIENDA INSIGNIA MÁS<br>GRANDE DEL ESTADO</span>
+                            </h2>
                             <p class="about-paragraph">
                                 Establecidos hace <strong>19 años</strong> como <strong>Durango Trek</strong>, evolucionamos para convertirnos en <strong>Cordillera Trek</strong>: la tienda insignia más grande de nuestro estado, diseñada por y para ciclistas que buscan superar sus límites en cada kilómetro.
                             </p>
