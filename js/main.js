@@ -26,9 +26,9 @@
         USERS_DB: 'cordillera_rediseno_users_db_v2',
         ORDERS: 'cordillera_rediseno_orders_v2',
         WORKSHOP_BOOKINGS: 'cordillera_rediseno_workshop_v2',
-        CUSTOM_IMG_OVERRIDES: 'cordillera_rediseno_img_overrides_v2',
-        CUSTOM_GALLERY_OVERRIDES: 'cordillera_rediseno_gallery_overrides_v2',
-        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v2'
+        CUSTOM_IMG_OVERRIDES: 'cordillera_rediseno_img_overrides_v3',
+        CUSTOM_GALLERY_OVERRIDES: 'cordillera_rediseno_gallery_overrides_v3',
+        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v3'
     };
 
     const state = {
@@ -696,13 +696,20 @@
         };
     }
 
+    function updateStoreFilterButtonsState(mode) {
+        const btnFeatured = document.getElementById('btn-store-show-featured');
+        const btnAll = document.getElementById('btn-store-show-all');
+        if (btnFeatured) btnFeatured.classList.toggle('active', mode === 'featured');
+        if (btnAll) btnAll.classList.toggle('active', mode === 'all');
+    }
+
     function syncQuickCategorySelect(value) {
-        const quickSelect = document.getElementById('store-category-quick-select');
-        if (!quickSelect) return;
-        const options = Array.from(quickSelect.options);
-        const match = options.find(opt => opt.value.toLowerCase() === String(value || '').toLowerCase());
-        if (match) {
-            quickSelect.value = match.value;
+        if (value === '__featured__') {
+            updateStoreFilterButtonsState('featured');
+        } else if (value === '__all__') {
+            updateStoreFilterButtonsState('all');
+        } else {
+            updateStoreFilterButtonsState('custom');
         }
     }
 
@@ -1535,12 +1542,19 @@
 
         state.fullscreenGallery.images = galleryImages;
 
-        const isMainCutout = String(galleryImages[0]).toLowerCase().endsWith('.png') || String(galleryImages[0]).startsWith('data:image/png');
-        const extraImages = galleryImages.slice(1, 5);
+        const isTransparentCutoutUrl = (url) => {
+            const s = String(url || '').toLowerCase();
+            if (s.startsWith('data:image/png')) return true;
+            if (!s.endsWith('.png')) return false;
+            return !/_\d+\.png$/.test(s);
+        };
+
+        const isMainCutout = isTransparentCutoutUrl(galleryImages[0]);
+        const extraImages = galleryImages.slice(1);
 
         if (extraImages.length > 0) {
             const subSquaresHTML = extraImages.map((imgUrl, idx) => {
-                const isCutout = String(imgUrl).toLowerCase().endsWith('.png') || String(imgUrl).startsWith('data:image/png');
+                const isCutout = isTransparentCutoutUrl(imgUrl);
                 return `
                     <div class="bento-square-thumb ${isCutout ? 'contain-mode' : ''}" data-fs-index="${idx + 1}" title="Ampliar fotografía ${idx + 2} en alta resolución">
                         <img src="${imgUrl}" alt="${product.name} vista ${idx + 2}">
@@ -1582,6 +1596,13 @@
 
         modal.classList.add('open');
         document.body.classList.add('locked');
+
+        // Garantizar que la ventana de la ficha técnica siempre inicie en el scroll superior (top)
+        const sheetWindow = modal.querySelector('.product-sheet-window');
+        if (sheetWindow) {
+            sheetWindow.scrollTop = 0;
+        }
+        modal.scrollTop = 0;
     }
 
     function initProductSheetAndGalleryModals() {
