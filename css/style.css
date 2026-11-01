@@ -3544,11 +3544,6 @@ textarea.workshop-input {
         padding: 3px 10px 2px;
     }
 
-    .workshop-submit-row .btn-pill-cta {
-        width: 100%;
-        justify-content: space-between;
-    }
-
     /* NOTICIAS Y DESTACADO MÓVIL */
     .news-biker-icon {
         width: 74px;
@@ -3577,8 +3572,10 @@ textarea.workshop-input {
         width: 90px;
     }
 
+    /* Título de 2 líneas en móvil: Destacado */
     .featured-parallax-title {
         font-size: clamp(1.9rem, 7.6vw, 2.6rem);
+        line-height: 0.98;
     }
 
     .workshop-form-row,
@@ -3589,7 +3586,29 @@ textarea.workshop-input {
         grid-template-columns: 1fr;
     }
 
-    /* En móvil: Costo Total y Anticipo en una sola línea horizontal (2 columnas) y precios sin negrita */
+    /* En móvil: mantener los botones de Taller y Contacto en su tamaño natural de PC (no expandirlos a 100% de ancho) */
+    .workshop-submit-row {
+        justify-content: flex-start;
+    }
+
+    .workshop-submit-row .btn-pill-cta {
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    .contact-actions-row {
+        justify-content: flex-start;
+    }
+
+    .contact-actions-row .btn-pill-cta {
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    .sheet-cta-actions .btn-pill-cta {
+        width: 100%;
+        justify-content: space-between;
+    }
     .workshop-calculator-strip {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -3640,7 +3659,6 @@ textarea.workshop-input {
         height: 290px;
     }
 
-    .contact-actions-row .btn-pill-cta,
     .sheet-cta-actions .btn-pill-cta {
         width: 100%;
         justify-content: space-between;
