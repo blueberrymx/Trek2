@@ -27,7 +27,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productos/rail-8-negro-dorado.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/rail-8-negro-dorado.png",
+      "img_hd": "assets/images/productos/Rail8-25-48470-A-Portrait (1).avif",
       "display_category": "E-BIKE",
       "filter_tags": [
         "bicicletas",
@@ -66,7 +66,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/FUE2228474K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/FUE2228474K.png",
+      "img_hd": "assets/images/productoshd/FUE2228474K_2.avif",
       "display_category": "E-MTB",
       "filter_tags": [
         "bicicletas",
@@ -106,9 +106,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Ruta - Hombre"
       ],
-      "img": "assets/images/productos/supersix-evo-gris.png",
+      "img": "assets/images/productoshd/2/SUP30656724E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/supersix-evo-gris.png",
+      "img_hd": "assets/images/productoshd/2/SUP30656724E_1.webp",
       "display_category": "RUTA",
       "filter_tags": [
         "bicicletas",
@@ -120,7 +120,12 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/supersix-evo-gris.png"
+        "assets/images/productoshd/2/SUP30656724E_1.webp",
+        "assets/images/productoshd/2/SUP30656724E_2.webp",
+        "assets/images/productoshd/2/SUP30656724E_3.webp",
+        "assets/images/productoshd/2/SUP30656724E_4.webp",
+        "assets/images/productoshd/2/SUP30656724E_5.webp",
+        "assets/images/productoshd/2/SUP30656724E_6.webp"
       ],
       "display_title": "SUPER SIX EVO G4 3 51 GRIS",
       "initial_featured": true,
@@ -143,7 +148,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/TOP18118293R.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/TOP18118293R.png",
+      "img_hd": "assets/images/productoshd/TOP18118293R_2.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -181,7 +186,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/DOM36819094E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/DOM36819094E.png",
+      "img_hd": "assets/images/productoshd/DOM36819094E_2.avif",
       "display_category": "GRAVEL",
       "filter_tags": [
         "bicicletas",
@@ -222,7 +227,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/PRE36843695K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/PRE36843695K.png",
+      "img_hd": "assets/images/productoshd/2/PRE36843695K_2.png",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -233,7 +238,7 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/PRE36843695K.png"
+        "assets/images/productoshd/2/PRE36843695K_2.png"
       ],
       "display_title": "PRECALIBER 24 8 VEL C/SUSP GRIS/NARANJA",
       "initial_featured": true,
@@ -259,9 +264,9 @@ window.ASCEND_RMS_SYNC = {
         "Talla L (59-63cm)"
       ],
       "img": "assets/images/productos/giro-man-m.png",
-      "img_hd": "assets/images/productos/giro-man-m.png",
+      "img_hd": "assets/images/productos/giro-man-m.jpg",
       "gallery": [
-        "assets/images/productos/giro-man-m.png"
+        "assets/images/productos/giro-man-m.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -292,9 +297,9 @@ window.ASCEND_RMS_SYNC = {
         "Edición Solar Touch"
       ],
       "img": "assets/images/productos/010-02695-10.png",
-      "img_hd": "assets/images/productos/010-02695-10.png",
+      "img_hd": "assets/images/productos/010-02695-10.jpg",
       "gallery": [
-        "assets/images/productos/010-02695-10.png"
+        "assets/images/productos/010-02695-10.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -331,9 +336,9 @@ window.ASCEND_RMS_SYNC = {
         "29\" · 120mm · Boost 15x110"
       ],
       "img": "assets/images/productos/fox-910-21.png",
-      "img_hd": "assets/images/productos/fox-910-21.png",
+      "img_hd": "assets/images/productos/fox-910-21.jpg",
       "gallery": [
-        "assets/images/productos/fox-910-21.png"
+        "assets/images/productos/fox-910-21.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -371,9 +376,9 @@ window.ASCEND_RMS_SYNC = {
         "Presentación Taller & Ruta"
       ],
       "img": "assets/images/productos/taller-grasa.png",
-      "img_hd": "assets/images/productos/taller-grasa.png",
+      "img_hd": "assets/images/productos/taller-grasa.jpg",
       "gallery": [
-        "assets/images/productos/taller-grasa.png"
+        "assets/images/productos/taller-grasa.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -412,9 +417,9 @@ window.ASCEND_RMS_SYNC = {
         "Pack Competencia"
       ],
       "img": "assets/images/productos/sis-pack-dgo.png",
-      "img_hd": "assets/images/productos/sis-pack-dgo.png",
+      "img_hd": "assets/images/productos/sis-pack-dgo.jpg",
       "gallery": [
-        "assets/images/productos/sis-pack-dgo.png"
+        "assets/images/productos/sis-pack-dgo.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -446,9 +451,9 @@ window.ASCEND_RMS_SYNC = {
         "SPD Cross Country"
       ],
       "img": "assets/images/productos/pd-m8100.png",
-      "img_hd": "assets/images/productos/pd-m8100.png",
+      "img_hd": "assets/images/productos/pd-m8100.jpg",
       "gallery": [
-        "assets/images/productos/pd-m8100.png"
+        "assets/images/productos/pd-m8100.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -481,9 +486,9 @@ window.ASCEND_RMS_SYNC = {
         "Jaula Larga SGS (10-51T)"
       ],
       "img": "assets/images/productos/irdm9100sgs.png",
-      "img_hd": "assets/images/productos/irdm9100sgs.png",
+      "img_hd": "assets/images/productos/irdm9100sgs.jpg",
       "gallery": [
-        "assets/images/productos/irdm9100sgs.png"
+        "assets/images/productos/irdm9100sgs.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -517,9 +522,9 @@ window.ASCEND_RMS_SYNC = {
         "29 x 2.50 Wide Trail"
       ],
       "img": "assets/images/productos/tb00219400.png",
-      "img_hd": "assets/images/productos/tb00219400.png",
+      "img_hd": "assets/images/productos/tb00219400.jpg",
       "gallery": [
-        "assets/images/productos/tb00219400.png"
+        "assets/images/productos/tb00219400.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -558,9 +563,9 @@ window.ASCEND_RMS_SYNC = {
         "Talla L"
       ],
       "img": "assets/images/productos/maillot-gobik.png",
-      "img_hd": "assets/images/productos/maillot-gobik.png",
+      "img_hd": "assets/images/productos/maillot-gobik.jpg",
       "gallery": [
-        "assets/images/productos/maillot-gobik.png"
+        "assets/images/productos/maillot-gobik.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -599,9 +604,9 @@ window.ASCEND_RMS_SYNC = {
         "Talla L"
       ],
       "img": "assets/images/productos/bon-circ-l.png",
-      "img_hd": "assets/images/productos/bon-circ-l.png",
+      "img_hd": "assets/images/productos/bon-circ-l.jpg",
       "gallery": [
-        "assets/images/productos/bon-circ-l.png"
+        "assets/images/productos/bon-circ-l.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -638,9 +643,9 @@ window.ASCEND_RMS_SYNC = {
         "10-51T Micro Spline"
       ],
       "img": "assets/images/productos/icsm8100051.png",
-      "img_hd": "assets/images/productos/icsm8100051.png",
+      "img_hd": "assets/images/productos/icsm8100051.jpg",
       "gallery": [
-        "assets/images/productos/icsm8100051.png"
+        "assets/images/productos/icsm8100051.jpg"
       ],
       "filter_tags": [
         "equipamiento",
@@ -669,9 +674,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Cuadros"
       ],
-      "img": "assets/images/productos/cuadro-roscoe-rojo.png",
+      "img": "assets/images/productoshd/2/CUA31442171K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cuadro-roscoe-rojo.png",
+      "img_hd": "assets/images/productoshd/2/CUA31442171K_1.png",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -682,7 +687,7 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cuadro-roscoe-rojo.png"
+        "assets/images/productoshd/2/CUA31442171K_1.png"
       ],
       "display_title": "CUADRO ROSCOE GEN 4 L 29 ROJO LAVA",
       "initial_featured": false,
@@ -705,7 +710,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/MAD23998394R.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAD23998394R.png",
+      "img_hd": "assets/images/productoshd/MAD23998394R_2.webp",
       "display_category": "RUTA",
       "filter_tags": [
         "bicicletas",
@@ -741,9 +746,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Eléctricas"
       ],
-      "img": "assets/images/productos/marlin-plus-6-azul.png",
+      "img": "assets/images/productoshd/2/MAR20673171K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-plus-6-azul.png",
+      "img_hd": "assets/images/productoshd/2/MAR20673171K_1.avif",
       "display_category": "E-BIKE",
       "filter_tags": [
         "bicicletas",
@@ -754,7 +759,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-plus-6-azul.png"
+        "assets/images/productoshd/2/MAR20673171K_1.avif",
+        "assets/images/productoshd/2/MAR20673171K_2.webp",
+        "assets/images/productoshd/2/MAR20673171K_3.webp",
+        "assets/images/productoshd/2/MAR20673171K_4.webp",
+        "assets/images/productoshd/2/MAR20673171K_5.webp"
       ],
       "display_title": "MARLIN +6 US M 29 AZUL",
       "initial_featured": false,
@@ -777,7 +786,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/FX114224597R.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/FX114224597R.png",
+      "img_hd": "assets/images/productoshd/FX114224597R_2.avif",
       "display_category": "GRAVEL",
       "filter_tags": [
         "bicicletas",
@@ -814,7 +823,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productos/balance-rockbros.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/balance-rockbros.png",
+      "img_hd": "assets/images/productos/balance-rockbros.jpg",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -825,7 +834,7 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/balance-rockbros.png"
+        "assets/images/productos/balance-rockbros.jpg"
       ],
       "display_title": "BICICLETA DE BALANCE SX1 XRIDE ROCKBROS",
       "initial_featured": false,
@@ -846,9 +855,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña"
       ],
-      "img": "assets/images/productos/marlin6-verde-miami.png",
+      "img": "assets/images/productoshd/2/MAR38989209E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin6-verde-miami.png",
+      "img_hd": "assets/images/productoshd/2/MAR38989209E_2.png",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -859,7 +868,10 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin6-verde-miami.png"
+        "assets/images/productoshd/2/MAR38989209E_2.png",
+        "assets/images/productoshd/2/MAR38989209E_3.png",
+        "assets/images/productoshd/2/MAR38989209E_5.png",
+        "assets/images/productoshd/2/MAR38989209E_6.png"
       ],
       "display_title": "MARLIN 6 GEN 3 M/L 29 VERDE MIAMI/AZUL AQUA",
       "initial_featured": false,
@@ -880,9 +892,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Doble suspensión"
       ],
-      "img": "assets/images/productos/cannondale-habit4-negro.png",
+      "img": "assets/images/productoshd/2/HAB24765361E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-habit4-negro.png",
+      "img_hd": "assets/images/productoshd/2/HAB24765361E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -893,7 +905,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-habit4-negro.png"
+        "assets/images/productoshd/2/HAB24765361E_1.webp",
+        "assets/images/productoshd/2/HAB24765361E_2.webp",
+        "assets/images/productoshd/2/HAB24765361E_3.webp",
+        "assets/images/productoshd/2/HAB24765361E_4.webp",
+        "assets/images/productoshd/2/HAB24765361E_5.webp",
+        "assets/images/productoshd/2/HAB24765361E_6.webp",
+        "assets/images/productoshd/2/HAB24765361E_7.webp"
       ],
       "display_title": "HABIT 4 29 M NEGRO",
       "initial_featured": false,
@@ -914,9 +932,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Doble suspensión"
       ],
-      "img": "assets/images/productos/cannondale-habit4-negro.png",
+      "img": "assets/images/productoshd/2/HAB24277511E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-habit4-negro.png",
+      "img_hd": "assets/images/productoshd/2/HAB24277511E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -927,7 +945,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-habit4-negro.png"
+        "assets/images/productoshd/2/HAB24277511E_1.webp",
+        "assets/images/productoshd/2/HAB24277511E_2.webp",
+        "assets/images/productoshd/2/HAB24277511E_3.webp",
+        "assets/images/productoshd/2/HAB24277511E_4.webp",
+        "assets/images/productoshd/2/HAB24277511E_5.webp",
+        "assets/images/productoshd/2/HAB24277511E_6.webp",
+        "assets/images/productoshd/2/HAB24277511E_7.webp"
       ],
       "display_title": "HABIT 4 29 L NEGRO",
       "initial_featured": false,
@@ -950,7 +974,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/PRO37273067Y.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/PRO37273067Y.png",
+      "img_hd": "assets/images/productoshd/PRO37273067Y_2.png",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -987,7 +1011,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/TOP22914896B.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/TOP22914896B.png",
+      "img_hd": "assets/images/productoshd/TOP22914896B_2.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1023,9 +1047,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Doble suspensión"
       ],
-      "img": "assets/images/productos/cannondale-trail-gris.png",
+      "img": "assets/images/productoshd/2/TRA23399625E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-trail-gris.png",
+      "img_hd": "assets/images/productoshd/2/TRA23399625E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1036,7 +1060,12 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-trail-gris.png"
+        "assets/images/productoshd/2/TRA23399625E_1.webp",
+        "assets/images/productoshd/2/TRA23399625E_2.webp",
+        "assets/images/productoshd/2/TRA23399625E_3.webp",
+        "assets/images/productoshd/2/TRA23399625E_4.webp",
+        "assets/images/productoshd/2/TRA23399625E_5.webp",
+        "assets/images/productoshd/2/TRA23399625E_6.webp"
       ],
       "display_title": "TRAIL 1 29 L GRIS",
       "initial_featured": false,
@@ -1059,7 +1088,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/MAR34557503K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAR34557503K.png",
+      "img_hd": "assets/images/productoshd/MAR34557503K_2.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1096,7 +1125,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/MAR29286215E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAR29286215E.png",
+      "img_hd": "assets/images/productoshd/MAR29286215E_2.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1130,9 +1159,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR17219125D.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR17219125D_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1143,7 +1172,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR17219125D_1.avif",
+        "assets/images/productoshd/2/MAR17219125D_2.avif",
+        "assets/images/productoshd/2/MAR17219125D_3.avif",
+        "assets/images/productoshd/2/MAR17219125D_4.avif",
+        "assets/images/productoshd/2/MAR17219125D_5.avif"
       ],
       "display_title": "MARLIN 5 GEN 3 L 29 ROJO FURY",
       "initial_featured": false,
@@ -1164,9 +1197,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin6-verde-miami.png",
+      "img": "assets/images/productoshd/2/MAR39160984K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin6-verde-miami.png",
+      "img_hd": "assets/images/productoshd/2/MAR39160984K_1.png",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1177,7 +1210,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin6-verde-miami.png"
+        "assets/images/productoshd/2/MAR39160984K_1.png",
+        "assets/images/productoshd/2/MAR39160984K_2.png",
+        "assets/images/productoshd/2/MAR39160984K_3.png",
+        "assets/images/productoshd/2/MAR39160984K_4.png",
+        "assets/images/productoshd/2/MAR39160984K_5.png"
       ],
       "display_title": "MARLIN 5 GEN 3 M 29 VERDE MIAMI/AZUL AQUATIC",
       "initial_featured": false,
@@ -1200,7 +1237,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/MAR23432861E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAR23432861E.png",
+      "img_hd": "assets/images/productoshd/MAR23432861E_2.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1236,9 +1273,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR18647908D.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR18647908D_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1249,7 +1286,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR18647908D_1.avif",
+        "assets/images/productoshd/2/MAR18647908D_2.avif",
+        "assets/images/productoshd/2/MAR18647908D_3.avif",
+        "assets/images/productoshd/2/MAR18647908D_4.avif",
+        "assets/images/productoshd/2/MAR18647908D_5.avif"
       ],
       "display_title": "MARLIN 5 GEN 3 M/L 29 ROJO FURY",
       "initial_featured": false,
@@ -1272,7 +1313,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/MAR23695096E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAR23695096E.png",
+      "img_hd": "assets/images/productoshd/MAR23695096E_2.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1308,9 +1349,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/MAR36195173E.png",
+      "img": "assets/images/productoshd/2/MAR36195173E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/MAR36195173E.png",
+      "img_hd": "assets/images/productoshd/2/MAR36195173E_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1321,7 +1362,10 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/MAR36195173E.png"
+        "assets/images/productoshd/2/MAR36195173E_1.avif",
+        "assets/images/productoshd/2/MAR36195173E_2.avif",
+        "assets/images/productoshd/2/MAR36195173E_3.avif",
+        "assets/images/productoshd/2/MAR36195173E_4.avif"
       ],
       "display_title": "MARLIN 5 GEN 3 XL 29 MORADO/NEGRO",
       "initial_featured": false,
@@ -1342,9 +1386,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin6-verde-gris.png",
+      "img": "assets/images/productoshd/2/MAR31253013K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin6-verde-gris.png",
+      "img_hd": "assets/images/productoshd/2/MAR31253013K_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1355,7 +1399,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin6-verde-gris.png"
+        "assets/images/productoshd/2/MAR31253013K_1.avif",
+        "assets/images/productoshd/2/MAR31253013K_2.avif",
+        "assets/images/productoshd/2/MAR31253013K_3.avif",
+        "assets/images/productoshd/2/MAR31253013K_4.avif",
+        "assets/images/productoshd/2/MAR31253013K_5.avif"
       ],
       "display_title": "MARLIN 6 GEN 3 29 M VERDE/GRIS MATE",
       "initial_featured": false,
@@ -1376,9 +1424,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR14419582A.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR14419582A_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1389,7 +1437,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR14419582A_1.avif",
+        "assets/images/productoshd/2/MAR14419582A_2.avif",
+        "assets/images/productoshd/2/MAR14419582A_3.avif",
+        "assets/images/productoshd/2/MAR14419582A_4.avif",
+        "assets/images/productoshd/2/MAR14419582A_5.avif"
       ],
       "display_title": "MARLIN 6 GEN 3 L 29 ROJO LAVA",
       "initial_featured": false,
@@ -1410,9 +1462,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR1439354A.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR1439354A_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1423,7 +1475,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR1439354A_1.avif",
+        "assets/images/productoshd/2/MAR1439354A_2.avif",
+        "assets/images/productoshd/2/MAR1439354A_3.avif",
+        "assets/images/productoshd/2/MAR1439354A_4.avif",
+        "assets/images/productoshd/2/MAR1439354A_5.avif"
       ],
       "display_title": "MARLIN 6 GEN 3 M 29 ROJO LAVA",
       "initial_featured": false,
@@ -1444,9 +1500,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR1570023A.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR1570023A_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1457,7 +1513,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR1570023A_1.avif",
+        "assets/images/productoshd/2/MAR1570023A_2.avif",
+        "assets/images/productoshd/2/MAR1570023A_3.avif",
+        "assets/images/productoshd/2/MAR1570023A_4.avif",
+        "assets/images/productoshd/2/MAR1570023A_5.avif"
       ],
       "display_title": "MARLIN 6 GEN 3 M/L 29 ROJO LAVA",
       "initial_featured": false,
@@ -1478,9 +1538,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR16677398A.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR16677398A_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1491,7 +1551,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR16677398A_1.avif",
+        "assets/images/productoshd/2/MAR16677398A_2.avif",
+        "assets/images/productoshd/2/MAR16677398A_3.avif",
+        "assets/images/productoshd/2/MAR16677398A_4.avif",
+        "assets/images/productoshd/2/MAR16677398A_5.avif"
       ],
       "display_title": "MARLIN 6 XS 27.5 LAVA",
       "initial_featured": false,
@@ -1512,9 +1576,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin7-blanco-menta.png",
+      "img": "assets/images/productoshd/2/MAR19133946T.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin7-blanco-menta.png",
+      "img_hd": "assets/images/productoshd/2/MAR19133946T_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1525,7 +1589,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin7-blanco-menta.png"
+        "assets/images/productoshd/2/MAR19133946T_1.avif",
+        "assets/images/productoshd/2/MAR19133946T_2.avif",
+        "assets/images/productoshd/2/MAR19133946T_3.avif",
+        "assets/images/productoshd/2/MAR19133946T_4.avif",
+        "assets/images/productoshd/2/MAR19133946T_5.avif"
       ],
       "display_title": "MARLIN 7 GEN 3 L 29 BLANCO MENTA",
       "initial_featured": false,
@@ -1546,9 +1614,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR21269788E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR21269788E_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1559,7 +1627,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR21269788E_1.avif",
+        "assets/images/productoshd/2/MAR21269788E_2.avif",
+        "assets/images/productoshd/2/MAR21269788E_3.avif",
+        "assets/images/productoshd/2/MAR21269788E_4.avif",
+        "assets/images/productoshd/2/MAR21269788E_5.avif"
       ],
       "display_title": "MARLIN 7 GEN 3 L 29 ROJO FURY/OSCURO",
       "initial_featured": false,
@@ -1582,7 +1654,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/PRO294645922.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/PRO294645922.png",
+      "img_hd": "assets/images/productoshd/PRO294645922_2.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1618,9 +1690,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/PRO307703432.png",
+      "img": "assets/images/productoshd/2/PRO307703432.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/PRO307703432.png",
+      "img_hd": "assets/images/productoshd/2/PRO307703432_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1631,7 +1703,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/PRO307703432.png"
+        "assets/images/productoshd/2/PRO307703432_1.avif",
+        "assets/images/productoshd/2/PRO307703432_2.avif",
+        "assets/images/productoshd/2/PRO307703432_3.avif",
+        "assets/images/productoshd/2/PRO307703432_4.avif",
+        "assets/images/productoshd/2/PRO307703432_5.avif"
       ],
       "display_title": "PROCALIBER 6 GEN 2 XL ROJO SERPENTINE",
       "initial_featured": false,
@@ -1652,9 +1728,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/procaliber95-verde.png",
+      "img": "assets/images/productoshd/2/PRO38374634Y.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/procaliber95-verde.png",
+      "img_hd": "assets/images/productoshd/2/PRO38374634Y_1.jpg",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1665,7 +1741,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/procaliber95-verde.png"
+        "assets/images/productoshd/2/PRO38374634Y_1.jpg",
+        "assets/images/productoshd/2/PRO38374634Y_2.jpg",
+        "assets/images/productoshd/2/PRO38374634Y_3.jpg",
+        "assets/images/productoshd/2/PRO38374634Y_4.jpg",
+        "assets/images/productoshd/2/PRO38374634Y_5.jpg"
       ],
       "display_title": "PROCALIBER 9.5 ML VERDE KESWICK/GRIS",
       "initial_featured": false,
@@ -1686,9 +1766,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/alubike-sierra-amarillo.png",
+      "img": "assets/images/productoshd/2/SIE24530659E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/alubike-sierra-amarillo.png",
+      "img_hd": "assets/images/productoshd/2/SIE24530659E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1699,7 +1779,12 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/alubike-sierra-amarillo.png"
+        "assets/images/productoshd/2/SIE24530659E_1.webp",
+        "assets/images/productoshd/2/SIE24530659E_2.webp",
+        "assets/images/productoshd/2/SIE24530659E_3.webp",
+        "assets/images/productoshd/2/SIE24530659E_4.webp",
+        "assets/images/productoshd/2/SIE24530659E_5.webp",
+        "assets/images/productoshd/2/SIE24530659E_6.webp"
       ],
       "display_title": "SIERRA 29 M AMARILLO",
       "initial_featured": false,
@@ -1720,9 +1805,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/alubike-sierra-azul.png",
+      "img": "assets/images/productoshd/2/SIE20176138E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/alubike-sierra-azul.png",
+      "img_hd": "assets/images/productoshd/2/SIE20176138E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1733,7 +1818,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/alubike-sierra-azul.png"
+        "assets/images/productoshd/2/SIE20176138E_1.webp",
+        "assets/images/productoshd/2/SIE20176138E_2.webp",
+        "assets/images/productoshd/2/SIE20176138E_3.webp",
+        "assets/images/productoshd/2/SIE20176138E_4.webp",
+        "assets/images/productoshd/2/SIE20176138E_5.webp",
+        "assets/images/productoshd/2/SIE20176138E_6.webp",
+        "assets/images/productoshd/2/SIE20176138E_7.webp"
       ],
       "display_title": "SIERRA 29 M AZUL",
       "initial_featured": false,
@@ -1754,9 +1845,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/cannondale-trail-azul.png",
+      "img": "assets/images/productoshd/2/TRA21884899E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-trail-azul.png",
+      "img_hd": "assets/images/productoshd/2/TRA21884899E_6 - copia.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1767,7 +1858,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-trail-azul.png"
+        "assets/images/productoshd/2/TRA21884899E_6 - copia.webp",
+        "assets/images/productoshd/2/TRA21884899E_1.webp",
+        "assets/images/productoshd/2/TRA21884899E_2.webp",
+        "assets/images/productoshd/2/TRA21884899E_3.webp",
+        "assets/images/productoshd/2/TRA21884899E_4.webp",
+        "assets/images/productoshd/2/TRA21884899E_5.webp",
+        "assets/images/productoshd/2/TRA21884899E_6.webp"
       ],
       "display_title": "TRAIL 1 29 M AZUL",
       "initial_featured": false,
@@ -1788,9 +1885,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/cannondale-trail-azul.png",
+      "img": "assets/images/productoshd/2/TRA27921679E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-trail-azul.png",
+      "img_hd": "assets/images/productoshd/2/TRA27921679E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1801,7 +1898,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-trail-azul.png"
+        "assets/images/productoshd/2/TRA27921679E_1.webp",
+        "assets/images/productoshd/2/TRA27921679E_2.webp",
+        "assets/images/productoshd/2/TRA27921679E_3.webp",
+        "assets/images/productoshd/2/TRA27921679E_4.webp",
+        "assets/images/productoshd/2/TRA27921679E_5.webp"
       ],
       "display_title": "TRAIL 2 29 M AZUL CYAN",
       "initial_featured": false,
@@ -1822,9 +1923,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/XTA20443263E.png",
+      "img": "assets/images/productoshd/2/XTA20443263E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/XTA20443263E.png",
+      "img_hd": "assets/images/productoshd/2/XTA20443263E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1835,7 +1936,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/XTA20443263E.png"
+        "assets/images/productoshd/2/XTA20443263E_1.webp",
+        "assets/images/productoshd/2/XTA20443263E_2.webp",
+        "assets/images/productoshd/2/XTA20443263E_3.webp",
+        "assets/images/productoshd/2/XTA20443263E_4.webp",
+        "assets/images/productoshd/2/XTA20443263E_5.webp"
       ],
       "display_title": "XTA 1.0 29 L NEGRO",
       "initial_featured": false,
@@ -1856,9 +1961,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/XTA22268491E.png",
+      "img": "assets/images/productoshd/2/XTA22268491E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/XTA22268491E.png",
+      "img_hd": "assets/images/productoshd/2/XTA22268491E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1869,7 +1974,10 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/XTA22268491E.png"
+        "assets/images/productoshd/2/XTA22268491E_1.webp",
+        "assets/images/productoshd/2/XTA22268491E_2.webp",
+        "assets/images/productoshd/2/XTA22268491E_3.webp",
+        "assets/images/productoshd/2/XTA22268491E_4.webp"
       ],
       "display_title": "XTA 2.0 29 M PURPURA",
       "initial_featured": false,
@@ -1890,9 +1998,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/XTA22941471E.png",
+      "img": "assets/images/productoshd/2/XTA22941471E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/XTA22941471E.png",
+      "img_hd": "assets/images/productoshd/2/XTA22941471E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1903,7 +2011,10 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/XTA22941471E.png"
+        "assets/images/productoshd/2/XTA22941471E_1.webp",
+        "assets/images/productoshd/2/XTA22941471E_2.webp",
+        "assets/images/productoshd/2/XTA22941471E_3.webp",
+        "assets/images/productoshd/2/XTA22941471E_4.webp"
       ],
       "display_title": "XTA 2.0 29 S PURPURA",
       "initial_featured": false,
@@ -1924,9 +2035,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productos/alubike-xta-rojo.png",
+      "img": "assets/images/productoshd/2/XTA19972908E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/alubike-xta-rojo.png",
+      "img_hd": "assets/images/productoshd/2/XTA19972908E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1937,7 +2048,12 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/alubike-xta-rojo.png"
+        "assets/images/productoshd/2/XTA19972908E_1.webp",
+        "assets/images/productoshd/2/XTA19972908E_2.webp",
+        "assets/images/productoshd/2/XTA19972908E_3.webp",
+        "assets/images/productoshd/2/XTA19972908E_4.webp",
+        "assets/images/productoshd/2/XTA19972908E_5.webp",
+        "assets/images/productoshd/2/XTA19972908E_6.webp"
       ],
       "display_title": "XTA 2.0 29 S ROJO",
       "initial_featured": false,
@@ -1958,9 +2074,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas"
       ],
-      "img": "assets/images/productoshd/XTA2414870E.png",
+      "img": "assets/images/productoshd/2/XTA2414870E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/XTA2414870E.png",
+      "img_hd": "assets/images/productoshd/2/XTA2414870E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1971,7 +2087,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/XTA2414870E.png"
+        "assets/images/productoshd/2/XTA2414870E_1.webp",
+        "assets/images/productoshd/2/XTA2414870E_2.webp",
+        "assets/images/productoshd/2/XTA2414870E_3.webp",
+        "assets/images/productoshd/2/XTA2414870E_4.webp",
+        "assets/images/productoshd/2/XTA2414870E_5.webp"
       ],
       "display_title": "XTA 3.0 29 M NEGRO/LIMA",
       "initial_featured": false,
@@ -1992,9 +2112,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/cannondale-trail-azul.png",
+      "img": "assets/images/productoshd/2/KID24199308E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/cannondale-trail-azul.png",
+      "img_hd": "assets/images/productoshd/2/KID24199308E_1.webp",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2005,7 +2125,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/cannondale-trail-azul.png"
+        "assets/images/productoshd/2/KID24199308E_1.webp",
+        "assets/images/productoshd/2/KID24199308E_2.webp",
+        "assets/images/productoshd/2/KID24199308E_3.webp",
+        "assets/images/productoshd/2/KID24199308E_4.webp",
+        "assets/images/productoshd/2/KID24199308E_5.webp",
+        "assets/images/productoshd/2/KID24199308E_6.webp",
+        "assets/images/productoshd/2/KID24199308E_7.webp"
       ],
       "display_title": "KIDS TRAIL 20 AZUL",
       "initial_featured": false,
@@ -2026,9 +2152,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/marlin-rojo.png",
+      "img": "assets/images/productoshd/2/MAR17981847D.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin-rojo.png",
+      "img_hd": "assets/images/productoshd/2/MAR17981847D_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -2039,7 +2165,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin-rojo.png"
+        "assets/images/productoshd/2/MAR17981847D_1.avif",
+        "assets/images/productoshd/2/MAR17981847D_2.avif",
+        "assets/images/productoshd/2/MAR17981847D_3.avif",
+        "assets/images/productoshd/2/MAR17981847D_4.avif",
+        "assets/images/productoshd/2/MAR17981847D_5.avif"
       ],
       "display_title": "MARLIN 5 GEN 3 M 29 ROJO FURY",
       "initial_featured": false,
@@ -2060,9 +2190,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/marlin6-verde-gris.png",
+      "img": "assets/images/productoshd/2/MAR32983611K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/marlin6-verde-gris.png",
+      "img_hd": "assets/images/productoshd/2/MAR32983611K_1.avif",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -2073,7 +2203,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/marlin6-verde-gris.png"
+        "assets/images/productoshd/2/MAR32983611K_1.avif",
+        "assets/images/productoshd/2/MAR32983611K_2.avif",
+        "assets/images/productoshd/2/MAR32983611K_3.avif",
+        "assets/images/productoshd/2/MAR32983611K_4.avif",
+        "assets/images/productoshd/2/MAR32983611K_5.avif"
       ],
       "display_title": "MARLIN 6 GEN 3 29 XL VERDE/GRIS MATE",
       "initial_featured": false,
@@ -2094,9 +2228,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/precaliber-beige.png",
+      "img": "assets/images/productoshd/2/PRE21969082K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/precaliber-beige.png",
+      "img_hd": "assets/images/productoshd/2/PRE21969082K_1.webp",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2107,7 +2241,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/precaliber-beige.png"
+        "assets/images/productoshd/2/PRE21969082K_1.webp",
+        "assets/images/productoshd/2/PRE21969082K_2.webp",
+        "assets/images/productoshd/2/PRE21969082K_3.webp",
+        "assets/images/productoshd/2/PRE21969082K_4.webp",
+        "assets/images/productoshd/2/PRE21969082K_5.webp"
       ],
       "display_title": "PRECALIBER 16 BEIGE",
       "initial_featured": false,
@@ -2128,9 +2266,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/precaliber-verde.png",
+      "img": "assets/images/productoshd/2/PRE26177715K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/precaliber-verde.png",
+      "img_hd": "assets/images/productoshd/2/PRE26177715K_1.avif",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2141,7 +2279,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/precaliber-verde.png"
+        "assets/images/productoshd/2/PRE26177715K_1.avif",
+        "assets/images/productoshd/2/PRE26177715K_2.avif",
+        "assets/images/productoshd/2/PRE26177715K_3.avif",
+        "assets/images/productoshd/2/PRE26177715K_4.avif",
+        "assets/images/productoshd/2/PRE26177715K_5.webp"
       ],
       "display_title": "PRECALIBER 16 VERDE FLASH",
       "initial_featured": false,
@@ -2164,7 +2306,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/PRE27297304Y.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/PRE27297304Y.png",
+      "img_hd": "assets/images/productoshd/2/PRE27297304Y.png",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2175,7 +2317,7 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/PRE27297304Y.png"
+        "assets/images/productoshd/2/PRE27297304Y.png"
       ],
       "display_title": "PRECALIBER 20 FW 20 GRIS",
       "initial_featured": false,
@@ -2196,9 +2338,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productos/alubike-sierra-amarillo.png",
+      "img": "assets/images/productoshd/2/SIE19858412E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/alubike-sierra-amarillo.png",
+      "img_hd": "assets/images/productoshd/2/SIE19858412E_1.webp",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2209,7 +2351,14 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/alubike-sierra-amarillo.png"
+        "assets/images/productoshd/2/SIE19858412E_1.webp",
+        "assets/images/productoshd/2/SIE19858412E_2.webp",
+        "assets/images/productoshd/2/SIE19858412E_3.webp",
+        "assets/images/productoshd/2/SIE19858412E_4.webp",
+        "assets/images/productoshd/2/SIE19858412E_5.webp",
+        "assets/images/productoshd/2/SIE19858412E_6.webp",
+        "assets/images/productoshd/2/SIE19858412E_7.webp",
+        "assets/images/productoshd/2/SIE19858412E_8.webp"
       ],
       "display_title": "SIERRA 20 LIMA",
       "initial_featured": false,
@@ -2230,9 +2379,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Montaña - Rígidas - Hombre"
       ],
-      "img": "assets/images/productoshd/SIE22508971E.png",
+      "img": "assets/images/productoshd/2/SIE22508971E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/SIE22508971E.png",
+      "img_hd": "assets/images/productoshd/2/SIE22508971E_1.webp",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2243,7 +2392,10 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/SIE22508971E.png"
+        "assets/images/productoshd/2/SIE22508971E_1.webp",
+        "assets/images/productoshd/2/SIE22508971E_2.webp",
+        "assets/images/productoshd/2/SIE22508971E_3.webp",
+        "assets/images/productoshd/2/SIE22508971E_4.webp"
       ],
       "display_title": "SIERRA 20 PURPURA",
       "initial_featured": false,
@@ -2266,7 +2418,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productos/remolque-mt201.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/remolque-mt201.png",
+      "img_hd": "assets/images/productos/remolque-mt201.jpg",
       "display_category": "INFANTIL",
       "filter_tags": [
         "bicicletas",
@@ -2277,7 +2429,7 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/remolque-mt201.png"
+        "assets/images/productos/remolque-mt201.jpg"
       ],
       "display_title": "REMOLQUE MT-201 R20 NEGRO",
       "initial_featured": false,
@@ -2298,9 +2450,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Ruta"
       ],
-      "img": "assets/images/productoshd/EMO36221095E.png",
+      "img": "assets/images/productoshd/2/EMO36221095E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/EMO36221095E.png",
+      "img_hd": "assets/images/productoshd/2/EMO36221095E_1.webp",
       "display_category": "RUTA",
       "filter_tags": [
         "bicicletas",
@@ -2311,7 +2463,13 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/EMO36221095E.png"
+        "assets/images/productoshd/2/EMO36221095E_1.webp",
+        "assets/images/productoshd/2/EMO36221095E_2.webp",
+        "assets/images/productoshd/2/EMO36221095E_3.webp",
+        "assets/images/productoshd/2/EMO36221095E_4.webp",
+        "assets/images/productoshd/2/EMO36221095E_5.webp",
+        "assets/images/productoshd/2/EMO36221095E_6.webp",
+        "assets/images/productoshd/2/EMO36221095E_7.webp"
       ],
       "display_title": "EMONDA ALR 5 52 ROJO CRIMSON/ROJO OSCURO",
       "initial_featured": false,
@@ -2332,9 +2490,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Ruta"
       ],
-      "img": "assets/images/productos/madone-sl5-azul.png",
+      "img": "assets/images/productoshd/2/MAD17253947E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/madone-sl5-azul.png",
+      "img_hd": "assets/images/productoshd/2/MAD17253947E_1.jpg",
       "display_category": "RUTA",
       "filter_tags": [
         "bicicletas",
@@ -2345,7 +2503,11 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productos/madone-sl5-azul.png"
+        "assets/images/productoshd/2/MAD17253947E_1.jpg",
+        "assets/images/productoshd/2/MAD17253947E_2.jpg",
+        "assets/images/productoshd/2/MAD17253947E_3.jpg",
+        "assets/images/productoshd/2/MAD17253947E_4.jpg",
+        "assets/images/productoshd/2/MAD17253947E_5.jpg"
       ],
       "display_title": "MADONE SL 5 M AZUL ELÉCTRICO",
       "initial_featured": false,
@@ -2366,9 +2528,9 @@ window.ASCEND_RMS_SYNC = {
       "variants": [
         "Ruta - Hombre"
       ],
-      "img": "assets/images/productoshd/DOM3721281K.png",
+      "img": "assets/images/productoshd/2/DOM3721281K.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/DOM3721281K.png",
+      "img_hd": "assets/images/productoshd/2/DOM3721281K_1.webp",
       "display_category": "GRAVEL",
       "filter_tags": [
         "bicicletas",
@@ -2379,7 +2541,12 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/DOM3721281K.png"
+        "assets/images/productoshd/2/DOM3721281K_1.webp",
+        "assets/images/productoshd/2/DOM3721281K_2.webp",
+        "assets/images/productoshd/2/DOM3721281K_3.webp",
+        "assets/images/productoshd/2/DOM3721281K_4.webp",
+        "assets/images/productoshd/2/DOM3721281K_5.webp",
+        "assets/images/productoshd/2/DOM3721281K6.webp"
       ],
       "display_title": "DOMANE AL2 DISC AZUL/PLATA TALLA 54 2023",
       "initial_featured": false,
