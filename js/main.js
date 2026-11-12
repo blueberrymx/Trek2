@@ -26,9 +26,9 @@
         USERS_DB: 'cordillera_rediseno_users_db_v2',
         ORDERS: 'cordillera_rediseno_orders_v2',
         WORKSHOP_BOOKINGS: 'cordillera_rediseno_workshop_v2',
-        CUSTOM_IMG_OVERRIDES: 'cordillera_rediseno_img_overrides_v3',
-        CUSTOM_GALLERY_OVERRIDES: 'cordillera_rediseno_gallery_overrides_v3',
-        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v3'
+        CUSTOM_IMG_OVERRIDES: 'cordillera_rediseno_img_overrides_v4',
+        CUSTOM_GALLERY_OVERRIDES: 'cordillera_rediseno_gallery_overrides_v4',
+        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v4'
     };
 
     const state = {
@@ -637,6 +637,62 @@
        56 SKUs reales de inventario Ascend RMS + 11 ejemplos de equipamiento)
        sin fotos de relleno, y filtra con precisión estricta por categoría.
        ======================================================================== */
+    function isTransparentCutoutUrl(url) {
+        const s = String(url || '').toLowerCase();
+        if (s.startsWith('data:image/png')) return true;
+        if (!s.endsWith('.png')) return false;
+        if (s.includes('/productoshd/2/pre27297304y.png')) return false;
+        return !/_\d+\.png$/.test(s);
+    }
+
+    function normalizeSearchText(str) {
+        return String(str || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .trim();
+    }
+
+    function getSearchTokenVariants(token) {
+        const variants = new Set([token]);
+        if (token.length > 4 && token.endsWith('ces')) {
+            variants.add(token.slice(0, -3) + 'z');
+        }
+        if (token.length > 4 && token.endsWith('es')) {
+            variants.add(token.slice(0, -2));
+            variants.add(token.slice(0, -1));
+        }
+        if (token.length > 3 && token.endsWith('s')) {
+            variants.add(token.slice(0, -1));
+        }
+
+        // Generalizaciones semánticas de ciclismo
+        const bikeSynonyms = ['bici', 'bicis', 'bicicleta', 'bicicletas', 'bike', 'bikes'];
+        if (bikeSynonyms.includes(token) || (token.length >= 4 && 'bicicletas'.startsWith(token))) {
+            bikeSynonyms.forEach(w => variants.add(w));
+        }
+        const ebikeSynonyms = ['electrica', 'electricas', 'electrico', 'electricos', 'ebike', 'ebikes', 'e-bike', 'e-bikes', 'emtb', 'e-mtb'];
+        if (ebikeSynonyms.includes(token)) {
+            ebikeSynonyms.forEach(w => variants.add(w));
+        }
+        const mtbSynonyms = ['montana', 'mtb', 'xc', 'trail', 'enduro', 'doble', 'rigida', 'rigidas'];
+        if (mtbSynonyms.includes(token)) {
+            if (token === 'montana' || token === 'mtb') {
+                variants.add('montana');
+                variants.add('mtb');
+                variants.add('e-mtb');
+            }
+        }
+        const kidsSynonyms = ['infantil', 'infantiles', 'nino', 'ninos', 'nina', 'ninas', 'kids', 'junior'];
+        if (kidsSynonyms.includes(token)) {
+            variants.add('infantil');
+            variants.add('nino');
+            variants.add('nina');
+            variants.add('kids');
+        }
+        return Array.from(variants);
+    }
+
     function normalizeAscendProduct(rawProd, index) {
         const sku = rawProd.sku || rawProd.id || `SKU-${index + 1}`;
         const customEdit = state.customInventoryEdits[sku] || {};
@@ -649,29 +705,53 @@
         const displayCategory = customEdit.category || rawProd.display_category || rawProd.category || 'EQUIPAMIENTO';
         const price = customEdit.price !== undefined ? Number(customEdit.price) : (Number(rawProd.price) || 0);
         const stock = customEdit.stock !== undefined ? Number(customEdit.stock) : (Number(rawProd.stock) || 1);
+        const isBicycle = rawProd.is_bicycle !== undefined
+            ? Boolean(rawProd.is_bicycle)
+            : (Array.isArray(rawProd.filter_tags) && rawProd.filter_tags.some(t => normalizeSearchText(t).includes('bicicleta')));
 
         const pngImg = overrideImg || rawProd.img || rawProd.image_png || rawProd.image || 'assets/images/productos/rail-8-negro-dorado.png';
-        const hdImg = overrideImg || rawProd.img_hd || rawProd.image_jpg || pngImg;
+        const hdImg = rawProd.img_hd || rawProd.image_jpg || pngImg;
 
-        // Sin fotos de relleno: usar únicamente las fotos reales del producto (o las subidas por el usuario)
+        // En la ficha técnica (gallery) SOLO van las fotos sin transparencia (_1, _2, _3... o .jpg).
+        // Asegurar de NO incluir la imagen transparente del catálogo dentro de la ficha técnica.
         let gallery = [];
         if (Array.isArray(overrideGallery) && overrideGallery.length) {
             gallery = [...overrideGallery];
         } else if (Array.isArray(rawProd.gallery) && rawProd.gallery.length) {
             gallery = [...rawProd.gallery];
+        } else if (hdImg && !isTransparentCutoutUrl(hdImg)) {
+            gallery = [hdImg];
+        }
+
+        const nonCutoutGallery = gallery.filter(url => url && url !== pngImg && !isTransparentCutoutUrl(url));
+        if (nonCutoutGallery.length > 0) {
+            gallery = Array.from(new Set(nonCutoutGallery));
         } else {
-            gallery = [pngImg];
+            gallery = Array.from(new Set(gallery.filter(Boolean)));
         }
 
-        if (overrideImg) {
-            gallery = [overrideImg, ...gallery.filter(url => url !== overrideImg)];
-        }
-
-        // Eliminar duplicados accidentales para no repetir la misma foto como relleno
-        gallery = Array.from(new Set(gallery.filter(Boolean)));
         if (!gallery.length) {
-            gallery = [pngImg];
+            const jpgFallback = pngImg.endsWith('.png') ? pngImg.replace(/\.png$/i, '.jpg') : hdImg;
+            gallery = [jpgFallback || hdImg];
         }
+
+        const filterTags = Array.isArray(rawProd.filter_tags) ? rawProd.filter_tags : [brand, displayCategory];
+        const searchCorpus = normalizeSearchText([
+            displayTitle,
+            fullTitle,
+            brand,
+            displayCategory,
+            rawProd.category || '',
+            rawProd.ascend_category || '',
+            rawProd.subcategory || '',
+            rawProd.modality || '',
+            sku,
+            rawProd.specs || '',
+            rawProd.pos_raw || '',
+            rawProd.desc || '',
+            filterTags.join(' '),
+            isBicycle ? 'bicicleta bicicletas bici bicis bike bikes todas las bicicletas' : ''
+        ].join(' '));
 
         return {
             id: sku,
@@ -681,15 +761,19 @@
             brand,
             category: displayCategory,
             rawCategory: rawProd.category || displayCategory,
+            ascendCategory: rawProd.ascend_category || '',
             subcategory: rawProd.subcategory || '',
             modality: rawProd.modality || '',
+            specs: rawProd.specs || '',
             price,
             stock,
             image: pngImg,
             image_png: pngImg,
             image_jpg: hdImg,
             gallery,
-            filter_tags: Array.isArray(rawProd.filter_tags) ? rawProd.filter_tags : [brand, displayCategory],
+            is_bicycle: isBicycle,
+            filter_tags: filterTags,
+            searchCorpus,
             initial_featured: Boolean(rawProd.initial_featured),
             is_inventory_processed: rawProd.is_inventory_processed !== false,
             desc: rawProd.desc || ''
@@ -818,19 +902,22 @@
     }
 
     function applyStoreFilter(filterTag) {
-        const norm = (filterTag || '').toLowerCase().trim();
+        const norm = normalizeSearchText(filterTag);
         syncQuickCategorySelect(filterTag);
 
-        // Filtrado estricto por etiquetas canónicas para evitar que se cuelen productos de otras categorías
+        // Filtrado estricto por etiquetas canónicas (insensible a acentos/diacríticos)
         const matches = state.products.filter(prod => {
+            if (norm === 'bicicletas' || norm === 'bicicleta' || norm === 'bicis' || norm === 'bici') {
+                return Boolean(prod.is_bicycle);
+            }
             const tags = Array.isArray(prod.filter_tags)
-                ? prod.filter_tags.map(t => String(t).toLowerCase().trim())
+                ? prod.filter_tags.map(t => normalizeSearchText(t))
                 : [];
             if (tags.includes(norm)) return true;
-            if ((prod.brand || '').toLowerCase().trim() === norm) return true;
-            if ((prod.subcategory || '').toLowerCase().trim() === norm) return true;
-            if ((prod.modality || '').toLowerCase().trim() === norm) return true;
-            if ((prod.category || '').toLowerCase().trim() === norm) return true;
+            if (normalizeSearchText(prod.brand) === norm) return true;
+            if (normalizeSearchText(prod.subcategory) === norm) return true;
+            if (normalizeSearchText(prod.modality) === norm) return true;
+            if (normalizeSearchText(prod.category) === norm) return true;
             return false;
         });
 
@@ -841,18 +928,47 @@
     }
 
     function applyStoreSearch(query) {
-        const q = (query || '').toLowerCase().trim();
-        const matches = state.products.filter(p =>
-            (p.name || '').toLowerCase().includes(q) ||
-            (p.fullTitle || '').toLowerCase().includes(q) ||
-            (p.brand || '').toLowerCase().includes(q) ||
-            (p.category || '').toLowerCase().includes(q) ||
-            (p.rawCategory || '').toLowerCase().includes(q) ||
-            (p.subcategory || '').toLowerCase().includes(q) ||
-            (p.sku || '').toLowerCase().includes(q)
+        const qNorm = normalizeSearchText(query);
+        if (!qNorm) {
+            resetStoreToFeatured();
+            return;
+        }
+
+        const stopwords = new Set(['de', 'del', 'la', 'las', 'el', 'los', 'en', 'para', 'con', 'por', 'un', 'una', 'unos', 'unas', 'y', 'o', 'todas', 'todos', 'toda', 'todo']);
+        const rawTokens = qNorm.split(/\s+/).filter(Boolean);
+        const filteredTokens = rawTokens.filter(t => !stopwords.has(t));
+        const activeTokens = filteredTokens.length > 0 ? filteredTokens : rawTokens;
+
+        const isGeneralBikeQuery = activeTokens.length === 1 && (
+            ['bicicleta', 'bicicletas', 'bici', 'bicis', 'bike', 'bikes'].includes(activeTokens[0]) ||
+            (activeTokens[0].length >= 4 && 'bicicletas'.startsWith(activeTokens[0]))
         );
+
+        let matches = [];
+        if (isGeneralBikeQuery) {
+            matches = state.products.filter(p => Boolean(p.is_bicycle));
+            syncQuickCategorySelect('bicicletas');
+        } else {
+            syncQuickCategorySelect('__custom_search__');
+            matches = state.products.filter(p => {
+                const corpus = p.searchCorpus || normalizeSearchText([
+                    p.name, p.fullTitle, p.brand, p.category, p.rawCategory,
+                    p.ascendCategory, p.subcategory, p.modality, p.sku, p.specs,
+                    (p.filter_tags || []).join(' '),
+                    p.is_bicycle ? 'bicicleta bicicletas bici bicis bike bikes' : ''
+                ].join(' '));
+
+                if (corpus.includes(qNorm)) return true;
+
+                return activeTokens.every(token => {
+                    const variants = getSearchTokenVariants(token);
+                    return variants.some(v => corpus.includes(v));
+                });
+            });
+        }
+
         state.filteredProducts = matches;
-        state.activeFilterLabel = `Búsqueda: "${query}" (${matches.length} resultados)`;
+        state.activeFilterLabel = `Búsqueda: "${query}" (${matches.length} resultado${matches.length === 1 ? '' : 's'})`;
         state.storeSlideIndex = 0;
         renderStoreProducts();
     }
@@ -1526,28 +1642,22 @@
             `).join('');
         }
 
-        // Construir galería SIN FOTOS DE RELLENO:
-        // - Si el producto tiene varias fotos reales (como Rail+ 8 Gen 5 o bicicletas con galería subida),
-        //   muestra 1 foto principal + la cuadrícula inferior con las fotos reales adicionales.
-        // - Si el producto solo tiene 1 foto (su recorte .PNG sin fondo), muestra únicamente esa foto
-        //   sin repetir ni rellenar con fotos ajenas.
+        // Construir galería de la ficha técnica SIN IMÁGENES TRANSPARENTES:
+        // La imagen con transparencia (.png cutout) pertenece exclusivamente a la tarjeta del catálogo.
+        // En la ficha técnica se muestran únicamente las fotografías reales de galería (_1, _2, _3... o .jpg).
         const rawGallery = Array.isArray(product.gallery) && product.gallery.length
             ? [...product.gallery]
-            : [product.image_png || product.image];
+            : [product.image_jpg || product.image];
 
-        const galleryImages = Array.from(new Set(rawGallery.filter(Boolean)));
-        if (!galleryImages.length) {
-            galleryImages.push(product.image_png || product.image);
-        }
+        const nonTransparentGallery = rawGallery.filter(url =>
+            url && url !== product.image_png && !isTransparentCutoutUrl(url)
+        );
+
+        const galleryImages = Array.from(new Set(
+            nonTransparentGallery.length > 0 ? nonTransparentGallery : rawGallery.filter(Boolean)
+        ));
 
         state.fullscreenGallery.images = galleryImages;
-
-        const isTransparentCutoutUrl = (url) => {
-            const s = String(url || '').toLowerCase();
-            if (s.startsWith('data:image/png')) return true;
-            if (!s.endsWith('.png')) return false;
-            return !/_\d+\.png$/.test(s);
-        };
 
         const isMainCutout = isTransparentCutoutUrl(galleryImages[0]);
         const extraImages = galleryImages.slice(1);
@@ -3035,8 +3145,7 @@
 
             state.products = state.products.map(p => {
                 if (p.sku !== sku) return p;
-                const newGallery = [dataUrl, ...(p.gallery || []).filter(u => u !== dataUrl)];
-                return { ...p, image: dataUrl, image_png: dataUrl, gallery: newGallery };
+                return { ...p, image: dataUrl, image_png: dataUrl };
             });
             resetStoreToFeatured();
             showToast(`${labelMsg} aplicada a SKU ${sku}`);
@@ -3069,9 +3178,7 @@
 
                 try {
                     const uploadedUrls = await Promise.all(files.map(readAsDataURL));
-                    const targetProd = state.products.find(p => p.sku === sku);
-                    const mainImg = (targetProd && targetProd.image_png) || uploadedUrls[0];
-                    const combinedGallery = Array.from(new Set([mainImg, ...uploadedUrls]));
+                    const combinedGallery = Array.from(new Set(uploadedUrls));
 
                     state.customGalleryOverrides[sku] = combinedGallery;
                     saveJSON(STORAGE_KEYS.CUSTOM_GALLERY_OVERRIDES, state.customGalleryOverrides);
