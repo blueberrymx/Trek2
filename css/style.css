@@ -2542,7 +2542,12 @@ textarea.workshop-input {
 .bento-main-photo.single-photo-mode {
     aspect-ratio: 1 / 1;
     min-height: 420px;
+    background-color: #FFFFFF;
     border: 1px solid #EAEAEA;
+}
+
+.bento-main-photo.single-photo-mode img {
+    object-fit: contain;
 }
 
 .bento-main-photo:hover img {
@@ -3586,28 +3591,18 @@ textarea.workshop-input {
         grid-template-columns: 1fr;
     }
 
-    /* En móvil: mantener los botones de Taller y Contacto en su tamaño natural de PC (no expandirlos a 100% de ancho) */
-    .workshop-submit-row {
+    /* En móvil: mantener los botones de Taller, Contacto y Ficha Técnica en su tamaño natural (no expandirlos) */
+    .workshop-submit-row,
+    .contact-actions-row,
+    .sheet-cta-actions {
         justify-content: flex-start;
     }
 
-    .workshop-submit-row .btn-pill-cta {
-        width: auto;
-        justify-content: flex-start;
-    }
-
-    .contact-actions-row {
-        justify-content: flex-start;
-    }
-
-    .contact-actions-row .btn-pill-cta {
-        width: auto;
-        justify-content: flex-start;
-    }
-
+    .workshop-submit-row .btn-pill-cta,
+    .contact-actions-row .btn-pill-cta,
     .sheet-cta-actions .btn-pill-cta {
-        width: 100%;
-        justify-content: space-between;
+        width: auto;
+        justify-content: flex-start;
     }
     .workshop-calculator-strip {
         grid-template-columns: repeat(2, 1fr);
@@ -3657,11 +3652,6 @@ textarea.workshop-input {
 
     .contact-map-frame {
         height: 290px;
-    }
-
-    .sheet-cta-actions .btn-pill-cta {
-        width: 100%;
-        justify-content: space-between;
     }
 
     .bento-main-photo.single-photo-mode {
