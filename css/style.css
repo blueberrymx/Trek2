@@ -79,6 +79,14 @@ img, video, svg {
     display: block;
 }
 
+img {
+    height: auto;
+}
+
+picture {
+    display: contents;
+}
+
 button, input, select, textarea {
     font-family: inherit;
     border: none;
@@ -859,16 +867,24 @@ button {
     padding-bottom: 0;
 }
 
-/* En el Slide 1 (slide-01.png) el bloque de texto de la columna izquierda queda centrado verticalmente en la imagen;
-   en el Slide 2 (video) el botón permanece en la parte inferior izquierda */
-.hero-slide[data-slide-index="0"] .hero-content-container {
+/* En ambos slides (Slide 1 y Slide 2) el bloque de contenido se centra verticalmente en la pantalla,
+   garantizando que el botón "Ver Catálogo TREK" permanezca a la misma altura exacta */
+.hero-slide[data-slide-index="0"] .hero-content-container,
+.hero-slide[data-slide-index="1"] .hero-content-container {
     justify-content: center;
     padding-bottom: 0;
 }
 
-.hero-slide[data-slide-index="1"] .hero-content-container {
-    justify-content: flex-end;
-    padding-bottom: 72px;
+.hero-title-spacer,
+.hero-desc-spacer {
+    visibility: hidden !important;
+    user-select: none !important;
+    pointer-events: none !important;
+}
+
+.hero-cta-row {
+    display: flex;
+    align-items: center;
 }
 
 .hero-text-block {
@@ -960,25 +976,44 @@ button {
     fill: none;
 }
 
-/* Controles Circulares del Hero: Solo botones 1 y 2 al tamaño (46px) alineados estrictamente al lado izquierdo de la línea roja (dentro del contenedor .container) */
+/* Controles Circulares del Hero: Botones 1 y 2 alineados a la misma altura que el botón Ver Catálogo TREK */
 .hero-nav-controls {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 48px;
+    inset: 0;
     width: 100%;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 4%;
+    height: 100%;
     z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
     pointer-events: none;
 }
 
-.hero-slide-dots {
+.hero-nav-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-nav-alignment-box {
+    position: relative;
+    width: 100%;
+}
+
+.hero-nav-spacer-block {
+    visibility: hidden !important;
+    user-select: none !important;
+    pointer-events: none !important;
+}
+
+.hero-cta-spacer-row {
+    height: 46px;
+}
+
+.hero-nav-alignment-box .hero-slide-dots {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 46px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1073,7 +1108,15 @@ button {
     width: 100%;
     height: 100vh;
     height: 100lvh;
-    background-image: url('../assets/images/fondo-01.png');
+    background-image: url('../assets/images/fondo-01.jpg');
+    background-image: -webkit-image-set(
+        url('../assets/images/fondo-01.webp') type('image/webp'),
+        url('../assets/images/fondo-01.jpg') type('image/jpeg')
+    );
+    background-image: image-set(
+        url('../assets/images/fondo-01.webp') type('image/webp'),
+        url('../assets/images/fondo-01.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1442,7 +1485,15 @@ button {
     width: 100%;
     height: 100vh;
     height: 100lvh;
-    background-image: url('../assets/images/fondo-02.png');
+    background-image: url('../assets/images/fondo-02.jpg');
+    background-image: -webkit-image-set(
+        url('../assets/images/fondo-02.webp') type('image/webp'),
+        url('../assets/images/fondo-02.jpg') type('image/jpeg')
+    );
+    background-image: image-set(
+        url('../assets/images/fondo-02.webp') type('image/webp'),
+        url('../assets/images/fondo-02.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1708,6 +1759,44 @@ textarea.workshop-input {
     color: rgba(255, 255, 255, 0.65);
 }
 
+.workshop-privacy-check-box {
+    margin: 14px 0 16px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+}
+
+.workshop-privacy-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.84rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.45;
+    cursor: pointer;
+}
+
+.workshop-privacy-label input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: var(--accent-orange);
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.workshop-privacy-label a {
+    color: var(--accent-orange);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: var(--transition-fast);
+}
+
+.workshop-privacy-label a:hover {
+    color: var(--accent-orange-hover);
+}
+
 .workshop-submit-row {
     margin-top: 6px;
     display: flex;
@@ -1913,6 +2002,14 @@ textarea.workshop-input {
     position: absolute;
     inset: 0;
     background-image: url('../assets/images/destacado.jpg');
+    background-image: -webkit-image-set(
+        url('../assets/images/destacado.webp') type('image/webp'),
+        url('../assets/images/destacado.jpg') type('image/jpeg')
+    );
+    background-image: image-set(
+        url('../assets/images/destacado.webp') type('image/webp'),
+        url('../assets/images/destacado.jpg') type('image/jpeg')
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2272,6 +2369,20 @@ textarea.workshop-input {
 .footer-bottom-left {
     justify-self: start;
     color: rgba(255, 255, 255, 0.56);
+}
+
+.footer-copy-brand {
+    display: block;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.footer-copy-rights {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.52);
 }
 
 .footer-bottom-center {
@@ -3092,6 +3203,234 @@ textarea.workshop-input {
     color: var(--accent-coffee);
 }
 
+/* ==========================================================================
+   13B. MARCO LEGAL Y NORMATIVO + BANNER DE COOKIES
+   ========================================================================== */
+.footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 0.78rem;
+}
+
+.footer-legal-links a {
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-links a:hover {
+    color: var(--accent-orange);
+}
+
+.form-legal-consent-note {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin: 4px 0 14px;
+}
+
+.form-legal-consent-note a {
+    color: var(--accent-coffee);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.form-legal-consent-note a:hover {
+    color: var(--accent-orange);
+}
+
+#legal-framework-modal {
+    z-index: 2600;
+}
+
+.legal-tab-panel {
+    display: none;
+}
+
+.legal-tab-panel.active {
+    display: block;
+}
+
+.legal-doc-content {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #2B2B2B;
+    max-height: 58vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.legal-doc-summary {
+    background-color: #FFF7ED;
+    border-left: 4px solid var(--accent-orange);
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    font-size: 0.86rem;
+    color: var(--text-black);
+}
+
+.legal-doc-summary a {
+    color: var(--accent-coffee);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.legal-doc-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+}
+
+.legal-doc-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.38rem;
+    letter-spacing: 0.03em;
+    color: var(--accent-coffee);
+    margin: 20px 0 8px;
+    text-transform: uppercase;
+}
+
+.legal-doc-content p {
+    margin-bottom: 10px;
+}
+
+.legal-doc-content a {
+    color: var(--accent-coffee);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.legal-doc-content ul {
+    list-style: disc;
+    padding-left: 22px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.legal-cookie-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    margin: 12px 0 16px;
+}
+
+.legal-cookie-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.legal-cookie-table th,
+.legal-cookie-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid #E5E5E5;
+    vertical-align: top;
+}
+
+.legal-cookie-table th {
+    background-color: #F5F5F5;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--text-black);
+}
+
+.legal-cookie-table code {
+    background-color: #F3F3F3;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    color: var(--accent-coffee);
+}
+
+/* Banner Discreto de Cookies */
+.cookie-consent-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2500;
+    background-color: #141414;
+    color: #F4F4F4;
+    border-top: 2px solid var(--accent-orange);
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.38);
+    padding: 14px 0;
+}
+
+.cookie-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.cookie-banner-text {
+    font-size: 0.82rem;
+    line-height: 1.48;
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.cookie-banner-text strong {
+    color: #FFFFFF;
+}
+
+.cookie-banner-text a {
+    color: var(--accent-orange);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cookie-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookie-btn-primary,
+.cookie-btn-secondary {
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 9px 16px;
+    border-radius: 999px;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.cookie-btn-primary {
+    background-color: var(--accent-orange);
+    color: #FFFFFF;
+    border: 1px solid var(--accent-orange);
+}
+
+.cookie-btn-primary:hover {
+    background-color: #E55A00;
+    border-color: #E55A00;
+}
+
+.cookie-btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+}
+
+.cookie-btn-secondary:hover {
+    border-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
 /* Notificación Toast Minimalista */
 .toast-stack {
     position: fixed;
@@ -3377,20 +3716,24 @@ textarea.workshop-input {
         margin-bottom: 18px;
     }
 
-    .hero-slide[data-slide-index="0"] .hero-content-container {
-        justify-content: center;
-        padding-bottom: 44px;
-    }
-
+    .hero-slide[data-slide-index="0"] .hero-content-container,
     .hero-slide[data-slide-index="1"] .hero-content-container {
-        justify-content: flex-end;
-        padding-bottom: 20px;
+        justify-content: center;
+        padding-bottom: 0;
     }
 
-    .hero-nav-controls {
-        bottom: 20px;
-        left: 0;
-        right: 0;
+    .hero-nav-container {
+        justify-content: center;
+        padding-bottom: 0;
+    }
+
+    .hero-cta-spacer-row {
+        height: 40px;
+    }
+
+    .hero-nav-alignment-box .hero-slide-dots {
+        height: 40px;
+        gap: 8px;
     }
 
     .hero-dot-btn {
@@ -3679,6 +4022,34 @@ textarea.workshop-input {
     .footer-bottom-right {
         justify-self: center;
         text-align: center;
+    }
+
+    .footer-copy-brand {
+        white-space: normal;
+    }
+
+    .footer-legal-links {
+        justify-content: center;
+    }
+
+    .minimal-tabs-bar {
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .minimal-tab-btn {
+        font-size: 1.15rem;
+    }
+
+    .cookie-banner-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .cookie-banner-actions {
+        width: 100%;
+        flex-wrap: wrap;
     }
 }
 
