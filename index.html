@@ -6,7 +6,9 @@
     <title>CORDILLERA TREK | Bicicletas, Equipamiento y Taller Certificado en Durango</title>
     <meta name="description" content="Cordillera Trek (Durango Trek): 19 años de pasión ciclista. Distribuidor autorizado Trek, Cannondale y Alubike. Tienda en línea y Taller Certificado.">
     <meta name="theme-color" content="#1E1E1E">
-    <link rel="icon" type="image/png" href="assets/logos/favicon.png">
+    <meta property="og:image" content="assets/images/slide-01.png">
+    <meta name="twitter:image" content="assets/images/slide-01.png">
+    <link rel="icon" type="image/png" sizes="128x128" href="assets/logos/favicon.png">
     <link rel="manifest" href="manifest.json">
 
     <!-- Tipografías Oficiales del Rediseño: Bebas Neue e Inter -->
@@ -26,11 +28,15 @@
          fondos ni cuadros atrás, y abajo un botón sencillo gris "Iniciar".
          ==================================================================== -->
     <div id="intro-screen" class="intro-screen" aria-label="Pantalla de bienvenida Cordillera Trek">
-        <video id="intro-video" class="intro-video" autoplay muted playsinline preload="auto">
+        <video id="intro-video" class="intro-video" poster="assets/video/video-intro-poster.webp" autoplay muted loop playsinline preload="auto">
+            <source src="assets/video/video-intro.webm" type="video/webm">
             <source src="assets/video/video-intro.mp4" type="video/mp4">
         </video>
         <div class="intro-center-minimal">
-            <img src="assets/logos/cordillera-logo.png" alt="Cordillera Trek Logo" class="intro-logo-floating">
+            <picture>
+                <source srcset="assets/logos/cordillera-logo.webp" type="image/webp">
+                <img src="assets/logos/cordillera-logo.png" alt="Cordillera Trek Logo" class="intro-logo-floating" width="512" height="88" fetchpriority="high" decoding="async">
+            </picture>
             <button type="button" id="btn-enter-site" class="btn-intro-iniciar">Iniciar</button>
         </div>
     </div>
@@ -55,11 +61,17 @@
                 <!-- Acomodo: Logo Cordillera | Logo Durango Trek -->
                 <div class="brand-logos">
                     <a href="#inicio" class="brand-logo-link" data-scroll-to="#inicio" aria-label="Cordillera Inicio">
-                        <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera">
+                        <picture>
+                            <source srcset="assets/logos/logo-header1.webp" type="image/webp">
+                            <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera" width="512" height="88" fetchpriority="high" decoding="async">
+                        </picture>
                     </a>
                     <span class="brand-divider" aria-hidden="true"></span>
                     <a href="#inicio" class="brand-logo-link" data-scroll-to="#inicio" aria-label="Durango Trek">
-                        <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango">
+                        <picture>
+                            <source srcset="assets/logos/logo_header2.webp" type="image/webp">
+                            <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango" width="490" height="248" fetchpriority="high" decoding="async">
+                        </picture>
                     </a>
                 </div>
 
@@ -90,6 +102,7 @@
                                             <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas TREK">TREK</a></li>
                                             <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Cannondale">Cannondale</a></li>
                                             <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Alubike">Alubike</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas">Todas</a></li>
                                         </ul>
                                     </div>
                                     <div>
@@ -193,9 +206,10 @@
                                     <div>
                                         <h4 class="mega-col-title">BICICLETAS</h4>
                                         <ul class="mega-links">
-                                            <li><a href="#tienda" class="mega-link" data-store-filter="TREK">TREK</a></li>
-                                            <li><a href="#tienda" class="mega-link" data-store-filter="Cannondale">Cannondale</a></li>
-                                            <li><a href="#tienda" class="mega-link" data-store-filter="Alubike">Alubike</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas TREK">TREK</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Cannondale">Cannondale</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas Alubike">Alubike</a></li>
+                                            <li><a href="#tienda" class="mega-link" data-store-filter="Bicicletas">Todas</a></li>
                                         </ul>
                                     </div>
                                     <div>
@@ -265,14 +279,14 @@
                 <!-- Iconos Derecha: Lupa Buscador, Usuario, Carrito de Compras -->
                 <div class="header-actions">
                     <button type="button" id="btn-toggle-search" class="header-icon-btn" aria-label="Buscar en tienda" title="Buscar productos">
-                        <img src="assets/images/buscador.svg" alt="Buscador">
+                        <img src="assets/images/buscador.svg" alt="Buscador" width="19" height="19" decoding="async">
                     </button>
                     <button type="button" id="btn-open-user" class="header-icon-btn" aria-label="Registro o Inicio de Sesión" title="Mi Cuenta">
-                        <img src="assets/images/usuario.svg" alt="Usuario">
+                        <img src="assets/images/usuario.svg" alt="Usuario" width="19" height="19" decoding="async">
                         <span id="user-status-dot" class="user-status-dot"></span>
                     </button>
                     <button type="button" id="btn-open-cart" class="header-icon-btn" aria-label="Carrito de compras" title="Carrito de compras">
-                        <img src="assets/images/carrito.svg" alt="Carrito">
+                        <img src="assets/images/carrito.svg" alt="Carrito" width="19" height="19" decoding="async">
                         <span id="header-cart-badge" class="cart-badge">0</span>
                     </button>
                     <button type="button" id="btn-mobile-menu" class="mobile-menu-toggle" aria-label="Abrir menú">
@@ -307,7 +321,10 @@
             <div class="hero-slides-wrapper">
                 <!-- SLIDE 1: Imagen Fija HD -->
                 <article class="hero-slide active" data-slide-index="0">
-                    <img src="assets/images/slide-01.png" alt="Rail+ 8 Gen Trek E-Bike" class="hero-bg-image" fetchpriority="high" decoding="sync">
+                    <picture>
+                        <source srcset="assets/images/slide-01.webp" type="image/webp">
+                        <img src="assets/images/slide-01.png" alt="Rail+ 8 Gen Trek E-Bike" class="hero-bg-image" width="1500" height="705" fetchpriority="high" decoding="sync">
+                    </picture>
                     <div class="hero-slide-overlay"></div>
                     <div class="container hero-content-container">
                         <div class="hero-text-block">
@@ -315,12 +332,14 @@
                             <p class="hero-description">
                                 Llega más lejos, pedalea con más potencia. Las bicis de montaña eléctricas Trek te permiten conquistar montañas y dominar vueltas con un impulso de sensación natural que hace que las pistas altísimas cuesta arriba conlleven un trabajo ligero, para que puedas llegar a la cima sin quedarte sin aliento por la bajada.
                             </p>
-                            <button type="button" class="btn-pill-cta btn-pill-orange" data-store-filter="Bicicletas TREK">
-                                <span>Ver Catálogo TREK</span>
-                                <span class="btn-pill-icon">
-                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
-                                </span>
-                            </button>
+                            <div class="hero-cta-row">
+                                <button type="button" class="btn-pill-cta btn-pill-orange" data-store-filter="Bicicletas TREK">
+                                    <span>Ver Catálogo TREK</span>
+                                    <span class="btn-pill-icon">
+                                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -330,32 +349,52 @@
                     <video
                         id="hero-slide-video"
                         class="hero-bg-video"
-                        src="assets/video/video-slide-02_16_9.mp4"
+                        poster="assets/video/video-slide-02-poster.webp"
+                        autoplay
                         muted
+                        loop
                         playsinline
                         preload="auto"
                     >
+                        <source src="assets/video/video-slide-02_16_9.webm" type="video/webm">
                         <source src="assets/video/video-slide-02_16_9.mp4" type="video/mp4">
                     </video>
                     <div class="hero-slide-overlay minimal-overlay"></div>
                     <div class="container hero-content-container">
                         <div class="hero-text-block">
-                            <button type="button" class="btn-pill-cta btn-pill-darkgrey" data-store-filter="Bicicletas TREK">
-                                <span>Ver Catálogo TREK</span>
-                                <span class="btn-pill-icon">
-                                    <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
-                                </span>
-                            </button>
+                            <div class="hero-title hero-title-spacer" aria-hidden="true">RAIL+ 8 GEN<br>TREK E-BIKE</div>
+                            <p class="hero-description hero-desc-spacer" aria-hidden="true">
+                                Llega más lejos, pedalea con más potencia. Las bicis de montaña eléctricas Trek te permiten conquistar montañas y dominar vueltas con un impulso de sensación natural que hace que las pistas altísimas cuesta arriba conlleven un trabajo ligero, para que puedas llegar a la cima sin quedarte sin aliento por la bajada.
+                            </p>
+                            <div class="hero-cta-row">
+                                <button type="button" class="btn-pill-cta btn-pill-darkgrey" data-store-filter="Bicicletas TREK">
+                                    <span>Ver Catálogo TREK</span>
+                                    <span class="btn-pill-icon">
+                                        <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- Botones Circulares de Navegación: solo 1 y 2 alineados dentro del margen del contenedor -->
-            <div class="container hero-nav-controls" aria-label="Controles de presentación">
-                <div class="hero-slide-dots">
-                    <button type="button" class="hero-dot-btn active" data-hero-go="0" aria-label="Slide 1">1</button>
-                    <button type="button" class="hero-dot-btn" data-hero-go="1" aria-label="Slide 2">2</button>
+            <!-- Botones Circulares de Navegación: alineados estrictamente a la misma altura que el botón Ver Catálogo TREK -->
+            <div class="hero-nav-controls" aria-label="Controles de presentación">
+                <div class="container hero-nav-container">
+                    <div class="hero-nav-alignment-box">
+                        <div class="hero-text-block hero-nav-spacer-block" aria-hidden="true">
+                            <div class="hero-title hero-title-spacer">RAIL+ 8 GEN<br>TREK E-BIKE</div>
+                            <p class="hero-description hero-desc-spacer">
+                                Llega más lejos, pedalea con más potencia. Las bicis de montaña eléctricas Trek te permiten conquistar montañas y dominar vueltas con un impulso de sensación natural que hace que las pistas altísimas cuesta arriba conlleven un trabajo ligero, para que puedas llegar a la cima sin quedarte sin aliento por la bajada.
+                            </p>
+                            <div class="hero-cta-row hero-cta-spacer-row"></div>
+                        </div>
+                        <div class="hero-slide-dots">
+                            <button type="button" class="hero-dot-btn active" data-hero-go="0" aria-label="Slide 1">1</button>
+                            <button type="button" class="hero-dot-btn" data-hero-go="1" aria-label="Slide 2">2</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -478,7 +517,10 @@
                     <div class="workshop-form-column reveal-on-scroll">
                         <div class="workshop-form-header">
                             <h3 class="workshop-form-title">Datos de tu Bicicleta y Cita</h3>
-                            <img src="assets/images/cadena.png" alt="Icono Cadena Taller" class="workshop-chain-icon">
+                            <picture>
+                                <source srcset="assets/images/cadena.webp" type="image/webp">
+                                <img src="assets/images/cadena.png" alt="Icono Cadena Taller" class="workshop-chain-icon" width="163" height="34" loading="lazy" decoding="async">
+                            </picture>
                         </div>
 
                         <form id="workshop-booking-form" class="workshop-minimal-form">
@@ -566,6 +608,14 @@
                                 </div>
                             </div>
 
+                            <!-- Checkbox de Consentimiento de Privacidad y Términos para Taller -->
+                            <div class="workshop-privacy-check-box">
+                                <label class="workshop-privacy-label" for="ws-privacy-agree">
+                                    <input type="checkbox" id="ws-privacy-agree" required>
+                                    <span>He leído y acepto el <a href="#legal-privacidad" data-open-legal="privacidad">Aviso de Privacidad</a> y los <a href="#legal-terminos" data-open-legal="terminos">Términos y Condiciones</a> del servicio de taller.</span>
+                                </label>
+                            </div>
+
                             <div class="workshop-submit-row">
                                 <span class="selected-service-indicator">
                                     Paquete seleccionado: <strong id="ws-active-service-label">1. AJUSTE BÁSICO EXPRESS ($350 MXN)</strong>
@@ -595,7 +645,10 @@
                         <span class="section-eyebrow">COMUNIDAD / NOTICIAS / EVENTOS</span>
                         <h2 class="section-title news-main-title">NOTICIAS &amp; <br class="mobile-only-br">PRÓXIMOS EVENTOS</h2>
                     </div>
-                    <img src="assets/images/biker.png" alt="Ciclista Cordillera" class="news-biker-icon">
+                    <picture>
+                        <source srcset="assets/images/biker.webp" type="image/webp">
+                        <img src="assets/images/biker.png" alt="Ciclista Cordillera" class="news-biker-icon" width="193" height="160" loading="lazy" decoding="async">
+                    </picture>
                 </div>
 
                 <!-- Carrusel Horizontal de Noticias (PC y Móvil) -->
@@ -629,7 +682,10 @@
                 <div class="featured-fixed-bg"></div>
                 <div class="featured-parallax-overlay"></div>
                 <div class="container featured-parallax-content">
-                    <img src="assets/images/cordillera-icon.png" alt="Cordillera Icono" class="featured-cordillera-icon">
+                    <picture>
+                        <source srcset="assets/images/cordillera-icon.webp" type="image/webp">
+                        <img src="assets/images/cordillera-icon.png" alt="Cordillera Icono" class="featured-cordillera-icon" width="266" height="306" loading="lazy" decoding="async">
+                    </picture>
                     <h2 class="featured-parallax-title">EDICIÓN LIMITADA <br class="mobile-only-br">50 AÑOS DE TREK BICYCLE.</h2>
                     <button type="button" class="btn-pill-cta btn-pill-darkgrey featured-fixed-btn" data-store-filter="Bicicletas TREK">
                         <span>Ver Catálogo TREK</span>
@@ -691,7 +747,10 @@
 
                     <!-- Columna Derecha: Foto de la Tienda + Texto a 2 Columnas -->
                     <div class="about-right-column reveal-on-scroll">
-                        <img src="assets/images/tienda.png" alt="Fachada Cordillera Trek Durango" class="about-store-photo">
+                        <picture>
+                            <source srcset="assets/images/tienda.webp" type="image/webp">
+                            <img src="assets/images/tienda.png" alt="Fachada Cordillera Trek Durango" class="about-store-photo" width="542" height="447" loading="lazy" decoding="async">
+                        </picture>
                         <div class="about-caption-columns">
                             <h3 class="about-caption-heading">TODO LO QUE EL CICLISTA NECESITA</h3>
                             <p class="about-caption-text">
@@ -732,6 +791,7 @@
                                 <h4>TELÉFONO Y WHATSAPP DIRECTO</h4>
                                 <p><a href="tel:6188230673">Tel. Tienda: (618) 823 0673</a></p>
                                 <p><a href="https://wa.me/526188230673" target="_blank" rel="noopener">WhatsApp Ventas y Taller: 618 823 0673</a></p>
+                                <p><a href="mailto:mario@cordillera.mx">Correo Oficial: mario@cordillera.mx</a></p>
                             </div>
                         </div>
                     </div>
@@ -775,17 +835,23 @@
             <div class="footer-top-grid">
                 <div>
                     <div class="footer-brand-logos">
-                        <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera">
+                        <picture>
+                            <source srcset="assets/logos/logo-header1.webp" type="image/webp">
+                            <img src="assets/logos/logo-header1.png" alt="Cordillera" class="header-logo-cordillera" width="512" height="88" loading="lazy" decoding="async">
+                        </picture>
                         <span class="brand-divider"></span>
-                        <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango">
+                        <picture>
+                            <source srcset="assets/logos/logo_header2.webp" type="image/webp">
+                            <img src="assets/logos/logo_header2.png" alt="Durango Trek" class="header-logo-durango" width="490" height="248" loading="lazy" decoding="async">
+                        </picture>
                     </div>
                     <p class="footer-brand-desc">
                         19 años compartiendo la pasión por el ciclismo en Durango. Distribuidor autorizado Trek, Cannondale, Alubike, Shimano, Bontrager, Fox, Oakley y Garmin.
                     </p>
                     <div class="footer-socials">
-                        <a href="https://www.facebook.com/durangotrek" target="_blank" rel="noopener" class="footer-social-link">Facebook</a>
-                        <a href="https://www.instagram.com/cordilleratrek" target="_blank" rel="noopener" class="footer-social-link">Instagram</a>
-                        <a href="https://wa.me/526188230673" target="_blank" rel="noopener" class="footer-social-link">WhatsApp</a>
+                        <a href="https://www.facebook.com/profile.php?id=100057413051347" target="_blank" rel="noopener noreferrer" class="footer-social-link">Facebook</a>
+                        <a href="https://www.instagram.com/cordillera_trek/" target="_blank" rel="noopener noreferrer" class="footer-social-link">Instagram</a>
+                        <a href="https://wa.me/526188230673" target="_blank" rel="noopener noreferrer" class="footer-social-link">WhatsApp</a>
                     </div>
                 </div>
 
@@ -818,6 +884,7 @@
                     <ul class="footer-links-list">
                         <li><a href="#contacto" data-scroll-to="#contacto">Coronado #1130 Pte., Zona Centro, Durango</a></li>
                         <li><a href="tel:6188230673">Teléfono: (618) 823 0673</a></li>
+                        <li><a href="mailto:mario@cordillera.mx">Correo: mario@cordillera.mx</a></li>
                         <li><a href="#" id="footer-open-account">Mi Cuenta / Registro de Ciclista</a></li>
                         <li><a href="#" id="footer-open-cart">Mi Carrito de Compras</a></li>
                     </ul>
@@ -826,7 +893,15 @@
 
             <div class="footer-bottom-row">
                 <div class="footer-bottom-left">
-                    <span>&copy; 2026 CORDILLERA TREK (Durango Trek). Todos los derechos reservados.</span>
+                    <span class="footer-copy-brand">&copy; 2026 CORDILLERA TREK (Duran Go Trek, S.A. de C.V.).</span>
+                    <span class="footer-copy-rights">Todos los derechos reservados. Durango. Mex.</span>
+                    <div class="footer-legal-links">
+                        <a href="#legal-privacidad" data-open-legal="privacidad">Aviso de Privacidad</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#legal-terminos" data-open-legal="terminos">Términos y Condiciones</a>
+                        <span aria-hidden="true">&middot;</span>
+                        <a href="#legal-cookies" data-open-legal="cookies">Política de Cookies</a>
+                    </div>
                 </div>
 
                 <div class="footer-bottom-center">
@@ -927,7 +1002,10 @@
             <button type="button" id="btn-fs-prev" class="circle-arrow-btn circle-arrow-white fs-gallery-nav-btn prev" aria-label="Foto anterior">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            <img id="fs-gallery-main-img" src="" alt="Vista en alta resolución" class="fs-gallery-main-img">
+            <picture>
+                <source id="fs-gallery-main-source" srcset="" type="image/webp">
+                <img id="fs-gallery-main-img" src="" alt="Vista en alta resolución" class="fs-gallery-main-img" width="1000" height="750" loading="lazy" decoding="async">
+            </picture>
             <button type="button" id="btn-fs-next" class="circle-arrow-btn circle-arrow-white fs-gallery-nav-btn next" aria-label="Siguiente foto">
                 <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"></polyline></svg>
             </button>
@@ -1014,6 +1092,9 @@
                         <label for="reg-password">CREAR CONTRASEÑA *</label>
                         <input type="password" id="reg-password" class="clean-input" placeholder="Mínimo 6 caracteres" required>
                     </div>
+                    <p class="form-legal-consent-note">
+                        Al continuar, confirmas que has leído y aceptas nuestro <a href="#legal-privacidad" data-open-legal="privacidad">Aviso de Privacidad</a> y los <a href="#legal-terminos" data-open-legal="terminos">Términos y Condiciones</a> de Duran Go Trek, S.A. de C.V.
+                    </p>
                     <button type="submit" class="btn-pill-cta btn-pill-orange" style="margin-top:8px;">
                         <span>Enviar Código de Verificación y Crear Cuenta</span>
                         <span class="btn-pill-icon">
@@ -1235,6 +1316,10 @@
 
                 <div id="checkout-summary-box" style="margin:18px 0;padding:16px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;"></div>
 
+                <p class="form-legal-consent-note">
+                    Al continuar, confirmas que has leído y aceptas nuestro <a href="#legal-privacidad" data-open-legal="privacidad">Aviso de Privacidad</a> y los <a href="#legal-terminos" data-open-legal="terminos">Términos y Condiciones</a> de Duran Go Trek, S.A. de C.V.
+                </p>
+
                 <button type="submit" class="btn-pill-cta btn-pill-orange">
                     <span>Confirmar Pedido y Generar Folio</span>
                     <span class="btn-pill-icon">
@@ -1337,6 +1422,226 @@
             <div id="dispatch-chofer-body" style="display:none;"></div>
         </div>
     </div>
+
+    <!-- ====================================================================
+         18. MARCO LEGAL Y NORMATIVO (AVISO DE PRIVACIDAD, TÉRMINOS Y COOKIES)
+         ==================================================================== -->
+    <div id="legal-framework-modal" class="minimal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
+        <div class="minimal-dialog-window dialog-wide">
+            <div class="minimal-dialog-header">
+                <div>
+                    <span class="section-eyebrow eyebrow-orange">MARCO LEGAL Y NORMATIVO &middot; DURAN GO TREK, S.A. DE C.V.</span>
+                    <h2 id="legal-modal-title" class="section-title" style="font-size:2.4rem;margin-bottom:0;">TRANSPARENCIA, PRIVACIDAD Y CONDICIONES</h2>
+                </div>
+                <button type="button" id="btn-close-legal-modal" class="modal-close-top modal-close-darkcircle" style="position:static;" aria-label="Cerrar ventana legal">✕</button>
+            </div>
+
+            <div class="minimal-tabs-bar" role="tablist" aria-label="Documentos legales">
+                <button type="button" class="minimal-tab-btn active" role="tab" aria-selected="true" data-legal-tab="privacidad">AVISO DE PRIVACIDAD</button>
+                <button type="button" class="minimal-tab-btn" role="tab" aria-selected="false" data-legal-tab="terminos">TÉRMINOS Y CONDICIONES</button>
+                <button type="button" class="minimal-tab-btn" role="tab" aria-selected="false" data-legal-tab="cookies">POLÍTICA DE COOKIES</button>
+            </div>
+
+            <!-- PANEL 1: AVISO DE PRIVACIDAD INTEGRAL (LFPDPPP) -->
+            <div id="legal-panel-privacidad" class="legal-tab-panel active" role="tabpanel">
+                <div class="legal-doc-content">
+                    <div class="legal-doc-summary">
+                        <strong>Responsable:</strong> Duran Go Trek, S.A. de C.V. (Cordillera Trek / Durango Trek) &middot;
+                        <strong>Domicilio:</strong> Calle Coronado #1130 Pte., Zona Centro, C.P. 34000, Victoria de Durango, Dgo., México &middot;
+                        <strong>Contacto ARCO:</strong> <a href="mailto:mario@cordillera.mx">mario@cordillera.mx</a> &middot; Tel. (618) 823 0673.
+                    </div>
+                    <p class="legal-doc-meta">Última actualización: Noviembre 2026 &middot; Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
+
+                    <h3>I. Identidad y Domicilio del Responsable</h3>
+                    <p>
+                        <strong>Duran Go Trek, S.A. de C.V.</strong> (en lo sucesivo “<strong>Cordillera Trek</strong>” o el “<strong>Responsable</strong>”), con nombre comercial <em>Cordillera Trek / Durango Trek</em> y domicilio fiscal y operativo ubicado en <strong>Calle Coronado #1130 Pte., Zona Centro, C.P. 34000, Victoria de Durango, Durango, México</strong>, es responsable del tratamiento legítimo, controlado e informado de los datos personales que usted nos proporciona a través de nuestro sitio web, plataforma de tienda en línea, módulo de Taller Bike Certificado o vía WhatsApp y atención presencial en sucursal.
+                    </p>
+
+                    <h3>II. Datos Personales que Recabamos</h3>
+                    <p>Para cumplir con las finalidades descritas en el presente Aviso de Privacidad, podremos recabar las siguientes categorías de datos personales:</p>
+                    <ul>
+                        <li><strong>Datos de identificación y contacto:</strong> nombre completo, teléfono celular/WhatsApp, correo electrónico y contraseña de acceso a su cuenta de ciclista.</li>
+                        <li><strong>Datos de ubicación y logística:</strong> domicilio de entrega o recolección a domicilio (calle, número, colonia, código postal y referencias de fachada) en Durango Capital y la República Mexicana.</li>
+                        <li><strong>Datos de bienes y servicio técnico:</strong> marca, modelo, número de serie (cuando aplique para garantías), modalidad ciclista y observaciones mecánicas de su bicicleta para el Taller Certificado.</li>
+                        <li><strong>Datos de facturación y transacciones:</strong> información fiscal (RFC, razón social, régimen fiscal y uso de CFDI) en caso de solicitar factura electrónica, así como folios de compra o anticipo. No almacenamos los códigos de seguridad (CVV) ni numeraciones completas de tarjetas bancarias.</li>
+                    </ul>
+                    <p>Cordillera Trek <strong>no recaba datos personales sensibles</strong> a través de este sitio web.</p>
+
+                    <h3>III. Finalidades del Tratamiento de los Datos</h3>
+                    <p><strong>Finalidades Primarias (necesarias para la relación jurídica y prestación del servicio):</strong></p>
+                    <ul>
+                        <li>Procesar, validar, confirmar y dar seguimiento a sus compras en línea y pedidos generados en nuestro carrito de compras.</li>
+                        <li>Coordinar envíos locales con nuestra unidad operativa en Durango o mediante paquetería asegurada nacional.</li>
+                        <li>Agendar citas en nuestro Taller Bike Certificado, coordinar la recolección y entrega a domicilio (+$120.00 MXN), emitir la Hoja de Servicio Digital y notificar el estatus de reparación vía WhatsApp o llamada telefónica.</li>
+                        <li>Autenticar su identidad mediante verificación de código OTP de 6 dígitos en el registro de cuenta de ciclista.</li>
+                        <li>Tramitar garantías oficiales de fabricante y emitir comprobantes fiscales (CFDI) cuando sean solicitados.</li>
+                    </ul>
+                    <p><strong>Finalidades Secundarias (no necesarias para el servicio principal):</strong></p>
+                    <ul>
+                        <li>Enviarle invitaciones a rodadas, competencias locales, clínicas mecánicas y promociones de bicicletas o equipamiento.</li>
+                    </ul>
+                    <p>Si no desea que sus datos sean tratados para estas finalidades secundarias, puede manifestar su negativa enviando un correo a <a href="mailto:mario@cordillera.mx">mario@cordillera.mx</a> desde el momento en que proporciona sus datos.</p>
+
+                    <h3>IV. Transferencia de Datos Personales</h3>
+                    <p>Sus datos personales podrán ser compartidos únicamente en los supuestos permitidos por el artículo 37 de la LFPDPPP con:</p>
+                    <ul>
+                        <li>Empresas de mensajería y paquetería asegurada (exclusivamente nombre, teléfono y domicilio para entregar su pedido).</li>
+                        <li>Fabricantes o distribuidores autorizados (Trek, Cannondale, Alubike, Shimano, Bontrager, Fox, Garmin) estrictamente cuando sea necesario validar una garantía de fábrica.</li>
+                        <li>Autoridades competentes cuando medie requerimiento legal debidamente fundado y motivado.</li>
+                    </ul>
+
+                    <h3>V. Medios para Ejercer Derechos ARCO y Revocación del Consentimiento</h3>
+                    <p>
+                        Usted tiene derecho a conocer qué datos personales tenemos de usted (<strong>Acceso</strong>), solicitar su corrección si son inexactos o incompletos (<strong>Rectificación</strong>), solicitar su eliminación cuando considere que no se utilizan conforme a la ley (<strong>Cancelación</strong>) u oponerse a su uso para fines específicos (<strong>Oposición</strong>), así como revocar el consentimiento otorgado.
+                    </p>
+                    <p>
+                        Para ejercer cualquiera de los derechos ARCO, deberá enviar una solicitud por escrito al correo electrónico <a href="mailto:mario@cordillera.mx">mario@cordillera.mx</a> o presentarla directamente en Calle Coronado #1130 Pte., Zona Centro, C.P. 34000, Victoria de Durango, Dgo., indicando: (1) nombre completo del titular y correo/teléfono para notificaciones; (2) copia de identificación oficial vigente; (3) descripción clara y precisa de los datos sobre los que solicita ejercer sus derechos ARCO. Conforme al artículo 32 de la LFPDPPP, comunicaremos la determinación adoptada en un plazo máximo de <strong>20 días hábiles</strong> y, de resultar procedente, se hará efectiva dentro de los <strong>15 días hábiles</strong> siguientes.
+                    </p>
+
+                    <h3>VI. Uso de Tecnologías de Rastreo y Cambios al Aviso</h3>
+                    <p>
+                        Este sitio utiliza almacenamiento local y cookies técnicas indispensables para conservar su carrito de compras y sesión activa. Cualquier modificación al presente Aviso de Privacidad será publicada en esta misma sección del sitio web oficial de Cordillera Trek.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PANEL 2: TÉRMINOS Y CONDICIONES (LFPC / PROFECO / CÓDIGO DE COMERCIO) -->
+            <div id="legal-panel-terminos" class="legal-tab-panel" role="tabpanel">
+                <div class="legal-doc-content">
+                    <div class="legal-doc-summary">
+                        <strong>Proveedor:</strong> Duran Go Trek, S.A. de C.V. (Cordillera Trek) &middot;
+                        <strong>Cambios:</strong> Máximo 7 días naturales en tienda (producto nuevo en empaque original con ticket). <strong>No existen devoluciones en efectivo.</strong>
+                    </div>
+                    <p class="legal-doc-meta">Última actualización: Noviembre 2026 &middot; Regido por la Ley Federal de Protección al Consumidor (LFPC) y el Código de Comercio vigentes en México.</p>
+
+                    <h3>1. Aceptación de los Términos</h3>
+                    <p>
+                        El acceso, navegación, registro de cuenta, agendamiento de servicios en Taller Bike o compra de productos a través de este sitio web implica la aceptación plena y sin reservas de los presentes Términos y Condiciones celebrados entre el usuario/consumidor y <strong>Duran Go Trek, S.A. de C.V.</strong> (“<strong>Cordillera Trek</strong>”).
+                    </p>
+
+                    <h3>2. Catálogo, Disponibilidad e Inventario</h3>
+                    <p>
+                        El catálogo publicado en nuestra tienda en línea refleja existencias sincronizadas con nuestro sistema punto de venta (<strong>Ascend RMS</strong>) en sucursal Calle Coronado #1130 Pte., Durango. Todos los precios están expresados en <strong>Pesos Mexicanos (MXN) e incluyen IVA</strong>, salvo que se indique expresamente lo contrario. En caso de error tipográfico evidente en precio o agotamiento simultáneo de inventario físico en piso, Cordillera Trek notificará de inmediato al cliente para ofrecer un producto equivalente, saldo a favor o la cancelación de la orden antes de su despacho.
+                    </p>
+
+                    <h3>3. Política Estricta de Cambios y No Devoluciones en Efectivo</h3>
+                    <ul>
+                        <li><strong>Sin devoluciones en efectivo:</strong> Duran Go Trek, S.A. de C.V. <strong>no realiza devoluciones en efectivo ni reembolsos monetarios</strong> en ninguna modalidad de compra.</li>
+                        <li><strong>Plazo de cambios:</strong> Toda solicitud de cambio deberá realizarse presencialmente en nuestra sucursal dentro de los <strong>primeros 7 (siete) días naturales</strong> posteriores a la fecha de compra o entrega.</li>
+                        <li><strong>Modalidad admitida:</strong> Únicamente procederá el <strong>cambio físico por otra mercancía de igual o mayor valor</strong> (cubriendo la diferencia correspondiente) o la emisión de <strong>saldo a favor en tienda</strong> para futuras compras.</li>
+                        <li><strong>Requisitos indispensables:</strong> El cliente deberá presentar su ticket o comprobante original de compra y entregar el artículo completamente nuevo, <strong>sin haber sido usado, instalado, ajustado o rodado</strong>, con su empaque original intacto, sellos y etiquetas de fábrica.</li>
+                        <li><strong>Excepciones:</strong> No aplican cambios ni saldo a favor en productos eléctricos abiertos, componentes ya montados o con marcas de herramienta, llantas instaladas con sellador, líquidos/lubricantes abiertos, productos de nutrición deportiva ni pedidos especiales bajo encargo.</li>
+                    </ul>
+
+                    <h3>4. Garantías Oficiales de Fabricante</h3>
+                    <p>
+                        Todas las bicicletas y equipamiento comercializados por Cordillera Trek cuentan con respaldo de distribuidor autorizado y se sujetan estrictamente a las políticas de garantía directa de cada marca fabricante (Trek, Cannondale, Alubike, Shimano, Bontrager, Fox, Garmin, Maxxis, entre otras). La garantía cubre únicamente defectos de fabricación o materiales y no cubre desgaste natural por uso (cadenas, balatas, llantas, cables, rodamientos), golpes, caídas, accidentes, mal ensamble externo o falta de mantenimiento preventivo en taller autorizado. Todo trámite de garantía se gestiona presentando la bicicleta/pieza limpia junto con su comprobante de compra en Coronado #1130 Pte.
+                    </p>
+
+                    <h3>5. Condiciones de Taller Bike Certificado y Recolección</h3>
+                    <ul>
+                        <li><strong>Reserva y Anticipos:</strong> El agendamiento en línea requiere el pago de anticipo o liquidación total del paquete seleccionado; dicho anticipo se abona íntegramente al costo final de la orden de servicio.</li>
+                        <li><strong>Recolección y entrega a domicilio:</strong> Disponible exclusivamente dentro de la mancha urbana de Durango Capital con un cargo adicional de <strong>$120.00 MXN</strong> (cubre recolección y retorno programado en turno Matutino o Vespertino).</li>
+                        <li><strong>Refacciones adicionales:</strong> Los paquetes de taller cubren mano de obra, limpieza y calibración descritas; si durante la inspección mecánica se detectan piezas desgastadas o dañadas que requieran reemplazo, nuestro equipo solicitará autorización previa al cliente por WhatsApp o teléfono indicando el costo adicional antes de instalarlas.</li>
+                        <li><strong>Reprogramación y Resguardo:</strong> Cualquier cambio de fecha debe solicitarse con al menos <strong>24 horas de anticipación</strong> al (618) 823 0673 o a <a href="mailto:mario@cordillera.mx">mario@cordillera.mx</a>. Una vez notificada la conclusión del servicio, el cliente contará con 15 días naturales para recoger su bicicleta sin costo de almacenaje.</li>
+                    </ul>
+
+                    <h3>6. Envíos Locales y Nacionales</h3>
+                    <p>
+                        Las entregas locales en Durango se coordinan el mismo día o en el siguiente turno disponible según horario de confirmación. Los envíos foráneos al resto de la República Mexicana se realizan mediante paquetería asegurada en caja protectora; en el caso de bicicletas enviadas fuera de Durango, se despachan pre-ajustadas y parcialmente desensambladas por seguridad de transporte, recomendándose el ajuste final por un mecánico calificado al recibirlas.
+                    </p>
+
+                    <h3>7. Propiedad Intelectual, Jurisdicción y Competencia</h3>
+                    <p>
+                        Las marcas registradas, logotipos, fotografías técnicas y descripciones pertenecen a Duran Go Trek, S.A. de C.V. y a sus respectivos fabricantes autorizados. Para cualquier controversia derivada de la interpretación o cumplimiento de los presentes Términos y Condiciones, será competente la Procuraduría Federal del Consumidor (PROFECO) en la vía administrativa y los tribunales competentes de la ciudad de Victoria de Durango, Dgo., México.
+                    </p>
+                </div>
+            </div>
+
+            <!-- PANEL 3: POLÍTICA DE COOKIES Y ALMACENAMIENTO LOCAL -->
+            <div id="legal-panel-cookies" class="legal-tab-panel" role="tabpanel">
+                <div class="legal-doc-content">
+                    <div class="legal-doc-summary">
+                        Utilizamos almacenamiento local del navegador (<code>localStorage</code>) y tecnologías esenciales para que tu carrito de compras, sesión de ciclista y citas de taller funcionen correctamente.
+                    </div>
+                    <p class="legal-doc-meta">Última actualización: Noviembre 2026 &middot; Duran Go Trek, S.A. de C.V.</p>
+
+                    <h3>1. ¿Qué son las Cookies y el Almacenamiento Local?</h3>
+                    <p>
+                        Las cookies y el almacenamiento local (<code>localStorage</code>) son pequeños archivos o registros de datos que tu navegador guarda en tu dispositivo al visitar un sitio web. Permiten recordar tus acciones y preferencias (como los artículos en tu carrito de compras o tu sesión iniciada) para brindarte una experiencia continua sin perder información al navegar o recargar la página.
+                    </p>
+
+                    <h3>2. Tecnologías que Utilizamos en Cordillera Trek</h3>
+                    <div class="legal-cookie-table-wrap">
+                        <table class="legal-cookie-table">
+                            <thead>
+                                <tr>
+                                    <th>Identificador / Servicio</th>
+                                    <th>Categoría</th>
+                                    <th>Finalidad y Persistencia</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>cordillera_rediseno_cart_v2</code></td>
+                                    <td>Estrictamente necesaria</td>
+                                    <td>Conserva los productos, cantidades y subtotales agregados a tu carrito de compras en tu navegador.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>cordillera_rediseno_user_v2</code><br><code>cordillera_rediseno_users_db_v2</code></td>
+                                    <td>Estrictamente necesaria</td>
+                                    <td>Mantiene tu sesión verificada de Cuenta de Ciclista e historial local de pedidos y citas de taller.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>cordillera_rediseno_orders_v2</code><br><code>cordillera_rediseno_workshop_v2</code></td>
+                                    <td>Funcionalidad operativa</td>
+                                    <td>Almacena tus folios de compra y Hojas de Servicio Digital generadas en Taller Bike.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>cordillera_rediseno_cookie_consent_v1</code></td>
+                                    <td>Preferencias / Privacidad</td>
+                                    <td>Registra la elección que hiciste en el banner de consentimiento de cookies.</td>
+                                </tr>
+                                <tr>
+                                    <td>Google Maps (Embed) y enlaces a WhatsApp</td>
+                                    <td>Terceros externos</td>
+                                    <td>Al visualizar el mapa interactivo de nuestra sucursal en Coronado #1130 Pte. o iniciar contacto por WhatsApp, dichos proveedores pueden aplicar sus propias políticas de privacidad y cookies técnicas.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>3. Administración y Eliminación de Cookies</h3>
+                    <p>
+                        Puedes aceptar todas las cookies, limitar su uso a las estrictamente necesarias o borrar los datos almacenados en cualquier momento desde la configuración de privacidad de tu navegador (Chrome, Safari, Edge o Firefox). Ten en cuenta que bloquear el almacenamiento local esencial impedirá conservar los productos en tu carrito de compras o mantener activa tu sesión de Taller Bike.
+                    </p>
+                    <p>
+                        Si deseas modificar tu decisión en este sitio web, puedes restablecer tu preferencia aquí:
+                    </p>
+                    <div style="margin-top:14px;">
+                        <button type="button" id="btn-reset-cookie-consent" class="btn-pill-cta btn-pill-darkgrey">
+                            <span>Restablecer Preferencias de Cookies</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Discreto de Consentimiento de Cookies -->
+    <aside id="cookie-consent-banner" class="cookie-consent-banner" role="region" aria-label="Aviso de cookies y almacenamiento local" style="display:none;">
+        <div class="container cookie-banner-inner">
+            <div class="cookie-banner-text">
+                <strong>Privacidad y Cookies &middot; Cordillera Trek:</strong> Utilizamos almacenamiento local y cookies esenciales para mantener tu carrito, cuenta de ciclista y citas de Taller Bike. Consulta nuestra
+                <a href="#legal-cookies" data-open-legal="cookies">Política de Cookies</a> y el
+                <a href="#legal-privacidad" data-open-legal="privacidad">Aviso de Privacidad</a>.
+            </div>
+            <div class="cookie-banner-actions">
+                <button type="button" id="btn-essential-cookies" class="cookie-btn-secondary">Solo Necesarias</button>
+                <button type="button" id="btn-accept-cookies" class="cookie-btn-primary">Aceptar Todas</button>
+            </div>
+        </div>
+    </aside>
 
     <!-- Pila de Notificaciones -->
     <div id="toast-stack" class="toast-stack" aria-live="polite"></div>

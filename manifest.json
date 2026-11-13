@@ -1,0 +1,21 @@
+{
+  "name": "Cordillera Trek · Sistema Logístico PWA & Tienda",
+  "short_name": "Cordillera PWA",
+  "description": "Plataforma Oficial Cordillera Trek Durango y Sistema PWA de Logística, Chofer en Turno y Taller Certificado (Coronado #1130).",
+  "start_url": "./index.html#logistica",
+  "display": "standalone",
+  "background_color": "#1E1E1E",
+  "theme_color": "#FF6600",
+  "icons": [
+    {
+      "src": "assets/logos/logo-header1.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logos/cordillera-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
