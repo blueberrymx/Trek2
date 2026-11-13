@@ -28,7 +28,8 @@
         WORKSHOP_BOOKINGS: 'cordillera_rediseno_workshop_v2',
         CUSTOM_IMG_OVERRIDES: 'cordillera_rediseno_img_overrides_v4',
         CUSTOM_GALLERY_OVERRIDES: 'cordillera_rediseno_gallery_overrides_v4',
-        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v4'
+        CUSTOM_INVENTORY_EDITS: 'cordillera_rediseno_inv_edits_v4',
+        COOKIE_CONSENT: 'cordillera_rediseno_cookie_consent_v1'
     };
 
     const state = {
@@ -98,6 +99,37 @@
             details: 'Impartida por nuestros mecánicos certificados Trek University. Cupo limitado a 20 ciclistas por sesión. Incluye kit de descuento en herramientas Bontrager y Stan\'s NoTubes.'
         }
     ];
+
+    /* Mapa de Dimensiones Reales (Prevención CLS) y Soporte WebP <picture> */
+    const MEDIA_DIMS_MAP = {"assets/logos/cordillera-logo.png":[512,88],"assets/logos/durangotrek-logo.png":[490,248],"assets/logos/favicon.png":[128,128],"assets/logos/logo-cordillera-color.png":[512,88],"assets/logos/logo-header1.png":[512,88],"assets/logos/logo-header2.png":[490,248],"assets/logos/logo_header2.png":[490,248],"assets/images/biker.png":[193,160],"assets/images/blueberry-logo.png":[512,246],"assets/images/buscador.svg":[24,24],"assets/images/cadena.png":[163,34],"assets/images/calendario.svg":[24,24],"assets/images/carrito.svg":[24,24],"assets/images/cordillera-icon.png":[266,306],"assets/images/cordillera-logo.png":[512,88],"assets/images/destacado.jpg":[1843,1365],"assets/images/destacado02.jpg":[1843,1365],"assets/images/durangotrek-logo.png":[490,248],"assets/images/favicon.png":[128,128],"assets/images/fondo-01.png":[1366,768],"assets/images/fondo-02.png":[1920,1080],"assets/images/logo-cordillera-color.png":[512,88],"assets/images/logo-header1.png":[512,88],"assets/images/logo-header2.png":[490,248],"assets/images/logo_header2.png":[490,248],"assets/images/logos-marcas.png":[900,595],"assets/images/maillot-gobik.jpg":[1000,1000],"assets/images/poster-01.png":[274,340],"assets/images/poster-02.png":[600,750],"assets/images/poster-03.png":[600,750],"assets/images/poster-04.png":[600,750],"assets/images/productos/010-02695-10.jpg":[700,500,"assets/images/productos/010-02695-10-hd.webp"],"assets/images/productos/010-02695-10.png":[700,500],"assets/images/productos/5286411.jpg":[700,500,"assets/images/productos/5286411-hd.webp"],"assets/images/productos/5286411.png":[700,500],"assets/images/productos/5298810.jpg":[700,500,"assets/images/productos/5298810-hd.webp"],"assets/images/productos/5298810.png":[700,500],"assets/images/productos/5301924.jpg":[700,500,"assets/images/productos/5301924-hd.webp"],"assets/images/productos/5301924.png":[700,500],"assets/images/productos/5319901.jpg":[700,500,"assets/images/productos/5319901-hd.webp"],"assets/images/productos/5319901.png":[700,418],"assets/images/productos/alubike-sierra-amarillo.jpg":[700,700,"assets/images/productos/alubike-sierra-amarillo-hd.webp"],"assets/images/productos/alubike-sierra-amarillo.png":[672,408],"assets/images/productos/alubike-sierra-azul.jpg":[700,700,"assets/images/productos/alubike-sierra-azul-hd.webp"],"assets/images/productos/alubike-sierra-azul.png":[700,700],"assets/images/productos/alubike-xta-rojo.jpg":[700,700,"assets/images/productos/alubike-xta-rojo-hd.webp"],"assets/images/productos/alubike-xta-rojo.png":[700,700],"assets/images/productos/balance-rockbros.jpg":[700,700,"assets/images/productos/balance-rockbros-hd.webp"],"assets/images/productos/balance-rockbros.png":[700,700],"assets/images/productos/bon-circ-l.jpg":[700,500,"assets/images/productos/bon-circ-l-hd.webp"],"assets/images/productos/bon-circ-l.png":[700,500],"assets/images/productos/c24-scal1.jpg":[700,500,"assets/images/productos/c24-scal1-hd.webp"],"assets/images/productos/c24-scal1.png":[700,500],"assets/images/productos/cannondale-habit4-negro.jpg":[700,700,"assets/images/productos/cannondale-habit4-negro-hd.webp"],"assets/images/productos/cannondale-habit4-negro.png":[700,700],"assets/images/productos/cannondale-trail-azul.jpg":[700,700,"assets/images/productos/cannondale-trail-azul-hd.webp"],"assets/images/productos/cannondale-trail-azul.png":[700,700],"assets/images/productos/cannondale-trail-gris.jpg":[700,700,"assets/images/productos/cannondale-trail-gris-hd.webp"],"assets/images/productos/cannondale-trail-gris.png":[700,700],"assets/images/productos/cuadro-roscoe-rojo.jpg":[700,510,"assets/images/productos/cuadro-roscoe-rojo-hd.webp"],"assets/images/productos/cuadro-roscoe-rojo.png":[700,510],"assets/images/productos/fox-910-21.jpg":[700,500,"assets/images/productos/fox-910-21-hd.webp"],"assets/images/productos/fox-910-21.png":[700,500],"assets/images/productos/giro-man-m.jpg":[700,500,"assets/images/productos/giro-man-m-hd.webp"],"assets/images/productos/giro-man-m.png":[700,500],"assets/images/productos/icsm8100051.jpg":[700,500,"assets/images/productos/icsm8100051-hd.webp"],"assets/images/productos/icsm8100051.png":[700,500],"assets/images/productos/irdm9100sgs.jpg":[700,500,"assets/images/productos/irdm9100sgs-hd.webp"],"assets/images/productos/irdm9100sgs.png":[700,500],"assets/images/productos/madone-sl5-azul.jpg":[700,700,"assets/images/productos/madone-sl5-azul-hd.webp"],"assets/images/productos/madone-sl5-azul.png":[700,700],"assets/images/productos/maillot-gobik.jpg":[1000,1000,"assets/images/productos/maillot-gobik-hd.webp"],"assets/images/productos/maillot-gobik.png":[900,900],"assets/images/productos/marlin-plus-6-azul.jpg":[668,360,"assets/images/productos/marlin-plus-6-azul-hd.webp"],"assets/images/productos/marlin-plus-6-azul.png":[658,360],"assets/images/productos/marlin-rojo.jpg":[700,466,"assets/images/productos/marlin-rojo-hd.webp"],"assets/images/productos/marlin-rojo.png":[528,382],"assets/images/productos/marlin6-verde-gris.jpg":[700,388,"assets/images/productos/marlin6-verde-gris-hd.webp"],"assets/images/productos/marlin6-verde-gris.png":[700,388],"assets/images/productos/marlin6-verde-miami.jpg":[700,431,"assets/images/productos/marlin6-verde-miami-hd.webp"],"assets/images/productos/marlin6-verde-miami.png":[700,431],"assets/images/productos/marlin7-blanco-menta.jpg":[700,386,"assets/images/productos/marlin7-blanco-menta-hd.webp"],"assets/images/productos/marlin7-blanco-menta.png":[700,386],"assets/images/productos/pd-m8100.jpg":[700,500,"assets/images/productos/pd-m8100-hd.webp"],"assets/images/productos/pd-m8100.png":[700,500],"assets/images/productos/precaliber-beige.jpg":[700,500,"assets/images/productos/precaliber-beige-hd.webp"],"assets/images/productos/precaliber-beige.png":[700,500],"assets/images/productos/precaliber-verde.jpg":[700,434,"assets/images/productos/precaliber-verde-hd.webp"],"assets/images/productos/precaliber-verde.png":[700,434],"assets/images/productos/procaliber95-verde.jpg":[700,466,"assets/images/productos/procaliber95-verde-hd.webp"],"assets/images/productos/procaliber95-verde.png":[546,381],"assets/images/productos/rail-8-negro-dorado.jpg":[1000,564,"assets/images/productos/rail-8-negro-dorado-hd.webp"],"assets/images/productos/rail-8-negro-dorado.png":[900,510],"assets/images/productos/rail-detail-1.jpg":[1000,750],"assets/images/productos/rail-detail-2.jpg":[1000,750],"assets/images/productos/rail-detail-3.jpg":[1000,750],"assets/images/productos/rail-detail-4.jpg":[1000,750],"assets/images/productos/rail-detail-main.jpg":[1000,750],"assets/images/productos/Rail8-25-48470-A-Alt1.avif":[1000,750],"assets/images/productos/Rail8-25-48470-A-Alt2.avif":[1000,750],"assets/images/productos/Rail8-25-48470-A-Alt3.avif":[1000,750],"assets/images/productos/Rail8-25-48470-A-Portrait (1).avif":[1000,750],"assets/images/productos/Rail8-25-48474-A-Primary (2).avif":[1000,750],"assets/images/productos/remolque-mt201.jpg":[700,700,"assets/images/productos/remolque-mt201-hd.webp"],"assets/images/productos/remolque-mt201.png":[700,438],"assets/images/productos/sis-pack-dgo.jpg":[700,500,"assets/images/productos/sis-pack-dgo-hd.webp"],"assets/images/productos/sis-pack-dgo.png":[700,500],"assets/images/productos/supersix-evo-gris.jpg":[700,700,"assets/images/productos/supersix-evo-gris-hd.webp"],"assets/images/productos/supersix-evo-gris.png":[700,442],"assets/images/productos/taller-grasa.jpg":[700,500,"assets/images/productos/taller-grasa-hd.webp"],"assets/images/productos/taller-grasa.png":[700,500],"assets/images/productos/tb00219400.jpg":[700,500,"assets/images/productos/tb00219400-hd.webp"],"assets/images/productos/tb00219400.png":[700,500],"assets/images/productoshd/2/CUA31442171K.png":[600,439],"assets/images/productoshd/2/CUA31442171K_1.png":[600,439],"assets/images/productoshd/2/DOM3721281K.png":[900,543],"assets/images/productoshd/2/DOM3721281K6.webp":[932,700],"assets/images/productoshd/2/DOM3721281K_1.webp":[932,580],"assets/images/productoshd/2/DOM3721281K_2.webp":[858,654],"assets/images/productoshd/2/DOM3721281K_3.webp":[932,700],"assets/images/productoshd/2/DOM3721281K_4.webp":[862,688],"assets/images/productoshd/2/DOM3721281K_5.webp":[778,668],"assets/images/productoshd/2/EMO36221095E.png":[640,400],"assets/images/productoshd/2/EMO36221095E_1.webp":[486,348],"assets/images/productoshd/2/EMO36221095E_2.webp":[1000,750],"assets/images/productoshd/2/EMO36221095E_3.webp":[1000,750],"assets/images/productoshd/2/EMO36221095E_4.webp":[1000,750],"assets/images/productoshd/2/EMO36221095E_5.webp":[1000,750],"assets/images/productoshd/2/EMO36221095E_6.webp":[1000,750],"assets/images/productoshd/2/EMO36221095E_7.webp":[1000,750],"assets/images/productoshd/2/HAB24277511E.png":[900,506],"assets/images/productoshd/2/HAB24277511E_1.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_2.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_3.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_4.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_5.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_6.webp":[1000,1000],"assets/images/productoshd/2/HAB24277511E_7.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E.png":[900,506],"assets/images/productoshd/2/HAB24765361E_1.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_2.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_3.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_4.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_5.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_6.webp":[1000,1000],"assets/images/productoshd/2/HAB24765361E_7.webp":[1000,1000],"assets/images/productoshd/2/KID24199308E.png":[900,510],"assets/images/productoshd/2/KID24199308E_1.webp":[1000,921],"assets/images/productoshd/2/KID24199308E_2.webp":[1000,666],"assets/images/productoshd/2/KID24199308E_3.webp":[1000,666],"assets/images/productoshd/2/KID24199308E_4.webp":[1000,666],"assets/images/productoshd/2/KID24199308E_5.webp":[1000,666],"assets/images/productoshd/2/KID24199308E_6.webp":[1000,666],"assets/images/productoshd/2/KID24199308E_7.webp":[1000,667],"assets/images/productoshd/2/MAD17253947E.png":[900,544],"assets/images/productoshd/2/MAD17253947E_1.jpg":[1000,1000],"assets/images/productoshd/2/MAD17253947E_2.jpg":[1000,1000],"assets/images/productoshd/2/MAD17253947E_3.jpg":[1000,1000],"assets/images/productoshd/2/MAD17253947E_4.jpg":[1000,1000],"assets/images/productoshd/2/MAD17253947E_5.jpg":[1000,1000],"assets/images/productoshd/2/MAR1439354A.png":[900,490],"assets/images/productoshd/2/MAR1439354A_1.avif":[1000,750],"assets/images/productoshd/2/MAR1439354A_2.avif":[1000,750],"assets/images/productoshd/2/MAR1439354A_3.avif":[1000,750],"assets/images/productoshd/2/MAR1439354A_4.avif":[1000,750],"assets/images/productoshd/2/MAR1439354A_5.avif":[1000,750],"assets/images/productoshd/2/MAR14419582A.png":[900,490],"assets/images/productoshd/2/MAR14419582A_1.avif":[1000,750],"assets/images/productoshd/2/MAR14419582A_2.avif":[1000,750],"assets/images/productoshd/2/MAR14419582A_3.avif":[1000,750],"assets/images/productoshd/2/MAR14419582A_4.avif":[1000,750],"assets/images/productoshd/2/MAR14419582A_5.avif":[1000,750],"assets/images/productoshd/2/MAR1570023A.png":[900,490],"assets/images/productoshd/2/MAR1570023A_1.avif":[1000,750],"assets/images/productoshd/2/MAR1570023A_2.avif":[1000,750],"assets/images/productoshd/2/MAR1570023A_3.avif":[1000,750],"assets/images/productoshd/2/MAR1570023A_4.avif":[1000,750],"assets/images/productoshd/2/MAR1570023A_5.avif":[1000,750],"assets/images/productoshd/2/MAR16677398A.png":[900,490],"assets/images/productoshd/2/MAR16677398A_1.avif":[1000,750],"assets/images/productoshd/2/MAR16677398A_2.avif":[1000,750],"assets/images/productoshd/2/MAR16677398A_3.avif":[1000,750],"assets/images/productoshd/2/MAR16677398A_4.avif":[1000,750],"assets/images/productoshd/2/MAR16677398A_5.avif":[1000,750],"assets/images/productoshd/2/MAR17219125D.png":[900,490],"assets/images/productoshd/2/MAR17219125D_1.avif":[1000,750],"assets/images/productoshd/2/MAR17219125D_2.avif":[1000,750],"assets/images/productoshd/2/MAR17219125D_3.avif":[1000,750],"assets/images/productoshd/2/MAR17219125D_4.avif":[1000,750],"assets/images/productoshd/2/MAR17219125D_5.avif":[1000,750],"assets/images/productoshd/2/MAR17981847D.png":[900,490],"assets/images/productoshd/2/MAR17981847D_1.avif":[1000,750],"assets/images/productoshd/2/MAR17981847D_2.avif":[1000,750],"assets/images/productoshd/2/MAR17981847D_3.avif":[1000,750],"assets/images/productoshd/2/MAR17981847D_4.avif":[1000,750],"assets/images/productoshd/2/MAR17981847D_5.avif":[1000,750],"assets/images/productoshd/2/MAR18647908D.png":[900,490],"assets/images/productoshd/2/MAR18647908D_1.avif":[1000,750],"assets/images/productoshd/2/MAR18647908D_2.avif":[1000,750],"assets/images/productoshd/2/MAR18647908D_3.avif":[1000,750],"assets/images/productoshd/2/MAR18647908D_4.avif":[1000,750],"assets/images/productoshd/2/MAR18647908D_5.avif":[1000,750],"assets/images/productoshd/2/MAR19133946T.png":[900,492],"assets/images/productoshd/2/MAR19133946T_1.avif":[1000,750],"assets/images/productoshd/2/MAR19133946T_2.avif":[1000,750],"assets/images/productoshd/2/MAR19133946T_3.avif":[1000,750],"assets/images/productoshd/2/MAR19133946T_4.avif":[1000,750],"assets/images/productoshd/2/MAR19133946T_5.avif":[1000,750],"assets/images/productoshd/2/MAR20673171K.png":[900,515],"assets/images/productoshd/2/MAR20673171K_1.avif":[1000,563],"assets/images/productoshd/2/MAR20673171K_2.webp":[1000,1000],"assets/images/productoshd/2/MAR20673171K_3.webp":[1000,1000],"assets/images/productoshd/2/MAR20673171K_4.webp":[1000,1000],"assets/images/productoshd/2/MAR20673171K_5.webp":[1000,1000],"assets/images/productoshd/2/MAR21269788E.png":[900,490],"assets/images/productoshd/2/MAR21269788E_1.avif":[1000,750],"assets/images/productoshd/2/MAR21269788E_2.avif":[1000,750],"assets/images/productoshd/2/MAR21269788E_3.avif":[1000,750],"assets/images/productoshd/2/MAR21269788E_4.avif":[1000,750],"assets/images/productoshd/2/MAR21269788E_5.avif":[1000,750],"assets/images/productoshd/2/MAR31253013K.png":[900,492],"assets/images/productoshd/2/MAR31253013K_1.avif":[1000,750],"assets/images/productoshd/2/MAR31253013K_2.avif":[1000,750],"assets/images/productoshd/2/MAR31253013K_3.avif":[1000,750],"assets/images/productoshd/2/MAR31253013K_4.avif":[1000,750],"assets/images/productoshd/2/MAR31253013K_5.avif":[1000,750],"assets/images/productoshd/2/MAR32983611K.png":[900,492],"assets/images/productoshd/2/MAR32983611K_1.avif":[1000,750],"assets/images/productoshd/2/MAR32983611K_2.avif":[1000,750],"assets/images/productoshd/2/MAR32983611K_3.avif":[1000,750],"assets/images/productoshd/2/MAR32983611K_4.avif":[1000,750],"assets/images/productoshd/2/MAR32983611K_5.avif":[1000,750],"assets/images/productoshd/2/MAR36195173E.png":[900,502],"assets/images/productoshd/2/MAR36195173E_1.avif":[1000,750],"assets/images/productoshd/2/MAR36195173E_2.avif":[1000,750],"assets/images/productoshd/2/MAR36195173E_3.avif":[1000,750],"assets/images/productoshd/2/MAR36195173E_4.avif":[1000,750],"assets/images/productoshd/2/MAR38989209E.png":[900,675],"assets/images/productoshd/2/MAR38989209E_2.png":[1000,1000],"assets/images/productoshd/2/MAR38989209E_3.png":[1000,1000],"assets/images/productoshd/2/MAR38989209E_5.png":[1000,1000],"assets/images/productoshd/2/MAR38989209E_6.png":[1000,1000],"assets/images/productoshd/2/MAR39160984K.png":[900,675],"assets/images/productoshd/2/MAR39160984K_1.png":[1000,1000],"assets/images/productoshd/2/MAR39160984K_2.png":[1000,1000],"assets/images/productoshd/2/MAR39160984K_3.png":[1000,1000],"assets/images/productoshd/2/MAR39160984K_4.png":[1000,1000],"assets/images/productoshd/2/MAR39160984K_5.png":[1000,1000],"assets/images/productoshd/2/PRE21969082K.png":[900,559],"assets/images/productoshd/2/PRE21969082K_1.webp":[1000,668],"assets/images/productoshd/2/PRE21969082K_2.webp":[1000,750],"assets/images/productoshd/2/PRE21969082K_3.webp":[1000,750],"assets/images/productoshd/2/PRE21969082K_4.webp":[1000,750],"assets/images/productoshd/2/PRE21969082K_5.webp":[1000,750],"assets/images/productoshd/2/PRE26177715K.png":[900,565],"assets/images/productoshd/2/PRE26177715K_1.avif":[1000,750],"assets/images/productoshd/2/PRE26177715K_2.avif":[1000,750],"assets/images/productoshd/2/PRE26177715K_3.avif":[1000,750],"assets/images/productoshd/2/PRE26177715K_4.avif":[1000,750],"assets/images/productoshd/2/PRE26177715K_5.webp":[1000,750],"assets/images/productoshd/2/PRE27297304Y.png":[1000,1000],"assets/images/productoshd/2/PRE36843695K_2.png":[1000,1000],"assets/images/productoshd/2/PRO307703432.png":[900,508],"assets/images/productoshd/2/PRO307703432_1.avif":[1000,750],"assets/images/productoshd/2/PRO307703432_2.avif":[1000,750],"assets/images/productoshd/2/PRO307703432_3.avif":[1000,750],"assets/images/productoshd/2/PRO307703432_4.avif":[1000,750],"assets/images/productoshd/2/PRO307703432_5.avif":[1000,750],"assets/images/productoshd/2/PRO38374634Y.png":[820,450],"assets/images/productoshd/2/PRO38374634Y_1.jpg":[1000,1000],"assets/images/productoshd/2/PRO38374634Y_2.jpg":[1000,1000],"assets/images/productoshd/2/PRO38374634Y_3.jpg":[1000,1000],"assets/images/productoshd/2/PRO38374634Y_4.jpg":[1000,1000],"assets/images/productoshd/2/PRO38374634Y_5.jpg":[1000,1000],"assets/images/productoshd/2/SIE19858412E.png":[861,468],"assets/images/productoshd/2/SIE19858412E_1.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_2.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_3.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_4.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_5.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_6.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_7.webp":[540,540],"assets/images/productoshd/2/SIE19858412E_8.webp":[540,540],"assets/images/productoshd/2/SIE20176138E.png":[900,547],"assets/images/productoshd/2/SIE20176138E_1.webp":[1000,1000],"assets/images/productoshd/2/SIE20176138E_2.webp":[900,900],"assets/images/productoshd/2/SIE20176138E_3.webp":[900,900],"assets/images/productoshd/2/SIE20176138E_4.webp":[900,900],"assets/images/productoshd/2/SIE20176138E_5.webp":[1000,1000],"assets/images/productoshd/2/SIE20176138E_6.webp":[1000,1000],"assets/images/productoshd/2/SIE20176138E_7.webp":[1000,1000],"assets/images/productoshd/2/SIE22508971E.png":[516,282],"assets/images/productoshd/2/SIE22508971E_1.webp":[540,540],"assets/images/productoshd/2/SIE22508971E_2.webp":[540,540],"assets/images/productoshd/2/SIE22508971E_3.webp":[540,540],"assets/images/productoshd/2/SIE22508971E_4.webp":[540,540],"assets/images/productoshd/2/SIE24530659E.png":[900,525],"assets/images/productoshd/2/SIE24530659E_1.webp":[1000,1000],"assets/images/productoshd/2/SIE24530659E_2.webp":[900,900],"assets/images/productoshd/2/SIE24530659E_3.webp":[900,900],"assets/images/productoshd/2/SIE24530659E_4.webp":[900,900],"assets/images/productoshd/2/SIE24530659E_5.webp":[900,900],"assets/images/productoshd/2/SIE24530659E_6.webp":[900,900],"assets/images/productoshd/2/SUP30656724E.png":[900,542],"assets/images/productoshd/2/SUP30656724E_1.webp":[1000,912],"assets/images/productoshd/2/SUP30656724E_2.webp":[1000,666],"assets/images/productoshd/2/SUP30656724E_3.webp":[1000,666],"assets/images/productoshd/2/SUP30656724E_4.webp":[1000,666],"assets/images/productoshd/2/SUP30656724E_5.webp":[1000,666],"assets/images/productoshd/2/SUP30656724E_6.webp":[1000,666],"assets/images/productoshd/2/TRA21884899E.png":[900,523],"assets/images/productoshd/2/TRA21884899E_1.webp":[1000,938],"assets/images/productoshd/2/TRA21884899E_2.webp":[1000,666],"assets/images/productoshd/2/TRA21884899E_3.webp":[1000,666],"assets/images/productoshd/2/TRA21884899E_4.webp":[1000,666],"assets/images/productoshd/2/TRA21884899E_5.webp":[1000,666],"assets/images/productoshd/2/TRA21884899E_6.webp":[1000,666],"assets/images/productoshd/2/TRA23399625E.png":[850,488],"assets/images/productoshd/2/TRA23399625E_1.webp":[1000,931],"assets/images/productoshd/2/TRA23399625E_2.webp":[1000,667],"assets/images/productoshd/2/TRA23399625E_3.webp":[1000,667],"assets/images/productoshd/2/TRA23399625E_4.webp":[1000,667],"assets/images/productoshd/2/TRA23399625E_5.webp":[1000,667],"assets/images/productoshd/2/TRA23399625E_6.webp":[1000,667],"assets/images/productoshd/2/TRA27921679E.png":[700,402],"assets/images/productoshd/2/TRA27921679E_1.webp":[1000,929],"assets/images/productoshd/2/TRA27921679E_2.webp":[1000,667],"assets/images/productoshd/2/TRA27921679E_3.webp":[1000,667],"assets/images/productoshd/2/TRA27921679E_4.webp":[1000,667],"assets/images/productoshd/2/TRA27921679E_5.webp":[1000,667],"assets/images/productoshd/2/TRA27921679E_6.webp":[1000,667],"assets/images/productoshd/2/XTA19972908E.png":[732,430],"assets/images/productoshd/2/XTA19972908E_1.webp":[540,540],"assets/images/productoshd/2/XTA19972908E_2.webp":[540,540],"assets/images/productoshd/2/XTA19972908E_3.webp":[540,540],"assets/images/productoshd/2/XTA19972908E_4.webp":[540,540],"assets/images/productoshd/2/XTA19972908E_5.webp":[540,540],"assets/images/productoshd/2/XTA19972908E_6.webp":[540,540],"assets/images/productoshd/2/XTA20443263E.png":[876,501],"assets/images/productoshd/2/XTA20443263E_1.webp":[900,900],"assets/images/productoshd/2/XTA20443263E_2.webp":[900,900],"assets/images/productoshd/2/XTA20443263E_3.webp":[540,540],"assets/images/productoshd/2/XTA20443263E_4.webp":[540,540],"assets/images/productoshd/2/XTA20443263E_5.webp":[540,540],"assets/images/productoshd/2/XTA22268491E.png":[732,414],"assets/images/productoshd/2/XTA22268491E_1.webp":[540,540],"assets/images/productoshd/2/XTA22268491E_2.webp":[540,540],"assets/images/productoshd/2/XTA22268491E_3.webp":[540,540],"assets/images/productoshd/2/XTA22268491E_4.webp":[540,540],"assets/images/productoshd/2/XTA22941471E.png":[732,414],"assets/images/productoshd/2/XTA22941471E_1.webp":[540,540],"assets/images/productoshd/2/XTA22941471E_2.webp":[540,540],"assets/images/productoshd/2/XTA22941471E_3.webp":[540,540],"assets/images/productoshd/2/XTA22941471E_4.webp":[540,540],"assets/images/productoshd/2/XTA2414870E.png":[870,504],"assets/images/productoshd/2/XTA2414870E_1.webp":[540,540],"assets/images/productoshd/2/XTA2414870E_2.webp":[540,540],"assets/images/productoshd/2/XTA2414870E_3.webp":[540,540],"assets/images/productoshd/2/XTA2414870E_4.webp":[540,540],"assets/images/productoshd/2/XTA2414870E_5.webp":[540,540],"assets/images/productoshd/DOM36819094E.png":[900,675],"assets/images/productoshd/DOM36819094E_2.avif":[1000,750],"assets/images/productoshd/DOM36819094E_3.avif":[1000,750],"assets/images/productoshd/DOM36819094E_4.avif":[1000,750],"assets/images/productoshd/DOM36819094E_5.avif":[1000,750],"assets/images/productoshd/DOM36819094E_6.avif":[1000,750],"assets/images/productoshd/DOM36819094E_7.avif":[1000,750],"assets/images/productoshd/DOM36819094E_8.avif":[1000,750],"assets/images/productoshd/DOM36819094E_9.avif":[1000,750],"assets/images/productoshd/DOM3721281K.png":[900,552],"assets/images/productoshd/EMO36221095E.png":[900,557],"assets/images/productoshd/FUE2228474K.png":[900,494],"assets/images/productoshd/FUE2228474K_2.avif":[1000,750],"assets/images/productoshd/FUE2228474K_3.avif":[1000,750],"assets/images/productoshd/FUE2228474K_4.avif":[1000,750],"assets/images/productoshd/FUE2228474K_5.avif":[1000,750],"assets/images/productoshd/FUE2228474K_6.avif":[1000,750],"assets/images/productoshd/FUE2228474K_7.avif":[1000,750],"assets/images/productoshd/FUE2228474K_8.avif":[1000,750],"assets/images/productoshd/FUE2228474K_9.avif":[1000,750],"assets/images/productoshd/FX114224597R.png":[900,675],"assets/images/productoshd/FX114224597R_2.avif":[1000,750],"assets/images/productoshd/FX114224597R_3.avif":[1000,750],"assets/images/productoshd/FX114224597R_4.avif":[1000,750],"assets/images/productoshd/FX114224597R_5.avif":[1000,750],"assets/images/productoshd/MAD23998394R.png":[900,554],"assets/images/productoshd/MAD23998394R_2.webp":[1000,750],"assets/images/productoshd/MAD23998394R_3.webp":[1000,750],"assets/images/productoshd/MAD23998394R_4.webp":[1000,750],"assets/images/productoshd/MAD23998394R_5.webp":[1000,750],"assets/images/productoshd/MAD23998394R_6.webp":[1000,750],"assets/images/productoshd/MAR23432861E.png":[900,494],"assets/images/productoshd/MAR23432861E_2.avif":[1000,750],"assets/images/productoshd/MAR23432861E_3.avif":[1000,750],"assets/images/productoshd/MAR23432861E_4.avif":[1000,750],"assets/images/productoshd/MAR23432861E_5.avif":[1000,750],"assets/images/productoshd/MAR23432861E_6.avif":[1000,750],"assets/images/productoshd/MAR23695096E.png":[900,494],"assets/images/productoshd/MAR23695096E_2.avif":[1000,750],"assets/images/productoshd/MAR23695096E_3.avif":[1000,750],"assets/images/productoshd/MAR23695096E_4.avif":[1000,750],"assets/images/productoshd/MAR23695096E_5.avif":[1000,750],"assets/images/productoshd/MAR23695096E_6.avif":[1000,750],"assets/images/productoshd/MAR29286215E.png":[900,493],"assets/images/productoshd/MAR29286215E_2.webp":[950,950],"assets/images/productoshd/MAR29286215E_3.webp":[950,950],"assets/images/productoshd/MAR29286215E_4.webp":[950,950],"assets/images/productoshd/MAR34557503K.png":[900,492],"assets/images/productoshd/MAR34557503K_2.avif":[1000,750],"assets/images/productoshd/MAR34557503K_3.avif":[1000,750],"assets/images/productoshd/MAR34557503K_4.avif":[1000,750],"assets/images/productoshd/MAR34557503K_5.avif":[1000,750],"assets/images/productoshd/MAR36195173E.png":[900,501],"assets/images/productoshd/PRE27297304Y.png":[900,532],"assets/images/productoshd/PRE36843695K.png":[900,532],"assets/images/productoshd/PRO294645922.png":[900,508],"assets/images/productoshd/PRO294645922_2.avif":[1000,750],"assets/images/productoshd/PRO294645922_3.avif":[1000,750],"assets/images/productoshd/PRO294645922_4.avif":[1000,750],"assets/images/productoshd/PRO294645922_5.avif":[1000,750],"assets/images/productoshd/PRO294645922_6.avif":[1000,750],"assets/images/productoshd/PRO307703432.png":[900,508],"assets/images/productoshd/PRO37273067Y.png":[900,484],"assets/images/productoshd/PRO37273067Y_2.png":[1000,1000],"assets/images/productoshd/PRO37273067Y_3.png":[1000,1000],"assets/images/productoshd/PRO37273067Y_4.png":[1000,1000],"assets/images/productoshd/PRO37273067Y_5.png":[1000,1000],"assets/images/productoshd/SIE22508971E.png":[861,780],"assets/images/productoshd/TOP18118293R.png":[900,492],"assets/images/productoshd/TOP18118293R_2.avif":[1000,750],"assets/images/productoshd/TOP18118293R_3.avif":[1000,750],"assets/images/productoshd/TOP18118293R_4.avif":[1000,750],"assets/images/productoshd/TOP18118293R_5.avif":[1000,750],"assets/images/productoshd/TOP18118293R_6.avif":[1000,750],"assets/images/productoshd/TOP22914896B.png":[900,509],"assets/images/productoshd/TOP22914896B_2.webp":[1000,750],"assets/images/productoshd/TOP22914896B_3.webp":[1000,750],"assets/images/productoshd/TOP22914896B_4.webp":[1000,750],"assets/images/productoshd/TOP22914896B_5.webp":[1000,750],"assets/images/productoshd/TOP22914896B_6.webp":[1000,750],"assets/images/productoshd/XTA20443263E.png":[900,813],"assets/images/productoshd/XTA22268491E.png":[744,417],"assets/images/productoshd/XTA22941471E.png":[744,417],"assets/images/productoshd/XTA2414870E.png":[876,513],"assets/images/slide-01.png":[1500,705],"assets/images/tienda.png":[542,447],"assets/images/ubicacion.svg":[24,24],"assets/images/usuario.svg":[24,24]};
+
+    function getMediaMeta(url, fallbackW = 900, fallbackH = 600) {
+        const s = String(url || '');
+        const entry = MEDIA_DIMS_MAP[s];
+        if (entry) {
+            return {
+                w: entry[0],
+                h: entry[1],
+                webp: entry[2] || s.replace(/\.(png|jpe?g|avif)$/i, '.webp')
+            };
+        }
+        const webpUrl = (s && !s.startsWith('data:') && !/\.svg(\?|$)/i.test(s))
+            ? s.replace(/\.(png|jpe?g|avif)$/i, '.webp')
+            : s;
+        return { w: fallbackW, h: fallbackH, webp: webpUrl };
+    }
+
+    function renderPictureTag(url, alt, className = '', extraAttrs = '', fallbackW = 900, fallbackH = 600) {
+        const safeAlt = String(alt || '').replace(/"/g, '&quot;');
+        const cls = className ? ` class="${className}"` : '';
+        const extra = extraAttrs ? ` ${extraAttrs}` : '';
+        const meta = getMediaMeta(url, fallbackW, fallbackH);
+        const s = String(url || '');
+        if (!s || s.startsWith('data:') || /\.svg(\?|$)/i.test(s)) {
+            return `<img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" loading="lazy" decoding="async"${extra}>`;
+        }
+        return `<picture><source srcset="${meta.webp}" type="image/webp"><img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" loading="lazy" decoding="async"${extra}></picture>`;
+    }
 
     /* ========================================================================
        UTILIDADES GENERALES Y DESPLAZAMIENTO CON BARRIDO SUAVE (REQ 9)
@@ -553,6 +585,10 @@
         if (slideVideo) {
             // Desactivar loop para que el evento 'ended' se dispare exactamente al terminar el video completo
             slideVideo.loop = false;
+            if (state.heroSlideIndex === 0) {
+                slideVideo.pause();
+                slideVideo.currentTime = 0;
+            }
         }
 
         const clearHeroTimer = () => {
@@ -1021,7 +1057,7 @@
                     </div>
 
                     <div class="product-image-trigger" data-open-sheet="${product.id}" title="Ver ficha técnica de ${product.name}">
-                        <img src="${imgSrc}" alt="${product.name}" class="product-img-cutout" loading="lazy">
+                        ${renderPictureTag(imgSrc, product.name, 'product-img-cutout')}
                     </div>
 
                     <div class="product-item-bottom">
@@ -1031,7 +1067,7 @@
                         <div class="product-price-cart-row">
                             <div class="product-price-text" data-open-sheet="${product.id}">${formatCurrency(product.price)}</div>
                             <button type="button" class="btn-product-cart" data-add-cart="${product.id}" aria-label="Agregar ${product.name} al carrito" title="Agregar al carrito">
-                                <img src="assets/images/carrito.svg" alt="Carrito">
+                                <img src="assets/images/carrito.svg" alt="Carrito" width="18" height="18" loading="lazy" decoding="async">
                             </button>
                         </div>
                     </div>
@@ -1626,7 +1662,7 @@
             commercialList.innerHTML = `
                 <li>Mensualidades de 3, 6 y 12.</li>
                 <li>Entrega el mismo día gratis en Durango.</li>
-                <li>Disponibilidad inmediata en tienda (${product.stock} en inventario Ascend RMS).</li>
+                <li>Disponibilidad inmediata en tienda.</li>
                 <li>Envío asegurado a toda la República Mexicana.</li>
                 <li>Respaldo y garantía oficial en Taller Certificado Cordillera Trek.</li>
             `;
@@ -1667,14 +1703,14 @@
                 const isCutout = isTransparentCutoutUrl(imgUrl);
                 return `
                     <div class="bento-square-thumb ${isCutout ? 'contain-mode' : ''}" data-fs-index="${idx + 1}" title="Ampliar fotografía ${idx + 2} en alta resolución">
-                        <img src="${imgUrl}" alt="${product.name} vista ${idx + 2}">
+                        ${renderPictureTag(imgUrl, `${product.name} vista ${idx + 2}`, '', '', 1000, 750)}
                     </div>
                 `;
             }).join('');
 
             bentoGallery.innerHTML = `
                 <div class="bento-main-photo ${isMainCutout ? 'contain-mode' : ''}" data-fs-index="0" title="Haz clic para abrir el carrusel en tamaño completo y alta resolución">
-                    <img src="${galleryImages[0]}" alt="${product.name}">
+                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750)}
                 </div>
                 <div class="bento-subgrid">
                     ${subSquaresHTML}
@@ -1683,7 +1719,7 @@
         } else {
             bentoGallery.innerHTML = `
                 <div class="bento-main-photo single-photo-mode ${isMainCutout ? 'contain-mode' : ''}" data-fs-index="0" title="Haz clic para ampliar fotografía en tamaño completo">
-                    <img src="${galleryImages[0]}" alt="${product.name}">
+                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750)}
                 </div>
             `;
         }
@@ -1808,13 +1844,18 @@
         if (!mainFsImg || !images.length) return;
 
         mainFsImg.classList.remove('zoomed');
+        const mainFsMeta = getMediaMeta(images[currentIndex], 1000, 750);
+        const mainFsSource = document.getElementById('fs-gallery-main-source');
+        if (mainFsSource) mainFsSource.srcset = mainFsMeta.webp;
+        mainFsImg.width = mainFsMeta.w;
+        mainFsImg.height = mainFsMeta.h;
         mainFsImg.src = images[currentIndex];
         if (counterEl) counterEl.textContent = `${currentIndex + 1} / ${images.length}`;
 
         if (thumbsEl) {
             thumbsEl.innerHTML = images.map((url, idx) => `
                 <button type="button" class="fs-thumb-btn ${idx === currentIndex ? 'active' : ''}" data-thumb-idx="${idx}">
-                    <img src="${url}" alt="Miniatura ${idx + 1}">
+                    ${renderPictureTag(url, `Miniatura ${idx + 1}`, '', '', 1000, 750)}
                 </button>
             `).join('');
 
@@ -1947,6 +1988,12 @@
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
+                const privacyAgree = document.getElementById('ws-privacy-agree');
+                if (privacyAgree && !privacyAgree.checked) {
+                    showToast('Debes aceptar el Aviso de Privacidad para agendar tu cita.');
+                    privacyAgree.focus();
+                    return;
+                }
                 const basePrice = Number(hiddenPrice ? hiddenPrice.value : 350) || 350;
                 const baseDeposit = Number(hiddenDeposit ? hiddenDeposit.value : 150) || 150;
                 const hasPickup = Boolean(pickupCheckbox && pickupCheckbox.checked);
@@ -2267,7 +2314,7 @@
         track.innerHTML = NEWS_EVENTS.map((item, idx) => `
             <article class="news-slide-item" data-news-index="${idx}">
                 <div class="news-poster-wrap" data-open-news="${idx}" title="Ver póster y convocatoria completa">
-                    <img src="${item.poster}" alt="${item.title}" class="news-poster-img" loading="lazy">
+                    ${renderPictureTag(item.poster, item.title, 'news-poster-img', '', 600, 750)}
                 </div>
                 <div class="news-item-content">
                     <div class="news-red-ribbon" data-open-news="${idx}">
@@ -2275,11 +2322,11 @@
                     </div>
                     <div class="news-meta-list">
                         <div class="news-meta-row">
-                            <img src="assets/images/calendario.svg" alt="Calendario">
+                            <img src="assets/images/calendario.svg" alt="Calendario" width="16" height="16" loading="lazy" decoding="async">
                             <span>${item.date}</span>
                         </div>
                         <div class="news-meta-row">
-                            <img src="assets/images/ubicacion.svg" alt="Ubicación">
+                            <img src="assets/images/ubicacion.svg" alt="Ubicación" width="16" height="16" loading="lazy" decoding="async">
                             <span>${item.location}</span>
                         </div>
                     </div>
@@ -2340,17 +2387,17 @@
         bodyEl.innerHTML = `
             <div class="product-sheet-grid">
                 <div>
-                    <img src="${eventItem.poster}" alt="${eventItem.title}" style="width:100%;max-width:360px;cursor:zoom-in;box-shadow:0 14px 32px rgba(0,0,0,0.18);" id="news-modal-poster-zoom">
+                    ${renderPictureTag(eventItem.poster, eventItem.title, '', 'id="news-modal-poster-zoom" style="width:100%;max-width:360px;cursor:zoom-in;box-shadow:0 14px 32px rgba(0,0,0,0.18);"', 600, 750)}
                     <p class="bento-zoom-hint">Haz clic en el póster para abrirlo en pantalla completa.</p>
                 </div>
                 <div>
                     <div class="news-meta-list" style="margin-bottom:18px;">
                         <div class="news-meta-row">
-                            <img src="assets/images/calendario.svg" alt="Fecha">
+                            <img src="assets/images/calendario.svg" alt="Fecha" width="16" height="16" loading="lazy" decoding="async">
                             <span>${eventItem.date}</span>
                         </div>
                         <div class="news-meta-row">
-                            <img src="assets/images/ubicacion.svg" alt="Salida">
+                            <img src="assets/images/ubicacion.svg" alt="Salida" width="16" height="16" loading="lazy" decoding="async">
                             <span>${eventItem.location}</span>
                         </div>
                     </div>
@@ -2526,7 +2573,7 @@
             total += item.price * item.qty;
             return `
                 <div class="cart-line-item">
-                    <img src="${item.image}" alt="${item.name}" class="cart-line-thumb">
+                    ${renderPictureTag(item.image, item.name, 'cart-line-thumb', '', 400, 400)}
                     <div>
                         <div class="cart-line-title">${item.name}</div>
                         <div class="cart-line-price">${formatCurrency(item.price)}</div>
@@ -3074,7 +3121,7 @@
                 <div id="agent-bg-preview-area" style="display:none;margin-top:16px;padding:18px;background:#F7F7F7;align-items:center;gap:24px;flex-wrap:wrap;">
                     <div>
                         <span style="font-size:0.75rem;font-weight:700;display:block;margin-bottom:6px;">RESULTADO .PNG SIN FONDO (AGENTE IA):</span>
-                        <img id="agent-bg-result-img" src="" alt="Previsualización sin fondo" style="max-height:150px;object-fit:contain;">
+                        <img id="agent-bg-result-img" src="" alt="Previsualización sin fondo" width="400" height="300" loading="lazy" decoding="async" style="max-height:150px;object-fit:contain;">
                     </div>
                     <div style="display:flex;flex-wrap:wrap;gap:12px;">
                         <button type="button" id="btn-agent-apply-png" class="btn-pill-cta btn-pill-orange">
@@ -3540,6 +3587,134 @@
     }
 
     /* ========================================================================
+       11. MARCO LEGAL Y NORMATIVO (PRIVACIDAD, TÉRMINOS, COOKIES)
+       ======================================================================== */
+    function initLegalAndCookies() {
+        const modal = document.getElementById('legal-framework-modal');
+        const closeBtn = document.getElementById('btn-close-legal-modal');
+        const tabButtons = Array.from(document.querySelectorAll('[data-legal-tab]'));
+        const tabPanels = Array.from(document.querySelectorAll('.legal-tab-panel'));
+        const openTriggers = Array.from(document.querySelectorAll('[data-open-legal]'));
+        const banner = document.getElementById('cookie-consent-banner');
+        const acceptBtn = document.getElementById('btn-accept-cookies');
+        const essentialBtn = document.getElementById('btn-essential-cookies');
+        const resetBtn = document.getElementById('btn-reset-cookie-consent');
+
+        const activateLegalTab = (tabKey) => {
+            const targetKey = ['privacidad', 'terminos', 'cookies'].includes(tabKey) ? tabKey : 'privacidad';
+
+            tabButtons.forEach(btn => {
+                const isActive = btn.getAttribute('data-legal-tab') === targetKey;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+
+            tabPanels.forEach(panel => {
+                const isTarget = panel.id === `legal-panel-${targetKey}`;
+                panel.classList.toggle('active', isTarget);
+            });
+
+            if (modal) {
+                const dialogWindow = modal.querySelector('.minimal-dialog-window');
+                const activeDocContent = modal.querySelector('.legal-tab-panel.active .legal-doc-content');
+                if (dialogWindow) dialogWindow.scrollTop = 0;
+                if (activeDocContent) activeDocContent.scrollTop = 0;
+            }
+        };
+
+        const openLegalModal = (tabKey = 'privacidad') => {
+            if (!modal) return;
+            activateLegalTab(tabKey);
+            modal.classList.add('open');
+            document.body.classList.add('locked');
+        };
+
+        const closeLegalModal = () => {
+            if (!modal) return;
+            modal.classList.remove('open');
+            const otherModalOpen = Boolean(document.querySelector('.minimal-modal-backdrop.open'));
+            if (!otherModalOpen) {
+                document.body.classList.remove('locked');
+            }
+        };
+
+        openTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabKey = trigger.getAttribute('data-open-legal') || 'privacidad';
+                openLegalModal(tabKey);
+            });
+        });
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                activateLegalTab(btn.getAttribute('data-legal-tab'));
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeLegalModal);
+        }
+
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeLegalModal();
+                }
+            });
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+                closeLegalModal();
+            }
+        });
+
+        const showCookieBannerIfNeeded = () => {
+            if (!banner) return;
+            const savedConsent = loadJSON(STORAGE_KEYS.COOKIE_CONSENT, null);
+            banner.style.display = savedConsent ? 'none' : 'block';
+        };
+
+        const saveCookieConsent = (level) => {
+            saveJSON(STORAGE_KEYS.COOKIE_CONSENT, {
+                level,
+                updatedAt: new Date().toISOString()
+            });
+            if (banner) {
+                banner.style.display = 'none';
+            }
+            showToast(level === 'all'
+                ? 'Preferencia guardada: cookies y almacenamiento local aceptados.'
+                : 'Preferencia guardada: solo almacenamiento estrictamente necesario.'
+            );
+        };
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener('click', () => saveCookieConsent('all'));
+        }
+
+        if (essentialBtn) {
+            essentialBtn.addEventListener('click', () => saveCookieConsent('essential'));
+        }
+
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                try {
+                    localStorage.removeItem(STORAGE_KEYS.COOKIE_CONSENT);
+                } catch (e) {
+                    console.warn('No se pudo restablecer la preferencia de cookies:', e);
+                }
+                showCookieBannerIfNeeded();
+                closeLegalModal();
+                showToast('Preferencias de cookies restablecidas.');
+            });
+        }
+
+        showCookieBannerIfNeeded();
+    }
+
+    /* ========================================================================
        INICIALIZACIÓN AL CARGAR EL DOM
        ======================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
@@ -3554,6 +3729,7 @@
         initUserAuthModal();
         initMultiAgentAndLogisticsConsoles();
         initScrollRevealAnimations();
+        initLegalAndCookies();
     });
 
 })();

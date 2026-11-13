@@ -245,455 +245,6 @@ window.ASCEND_RMS_SYNC = {
       "featured_order": 6
     },
     {
-      "id": "equip-giro-manifest-mips",
-      "sku": "GIRO-MAN-M",
-      "upc": "768686381920",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Accesorios - Cascos",
-      "display_category": "CASCOS",
-      "subcategory": "Cascos",
-      "brand": "GIRO",
-      "pos_raw": "CASCO GIRO MANIFEST SPHERICAL MIPS NEGRO M",
-      "title": "Casco Giro Manifest Spherical MIPS",
-      "display_title": "CASCO GIRO MANIFEST SPHERICAL MIPS",
-      "specs": "Tecnología Spherical MIPS · Arco AURA Reforzado · Hebilla Fidlock",
-      "price": 6490.0,
-      "stock": 5,
-      "variants": [
-        "Talla M (55-59cm)",
-        "Talla L (59-63cm)"
-      ],
-      "img": "assets/images/productos/giro-man-m.png",
-      "img_hd": "assets/images/productos/giro-man-m.jpg",
-      "gallery": [
-        "assets/images/productos/giro-man-m.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "accesorios",
-        "cascos",
-        "giro"
-      ],
-      "is_bicycle": false,
-      "initial_featured": true,
-      "featured_order": 7
-    },
-    {
-      "id": "equip-garmin-edge-840",
-      "sku": "010-02695-10",
-      "upc": "753759315214",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Accesorios - Ciclocomputadoras",
-      "display_category": "CICLOCOMPUTADORAS",
-      "subcategory": "Ciclocomputadoras",
-      "brand": "GARMIN",
-      "pos_raw": "GARMIN EDGE 840 SOLAR GPS MTB MAPAS DURANGO",
-      "title": "Ciclocomputador Garmin Edge 840 Solar",
-      "display_title": "GARMIN EDGE 840 SOLAR GPS",
-      "specs": "Carga Solar Power Glass · Mapas Trailforks Durango · Autonomía 32h",
-      "price": 13999.0,
-      "stock": 3,
-      "variants": [
-        "Edición Solar Touch"
-      ],
-      "img": "assets/images/productos/010-02695-10.png",
-      "img_hd": "assets/images/productos/010-02695-10.jpg",
-      "gallery": [
-        "assets/images/productos/010-02695-10.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "accesorios",
-        "ciclocomputadoras",
-        "ciclo computadoras",
-        "relojes",
-        "audífonos",
-        "audifonos",
-        "transmisores de velocidad",
-        "garmin",
-        "shokz"
-      ],
-      "is_bicycle": false,
-      "initial_featured": true,
-      "featured_order": 8
-    },
-    {
-      "id": "equip-fox-34-kashima",
-      "sku": "FOX-910-21",
-      "upc": "821973394015",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Componentes - Suspensiones",
-      "display_category": "SUSPENSIONES",
-      "subcategory": "Suspensiones",
-      "brand": "FOX",
-      "pos_raw": "HORQUILLA FOX 34 FLOAT SC FACTORY 29 120MM KASHIMA",
-      "title": "Horquilla Fox 34 Float SC Factory 29 120mm",
-      "display_title": "HORQUILLA FOX 34 FLOAT SC FACTORY KASHIMA",
-      "specs": "Recubrimiento Kashima Coat · Cartucho FIT4 · Bloqueo Remoto XC",
-      "price": 23400.0,
-      "stock": 2,
-      "variants": [
-        "29\" · 120mm · Boost 15x110"
-      ],
-      "img": "assets/images/productos/fox-910-21.png",
-      "img_hd": "assets/images/productos/fox-910-21.jpg",
-      "gallery": [
-        "assets/images/productos/fox-910-21.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "componentes",
-        "suspensiones",
-        "manubrios",
-        "potencias",
-        "postes de asiento",
-        "asiento",
-        "espaciadores",
-        "salpicaderas",
-        "fox",
-        "pro"
-      ],
-      "is_bicycle": false,
-      "initial_featured": true,
-      "featured_order": 9
-    },
-    {
-      "id": "equip-liquimoly-taller-pack",
-      "sku": "LM-BIKE-CARE",
-      "upc": "410042006053",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Líquidos y Lubricantes",
-      "display_category": "LUBRICANTES",
-      "subcategory": "Lubricantes",
-      "brand": "LIQUI MOLY",
-      "pos_raw": "KIT MANTENIMIENTO GRASA Y SELLADOR TUBELESS LIQUI MOLY / STANS",
-      "title": "Kit Grasa, Lubricante & Sellador Liqui Moly / Stans",
-      "display_title": "KIT GRASA & LUBRICANTE CERÁMICO LIQUI MOLY",
-      "specs": "Grasa sintética de alta adherencia · Lubricante de cadena húmedo/seco · Sellador Tubeless",
-      "price": 850.0,
-      "stock": 12,
-      "variants": [
-        "Presentación Taller & Ruta"
-      ],
-      "img": "assets/images/productos/taller-grasa.png",
-      "img_hd": "assets/images/productos/taller-grasa.jpg",
-      "gallery": [
-        "assets/images/productos/taller-grasa.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "líquidos y lubricantes",
-        "liquidos y lubricantes",
-        "grasas",
-        "limpiadores",
-        "cementos",
-        "lubricantes",
-        "liquido sellador",
-        "líquido sellador",
-        "liqui moly",
-        "stans",
-        "fizz"
-      ],
-      "is_bicycle": false,
-      "initial_featured": true,
-      "featured_order": 10
-    },
-    {
-      "id": "equip-sis-hammer-pack",
-      "sku": "SIS-PACK-DGO",
-      "upc": "502532401923",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Nutrición",
-      "display_category": "NUTRICIÓN",
-      "subcategory": "Nutrición",
-      "brand": "SIS & HAMMER",
-      "pos_raw": "COMBO MARATON DURANGO 6 GELES SIS + BOTE HAMMER",
-      "title": "Combo Maratón Durango: Geles SiS + Hammer",
-      "display_title": "COMBO MARATÓN DURANGO GELES SIS + HAMMER",
-      "specs": "6 Geles Isotónicos SiS + Bote Electrolitos Hammer Heed Citrus",
-      "price": 1150.0,
-      "stock": 20,
-      "variants": [
-        "Pack Competencia"
-      ],
-      "img": "assets/images/productos/sis-pack-dgo.png",
-      "img_hd": "assets/images/productos/sis-pack-dgo.jpg",
-      "gallery": [
-        "assets/images/productos/sis-pack-dgo.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "nutrición",
-        "nutricion",
-        "sis",
-        "hammer"
-      ],
-      "is_bicycle": false,
-      "initial_featured": true,
-      "featured_order": 11
-    },
-    {
-      "id": "equip-pedales-shimano-xt",
-      "sku": "PD-M8100",
-      "upc": "455017044391",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Componentes - Pedales",
-      "display_category": "PEDALES",
-      "subcategory": "Pedales",
-      "brand": "SHIMANO",
-      "pos_raw": "PEDALES SHIMANO DEORE XT PD-M8100 SPD XC",
-      "title": "Pedales Shimano Deore XT PD-M8100 SPD",
-      "display_title": "PEDALES SHIMANO DEORE XT PD-M8100 SPD",
-      "specs": "Plataforma ancha de aluminio forjado · Eje de cromoly · Incluye calas SM-SH51",
-      "price": 2890.0,
-      "stock": 6,
-      "variants": [
-        "SPD Cross Country"
-      ],
-      "img": "assets/images/productos/pd-m8100.png",
-      "img_hd": "assets/images/productos/pd-m8100.jpg",
-      "gallery": [
-        "assets/images/productos/pd-m8100.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "componentes",
-        "pedales",
-        "shimano",
-        "look"
-      ],
-      "is_bicycle": false,
-      "is_inventory_processed": false,
-      "initial_featured": true,
-      "featured_order": 12
-    },
-    {
-      "id": "equip-shimano-xtr-m9100",
-      "sku": "IRDM9100SGS",
-      "upc": "455017044431",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Componentes - Transmisión",
-      "display_category": "COMPONENTES",
-      "subcategory": "Multiplicaciones",
-      "brand": "SHIMANO",
-      "pos_raw": "SHIM DESVIADOR TRAS XTR RD-M9100 12V SGS",
-      "title": "Desviador Shimano XTR M9100 SGS 12v",
-      "display_title": "DESVIADOR SHIMANO XTR M9100 SGS 12V",
-      "specs": "12 Velocidades · Tecnología Shadow RD+ · Cambio Hiper-Silencioso",
-      "price": 5490.0,
-      "stock": 6,
-      "variants": [
-        "Jaula Larga SGS (10-51T)"
-      ],
-      "img": "assets/images/productos/irdm9100sgs.png",
-      "img_hd": "assets/images/productos/irdm9100sgs.jpg",
-      "gallery": [
-        "assets/images/productos/irdm9100sgs.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "componentes",
-        "multiplicaciones",
-        "cadenas",
-        "frenos y balatas",
-        "shimano",
-        "kmc"
-      ],
-      "is_bicycle": false,
-      "initial_featured": false,
-      "featured_order": 15
-    },
-    {
-      "id": "equip-maxxis-assegai",
-      "sku": "TB00219400",
-      "upc": "471778403812",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Componentes - Llantas",
-      "display_category": "LLANTAS",
-      "subcategory": "Llantas",
-      "brand": "MAXXIS",
-      "pos_raw": "LLANTA MAXXIS ASSEGAI 29X2.50 WT EXO+ TR",
-      "title": "Llanta Maxxis Assegai 29x2.50 WT EXO+ TR",
-      "display_title": "LLANTA MAXXIS ASSEGAI 29X2.50 EXO+ TR",
-      "specs": "Tubeless Ready · Protección EXO+ · Compuesto 3C MaxxGrip Sierra",
-      "price": 1890.0,
-      "stock": 14,
-      "variants": [
-        "29 x 2.50 Wide Trail"
-      ],
-      "img": "assets/images/productos/tb00219400.png",
-      "img_hd": "assets/images/productos/tb00219400.jpg",
-      "gallery": [
-        "assets/images/productos/tb00219400.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "componentes",
-        "llantas",
-        "cámaras",
-        "camaras",
-        "cinta tubeless",
-        "cinta de manubrio",
-        "ruedas",
-        "maxxis",
-        "pirelli",
-        "stans"
-      ],
-      "is_bicycle": false,
-      "initial_featured": false,
-      "featured_order": 16
-    },
-    {
-      "id": "equip-gobik-cx-pro",
-      "sku": "GOB-CXPRO-M",
-      "upc": "843561920114",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Accesorios - Jersey",
-      "display_category": "INDUMENTARIA",
-      "subcategory": "Jersey",
-      "brand": "GOBIK",
-      "pos_raw": "MAILLOT GOBIK CX PRO EDICION CORDILLERA M/L",
-      "title": "Jersey Gobik CX PRO Edición Cordillera",
-      "display_title": "JERSEY GOBIK CX PRO EDICIÓN CORDILLERA",
-      "specs": "Tejido ultraligero aerodinámico · 3 bolsillos traseros con sistema GRS",
-      "price": 2450.0,
-      "stock": 9,
-      "variants": [
-        "Talla M",
-        "Talla L"
-      ],
-      "img": "assets/images/productos/maillot-gobik.png",
-      "img_hd": "assets/images/productos/maillot-gobik.jpg",
-      "gallery": [
-        "assets/images/productos/maillot-gobik.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "accesorios",
-        "jersey",
-        "lentes",
-        "gorras",
-        "guantes",
-        "gobik",
-        "oakley",
-        "buff",
-        "asis",
-        "peek"
-      ],
-      "is_bicycle": false,
-      "initial_featured": false,
-      "featured_order": 17
-    },
-    {
-      "id": "equip-bontrager-circuit",
-      "sku": "BON-CIRC-L",
-      "upc": "601842119204",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Accesorios - Cascos",
-      "display_category": "CASCOS",
-      "subcategory": "Cascos",
-      "brand": "BONTRAGER",
-      "pos_raw": "CASCO BONTRAGER CIRCUIT WAVECEL RUTA/MTB AMARILLO L",
-      "title": "Casco Bontrager Circuit WaveCel Ruta/MTB",
-      "display_title": "CASCO BONTRAGER CIRCUIT WAVECEL RUTA/MTB",
-      "specs": "Protección celular WaveCel · Soportes magnéticos Blendr para luz/GoPro",
-      "price": 3890.0,
-      "stock": 7,
-      "variants": [
-        "Talla M",
-        "Talla L"
-      ],
-      "img": "assets/images/productos/bon-circ-l.png",
-      "img_hd": "assets/images/productos/bon-circ-l.jpg",
-      "gallery": [
-        "assets/images/productos/bon-circ-l.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "accesorios",
-        "cascos",
-        "lámparas",
-        "lamparas",
-        "bolsas de asiento",
-        "ánforas y porta ánforas",
-        "bombas",
-        "candados",
-        "bontrager"
-      ],
-      "is_bicycle": false,
-      "initial_featured": false,
-      "featured_order": 18
-    },
-    {
-      "id": "equip-cassette-shimano-xt",
-      "sku": "ICSM8100051",
-      "upc": "455017044412",
-      "category": "Equipamiento",
-      "ascend_category": "Equipamiento - Componentes - Transmisión",
-      "display_category": "COMPONENTES",
-      "subcategory": "Cadenas",
-      "brand": "SHIMANO",
-      "pos_raw": "SHIM CASSETTE DEORE XT CS-M8100 12V 10-51T",
-      "title": "Cassette Shimano Deore XT CS-M8100 12v (10-51T)",
-      "display_title": "CASSETTE SHIMANO DEORE XT CS-M8100 12V",
-      "specs": "Tecnología Hyperglide+ · Araña de aluminio · Relación 10-51T Micro Spline",
-      "price": 3690.0,
-      "stock": 8,
-      "variants": [
-        "10-51T Micro Spline"
-      ],
-      "img": "assets/images/productos/icsm8100051.png",
-      "img_hd": "assets/images/productos/icsm8100051.jpg",
-      "gallery": [
-        "assets/images/productos/icsm8100051.jpg"
-      ],
-      "filter_tags": [
-        "equipamiento",
-        "componentes",
-        "cadenas",
-        "multiplicaciones",
-        "shimano",
-        "kmc"
-      ],
-      "is_bicycle": false,
-      "initial_featured": false,
-      "featured_order": 19
-    },
-    {
-      "id": "duran-trek-cua31442171k",
-      "sku": "CUA31442171K",
-      "upc": "197216299370",
-      "category": "partes",
-      "ascend_category": "Bicicletas - Cuadros",
-      "brand": "TREK",
-      "pos_raw": "Cuadro Roscoe Gen 4 L 29 Rojo Lava Trek",
-      "title": "Cuadro Roscoe Gen 4 L 29 Rojo Lava Trek",
-      "specs": "Bicicletas - Cuadros · UPC 197216299370 · Stock Piso Coronado #1130",
-      "price": 17000.0,
-      "stock": 1,
-      "variants": [
-        "Cuadros"
-      ],
-      "img": "assets/images/productoshd/2/CUA31442171K.png",
-      "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/2/CUA31442171K_1.png",
-      "display_category": "MONTAÑA",
-      "filter_tags": [
-        "bicicletas",
-        "montaña",
-        "bicicletas trek",
-        "trek"
-      ],
-      "is_bicycle": true,
-      "is_inventory_processed": true,
-      "gallery": [
-        "assets/images/productoshd/2/CUA31442171K_1.png"
-      ],
-      "display_title": "CUADRO ROSCOE GEN 4 L 29 ROJO LAVA",
-      "initial_featured": false,
-      "featured_order": 99
-    },
-    {
       "id": "duran-trek-mad23998394r",
       "sku": "MAD23998394R",
       "upc": "197216173632",
@@ -1847,7 +1398,7 @@ window.ASCEND_RMS_SYNC = {
       ],
       "img": "assets/images/productoshd/2/TRA21884899E.png",
       "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productoshd/2/TRA21884899E_6 - copia.webp",
+      "img_hd": "assets/images/productoshd/2/TRA21884899E_1.webp",
       "display_category": "MONTAÑA",
       "filter_tags": [
         "bicicletas",
@@ -1858,7 +1409,6 @@ window.ASCEND_RMS_SYNC = {
       "is_bicycle": true,
       "is_inventory_processed": true,
       "gallery": [
-        "assets/images/productoshd/2/TRA21884899E_6 - copia.webp",
         "assets/images/productoshd/2/TRA21884899E_1.webp",
         "assets/images/productoshd/2/TRA21884899E_2.webp",
         "assets/images/productoshd/2/TRA21884899E_3.webp",
@@ -1902,7 +1452,8 @@ window.ASCEND_RMS_SYNC = {
         "assets/images/productoshd/2/TRA27921679E_2.webp",
         "assets/images/productoshd/2/TRA27921679E_3.webp",
         "assets/images/productoshd/2/TRA27921679E_4.webp",
-        "assets/images/productoshd/2/TRA27921679E_5.webp"
+        "assets/images/productoshd/2/TRA27921679E_5.webp",
+        "assets/images/productoshd/2/TRA27921679E_6.webp"
       ],
       "display_title": "TRAIL 2 29 M AZUL CYAN",
       "initial_featured": false,
@@ -2402,40 +1953,6 @@ window.ASCEND_RMS_SYNC = {
       "featured_order": 99
     },
     {
-      "id": "duran-trek-rem25478026k",
-      "sku": "REM25478026K",
-      "upc": "601479914630",
-      "category": "accesorios",
-      "ascend_category": "Bicicletas - Remolques",
-      "brand": "TREK",
-      "pos_raw": "REMOLQUE MT-201 R20 NEGRO TREK",
-      "title": "REMOLQUE MT-201 R20 NEGRO TREK",
-      "specs": "Bicicletas - Remolques · UPC 601479914630 · Stock Piso Coronado #1130",
-      "price": 6500.0,
-      "stock": 1,
-      "variants": [
-        "Remolques"
-      ],
-      "img": "assets/images/productos/remolque-mt201.png",
-      "tag": "Sync Duran Go Trek",
-      "img_hd": "assets/images/productos/remolque-mt201.jpg",
-      "display_category": "INFANTIL",
-      "filter_tags": [
-        "bicicletas",
-        "infantil",
-        "bicicletas trek",
-        "trek"
-      ],
-      "is_bicycle": true,
-      "is_inventory_processed": true,
-      "gallery": [
-        "assets/images/productos/remolque-mt201.jpg"
-      ],
-      "display_title": "REMOLQUE MT-201 R20 NEGRO",
-      "initial_featured": false,
-      "featured_order": 99
-    },
-    {
       "id": "duran-trek-emo36221095e",
       "sku": "EMO36221095E",
       "upc": "197216302827",
@@ -2551,6 +2068,489 @@ window.ASCEND_RMS_SYNC = {
       "display_title": "DOMANE AL2 DISC AZUL/PLATA TALLA 54 2023",
       "initial_featured": false,
       "featured_order": 99
+    },
+    {
+      "id": "duran-trek-cua31442171k",
+      "sku": "CUA31442171K",
+      "upc": "197216299370",
+      "category": "partes",
+      "ascend_category": "Bicicletas - Cuadros",
+      "brand": "TREK",
+      "pos_raw": "Cuadro Roscoe Gen 4 L 29 Rojo Lava Trek",
+      "title": "Cuadro Roscoe Gen 4 L 29 Rojo Lava Trek",
+      "specs": "Bicicletas - Cuadros · UPC 197216299370 · Stock Piso Coronado #1130",
+      "price": 17000.0,
+      "stock": 1,
+      "variants": [
+        "Cuadros"
+      ],
+      "img": "assets/images/productoshd/2/CUA31442171K.png",
+      "tag": "Sync Duran Go Trek",
+      "img_hd": "assets/images/productoshd/2/CUA31442171K_1.png",
+      "display_category": "MONTAÑA",
+      "filter_tags": [
+        "bicicletas",
+        "montaña",
+        "bicicletas trek",
+        "trek"
+      ],
+      "is_bicycle": true,
+      "is_inventory_processed": true,
+      "gallery": [
+        "assets/images/productoshd/2/CUA31442171K_1.png"
+      ],
+      "display_title": "CUADRO ROSCOE GEN 4 L 29 ROJO LAVA",
+      "initial_featured": false,
+      "featured_order": 99
+    },
+    {
+      "id": "duran-trek-rem25478026k",
+      "sku": "REM25478026K",
+      "upc": "601479914630",
+      "category": "accesorios",
+      "ascend_category": "Bicicletas - Remolques",
+      "brand": "TREK",
+      "pos_raw": "REMOLQUE MT-201 R20 NEGRO TREK",
+      "title": "REMOLQUE MT-201 R20 NEGRO TREK",
+      "specs": "Bicicletas - Remolques · UPC 601479914630 · Stock Piso Coronado #1130",
+      "price": 6500.0,
+      "stock": 1,
+      "variants": [
+        "Remolques"
+      ],
+      "img": "assets/images/productos/remolque-mt201.png",
+      "tag": "Sync Duran Go Trek",
+      "img_hd": "assets/images/productos/remolque-mt201.jpg",
+      "display_category": "INFANTIL",
+      "filter_tags": [
+        "bicicletas",
+        "infantil",
+        "bicicletas trek",
+        "trek"
+      ],
+      "is_bicycle": true,
+      "is_inventory_processed": true,
+      "gallery": [
+        "assets/images/productos/remolque-mt201.jpg"
+      ],
+      "display_title": "REMOLQUE MT-201 R20 NEGRO",
+      "initial_featured": false,
+      "featured_order": 99
+    },
+    {
+      "id": "equip-giro-manifest-mips",
+      "sku": "GIRO-MAN-M",
+      "upc": "768686381920",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Accesorios - Cascos",
+      "display_category": "CASCOS",
+      "subcategory": "Cascos",
+      "brand": "GIRO",
+      "pos_raw": "CASCO GIRO MANIFEST SPHERICAL MIPS NEGRO M",
+      "title": "Casco Giro Manifest Spherical MIPS",
+      "display_title": "CASCO GIRO MANIFEST SPHERICAL MIPS",
+      "specs": "Tecnología Spherical MIPS · Arco AURA Reforzado · Hebilla Fidlock",
+      "price": 6490.0,
+      "stock": 5,
+      "variants": [
+        "Talla M (55-59cm)",
+        "Talla L (59-63cm)"
+      ],
+      "img": "assets/images/productos/giro-man-m.png",
+      "img_hd": "assets/images/productos/giro-man-m.jpg",
+      "gallery": [
+        "assets/images/productos/giro-man-m.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "accesorios",
+        "cascos",
+        "giro"
+      ],
+      "is_bicycle": false,
+      "initial_featured": true,
+      "featured_order": 7
+    },
+    {
+      "id": "equip-garmin-edge-840",
+      "sku": "010-02695-10",
+      "upc": "753759315214",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Accesorios - Ciclocomputadoras",
+      "display_category": "CICLOCOMPUTADORAS",
+      "subcategory": "Ciclocomputadoras",
+      "brand": "GARMIN",
+      "pos_raw": "GARMIN EDGE 840 SOLAR GPS MTB MAPAS DURANGO",
+      "title": "Ciclocomputador Garmin Edge 840 Solar",
+      "display_title": "GARMIN EDGE 840 SOLAR GPS",
+      "specs": "Carga Solar Power Glass · Mapas Trailforks Durango · Autonomía 32h",
+      "price": 13999.0,
+      "stock": 3,
+      "variants": [
+        "Edición Solar Touch"
+      ],
+      "img": "assets/images/productos/010-02695-10.png",
+      "img_hd": "assets/images/productos/010-02695-10.jpg",
+      "gallery": [
+        "assets/images/productos/010-02695-10.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "accesorios",
+        "ciclocomputadoras",
+        "ciclo computadoras",
+        "relojes",
+        "audífonos",
+        "audifonos",
+        "transmisores de velocidad",
+        "garmin",
+        "shokz"
+      ],
+      "is_bicycle": false,
+      "initial_featured": true,
+      "featured_order": 8
+    },
+    {
+      "id": "equip-fox-34-kashima",
+      "sku": "FOX-910-21",
+      "upc": "821973394015",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Componentes - Suspensiones",
+      "display_category": "SUSPENSIONES",
+      "subcategory": "Suspensiones",
+      "brand": "FOX",
+      "pos_raw": "HORQUILLA FOX 34 FLOAT SC FACTORY 29 120MM KASHIMA",
+      "title": "Horquilla Fox 34 Float SC Factory 29 120mm",
+      "display_title": "HORQUILLA FOX 34 FLOAT SC FACTORY KASHIMA",
+      "specs": "Recubrimiento Kashima Coat · Cartucho FIT4 · Bloqueo Remoto XC",
+      "price": 23400.0,
+      "stock": 2,
+      "variants": [
+        "29\" · 120mm · Boost 15x110"
+      ],
+      "img": "assets/images/productos/fox-910-21.png",
+      "img_hd": "assets/images/productos/fox-910-21.jpg",
+      "gallery": [
+        "assets/images/productos/fox-910-21.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "componentes",
+        "suspensiones",
+        "manubrios",
+        "potencias",
+        "postes de asiento",
+        "asiento",
+        "espaciadores",
+        "salpicaderas",
+        "fox",
+        "pro"
+      ],
+      "is_bicycle": false,
+      "initial_featured": true,
+      "featured_order": 9
+    },
+    {
+      "id": "equip-liquimoly-taller-pack",
+      "sku": "LM-BIKE-CARE",
+      "upc": "410042006053",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Líquidos y Lubricantes",
+      "display_category": "LUBRICANTES",
+      "subcategory": "Lubricantes",
+      "brand": "LIQUI MOLY",
+      "pos_raw": "KIT MANTENIMIENTO GRASA Y SELLADOR TUBELESS LIQUI MOLY / STANS",
+      "title": "Kit Grasa, Lubricante & Sellador Liqui Moly / Stans",
+      "display_title": "KIT GRASA & LUBRICANTE CERÁMICO LIQUI MOLY",
+      "specs": "Grasa sintética de alta adherencia · Lubricante de cadena húmedo/seco · Sellador Tubeless",
+      "price": 850.0,
+      "stock": 12,
+      "variants": [
+        "Presentación Taller & Ruta"
+      ],
+      "img": "assets/images/productos/taller-grasa.png",
+      "img_hd": "assets/images/productos/taller-grasa.jpg",
+      "gallery": [
+        "assets/images/productos/taller-grasa.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "líquidos y lubricantes",
+        "liquidos y lubricantes",
+        "grasas",
+        "limpiadores",
+        "cementos",
+        "lubricantes",
+        "liquido sellador",
+        "líquido sellador",
+        "liqui moly",
+        "stans",
+        "fizz"
+      ],
+      "is_bicycle": false,
+      "initial_featured": true,
+      "featured_order": 10
+    },
+    {
+      "id": "equip-sis-hammer-pack",
+      "sku": "SIS-PACK-DGO",
+      "upc": "502532401923",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Nutrición",
+      "display_category": "NUTRICIÓN",
+      "subcategory": "Nutrición",
+      "brand": "SIS & HAMMER",
+      "pos_raw": "COMBO MARATON DURANGO 6 GELES SIS + BOTE HAMMER",
+      "title": "Combo Maratón Durango: Geles SiS + Hammer",
+      "display_title": "COMBO MARATÓN DURANGO GELES SIS + HAMMER",
+      "specs": "6 Geles Isotónicos SiS + Bote Electrolitos Hammer Heed Citrus",
+      "price": 1150.0,
+      "stock": 20,
+      "variants": [
+        "Pack Competencia"
+      ],
+      "img": "assets/images/productos/sis-pack-dgo.png",
+      "img_hd": "assets/images/productos/sis-pack-dgo.jpg",
+      "gallery": [
+        "assets/images/productos/sis-pack-dgo.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "nutrición",
+        "nutricion",
+        "sis",
+        "hammer"
+      ],
+      "is_bicycle": false,
+      "initial_featured": true,
+      "featured_order": 11
+    },
+    {
+      "id": "equip-pedales-shimano-xt",
+      "sku": "PD-M8100",
+      "upc": "455017044391",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Componentes - Pedales",
+      "display_category": "PEDALES",
+      "subcategory": "Pedales",
+      "brand": "SHIMANO",
+      "pos_raw": "PEDALES SHIMANO DEORE XT PD-M8100 SPD XC",
+      "title": "Pedales Shimano Deore XT PD-M8100 SPD",
+      "display_title": "PEDALES SHIMANO DEORE XT PD-M8100 SPD",
+      "specs": "Plataforma ancha de aluminio forjado · Eje de cromoly · Incluye calas SM-SH51",
+      "price": 2890.0,
+      "stock": 6,
+      "variants": [
+        "SPD Cross Country"
+      ],
+      "img": "assets/images/productos/pd-m8100.png",
+      "img_hd": "assets/images/productos/pd-m8100.jpg",
+      "gallery": [
+        "assets/images/productos/pd-m8100.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "componentes",
+        "pedales",
+        "shimano",
+        "look"
+      ],
+      "is_bicycle": false,
+      "is_inventory_processed": false,
+      "initial_featured": true,
+      "featured_order": 12
+    },
+    {
+      "id": "equip-shimano-xtr-m9100",
+      "sku": "IRDM9100SGS",
+      "upc": "455017044431",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Componentes - Transmisión",
+      "display_category": "COMPONENTES",
+      "subcategory": "Multiplicaciones",
+      "brand": "SHIMANO",
+      "pos_raw": "SHIM DESVIADOR TRAS XTR RD-M9100 12V SGS",
+      "title": "Desviador Shimano XTR M9100 SGS 12v",
+      "display_title": "DESVIADOR SHIMANO XTR M9100 SGS 12V",
+      "specs": "12 Velocidades · Tecnología Shadow RD+ · Cambio Hiper-Silencioso",
+      "price": 5490.0,
+      "stock": 6,
+      "variants": [
+        "Jaula Larga SGS (10-51T)"
+      ],
+      "img": "assets/images/productos/irdm9100sgs.png",
+      "img_hd": "assets/images/productos/irdm9100sgs.jpg",
+      "gallery": [
+        "assets/images/productos/irdm9100sgs.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "componentes",
+        "multiplicaciones",
+        "cadenas",
+        "frenos y balatas",
+        "shimano",
+        "kmc"
+      ],
+      "is_bicycle": false,
+      "initial_featured": false,
+      "featured_order": 15
+    },
+    {
+      "id": "equip-maxxis-assegai",
+      "sku": "TB00219400",
+      "upc": "471778403812",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Componentes - Llantas",
+      "display_category": "LLANTAS",
+      "subcategory": "Llantas",
+      "brand": "MAXXIS",
+      "pos_raw": "LLANTA MAXXIS ASSEGAI 29X2.50 WT EXO+ TR",
+      "title": "Llanta Maxxis Assegai 29x2.50 WT EXO+ TR",
+      "display_title": "LLANTA MAXXIS ASSEGAI 29X2.50 EXO+ TR",
+      "specs": "Tubeless Ready · Protección EXO+ · Compuesto 3C MaxxGrip Sierra",
+      "price": 1890.0,
+      "stock": 14,
+      "variants": [
+        "29 x 2.50 Wide Trail"
+      ],
+      "img": "assets/images/productos/tb00219400.png",
+      "img_hd": "assets/images/productos/tb00219400.jpg",
+      "gallery": [
+        "assets/images/productos/tb00219400.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "componentes",
+        "llantas",
+        "cámaras",
+        "camaras",
+        "cinta tubeless",
+        "cinta de manubrio",
+        "ruedas",
+        "maxxis",
+        "pirelli",
+        "stans"
+      ],
+      "is_bicycle": false,
+      "initial_featured": false,
+      "featured_order": 16
+    },
+    {
+      "id": "equip-gobik-cx-pro",
+      "sku": "GOB-CXPRO-M",
+      "upc": "843561920114",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Accesorios - Jersey",
+      "display_category": "INDUMENTARIA",
+      "subcategory": "Jersey",
+      "brand": "GOBIK",
+      "pos_raw": "MAILLOT GOBIK CX PRO EDICION CORDILLERA M/L",
+      "title": "Jersey Gobik CX PRO Edición Cordillera",
+      "display_title": "JERSEY GOBIK CX PRO EDICIÓN CORDILLERA",
+      "specs": "Tejido ultraligero aerodinámico · 3 bolsillos traseros con sistema GRS",
+      "price": 2450.0,
+      "stock": 9,
+      "variants": [
+        "Talla M",
+        "Talla L"
+      ],
+      "img": "assets/images/productos/maillot-gobik.png",
+      "img_hd": "assets/images/productos/maillot-gobik.jpg",
+      "gallery": [
+        "assets/images/productos/maillot-gobik.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "accesorios",
+        "jersey",
+        "lentes",
+        "gorras",
+        "guantes",
+        "gobik",
+        "oakley",
+        "buff",
+        "asis",
+        "peek"
+      ],
+      "is_bicycle": false,
+      "initial_featured": false,
+      "featured_order": 17
+    },
+    {
+      "id": "equip-bontrager-circuit",
+      "sku": "BON-CIRC-L",
+      "upc": "601842119204",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Accesorios - Cascos",
+      "display_category": "CASCOS",
+      "subcategory": "Cascos",
+      "brand": "BONTRAGER",
+      "pos_raw": "CASCO BONTRAGER CIRCUIT WAVECEL RUTA/MTB AMARILLO L",
+      "title": "Casco Bontrager Circuit WaveCel Ruta/MTB",
+      "display_title": "CASCO BONTRAGER CIRCUIT WAVECEL RUTA/MTB",
+      "specs": "Protección celular WaveCel · Soportes magnéticos Blendr para luz/GoPro",
+      "price": 3890.0,
+      "stock": 7,
+      "variants": [
+        "Talla M",
+        "Talla L"
+      ],
+      "img": "assets/images/productos/bon-circ-l.png",
+      "img_hd": "assets/images/productos/bon-circ-l.jpg",
+      "gallery": [
+        "assets/images/productos/bon-circ-l.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "accesorios",
+        "cascos",
+        "lámparas",
+        "lamparas",
+        "bolsas de asiento",
+        "ánforas y porta ánforas",
+        "bombas",
+        "candados",
+        "bontrager"
+      ],
+      "is_bicycle": false,
+      "initial_featured": false,
+      "featured_order": 18
+    },
+    {
+      "id": "equip-cassette-shimano-xt",
+      "sku": "ICSM8100051",
+      "upc": "455017044412",
+      "category": "Equipamiento",
+      "ascend_category": "Equipamiento - Componentes - Transmisión",
+      "display_category": "COMPONENTES",
+      "subcategory": "Cadenas",
+      "brand": "SHIMANO",
+      "pos_raw": "SHIM CASSETTE DEORE XT CS-M8100 12V 10-51T",
+      "title": "Cassette Shimano Deore XT CS-M8100 12v (10-51T)",
+      "display_title": "CASSETTE SHIMANO DEORE XT CS-M8100 12V",
+      "specs": "Tecnología Hyperglide+ · Araña de aluminio · Relación 10-51T Micro Spline",
+      "price": 3690.0,
+      "stock": 8,
+      "variants": [
+        "10-51T Micro Spline"
+      ],
+      "img": "assets/images/productos/icsm8100051.png",
+      "img_hd": "assets/images/productos/icsm8100051.jpg",
+      "gallery": [
+        "assets/images/productos/icsm8100051.jpg"
+      ],
+      "filter_tags": [
+        "equipamiento",
+        "componentes",
+        "cadenas",
+        "multiplicaciones",
+        "shimano",
+        "kmc"
+      ],
+      "is_bicycle": false,
+      "initial_featured": false,
+      "featured_order": 19
     }
   ],
   "cuarentena": [
