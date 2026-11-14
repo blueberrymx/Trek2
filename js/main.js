@@ -38,6 +38,8 @@
         filteredProducts: [],
         activeFilterLabel: 'Selección Destacada Cordillera',
         storeSlideIndex: 0,
+        storeRenderToken: 0,
+        storeChunkTimer: null,
         heroSlideIndex: 0,
         heroTimer: null,
         newsSlideIndex: 0,
@@ -119,16 +121,19 @@
         return { w: fallbackW, h: fallbackH, webp: webpUrl };
     }
 
-    function renderPictureTag(url, alt, className = '', extraAttrs = '', fallbackW = 900, fallbackH = 600) {
+    function renderPictureTag(url, alt, className = '', extraAttrs = '', fallbackW = 900, fallbackH = 600, eager = false) {
         const safeAlt = String(alt || '').replace(/"/g, '&quot;');
         const cls = className ? ` class="${className}"` : '';
         const extra = extraAttrs ? ` ${extraAttrs}` : '';
         const meta = getMediaMeta(url, fallbackW, fallbackH);
         const s = String(url || '');
+        const loadAttrs = eager
+            ? 'loading="eager" fetchpriority="high" decoding="async"'
+            : 'loading="lazy" decoding="async"';
         if (!s || s.startsWith('data:') || /\.svg(\?|$)/i.test(s)) {
-            return `<img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" loading="lazy" decoding="async"${extra}>`;
+            return `<img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" ${loadAttrs}${extra}>`;
         }
-        return `<picture><source srcset="${meta.webp}" type="image/webp"><img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" loading="lazy" decoding="async"${extra}></picture>`;
+        return `<picture><source srcset="${meta.webp}" type="image/webp"><img src="${s}" alt="${safeAlt}"${cls} width="${meta.w}" height="${meta.h}" ${loadAttrs}${extra}></picture>`;
     }
 
     /* ========================================================================
@@ -179,12 +184,26 @@
      * Evita cualquier salto brusco al navegar entre secciones.
      */
     let activeScrollAnimationId = null;
+    let scrollCancelBound = false;
 
-    function customSmoothScrollTo(targetY, duration = 860) {
+    function cancelActiveSmoothScroll() {
         if (activeScrollAnimationId) {
             cancelAnimationFrame(activeScrollAnimationId);
             activeScrollAnimationId = null;
         }
+    }
+
+    function bindSmoothScrollCancelListeners() {
+        if (scrollCancelBound) return;
+        scrollCancelBound = true;
+        window.addEventListener('touchstart', cancelActiveSmoothScroll, { passive: true });
+        window.addEventListener('wheel', cancelActiveSmoothScroll, { passive: true });
+        window.addEventListener('keydown', cancelActiveSmoothScroll);
+    }
+
+    function customSmoothScrollTo(targetY, duration = 780) {
+        bindSmoothScrollCancelListeners();
+        cancelActiveSmoothScroll();
 
         const startY = window.pageYOffset || document.documentElement.scrollTop || 0;
         const clampedTargetY = Math.max(0, targetY);
@@ -221,7 +240,8 @@
         const headerHeight = headerEl ? headerEl.offsetHeight : 76;
         const rect = el.getBoundingClientRect();
         const targetY = (window.pageYOffset || document.documentElement.scrollTop) + rect.top - headerHeight;
-        customSmoothScrollTo(targetY, 860);
+        const duration = window.innerWidth <= 768 ? 420 : 780;
+        customSmoothScrollTo(targetY, duration);
     }
 
     /* ========================================================================
@@ -365,7 +385,13 @@
             introScreen.classList.add('fade-out');
             document.body.classList.remove('locked');
             setTimeout(() => {
-                if (introVideo) introVideo.pause();
+                if (introVideo) {
+                    introVideo.pause();
+                    introVideo.removeAttribute('src');
+                    introVideo.querySelectorAll('source').forEach(srcEl => srcEl.removeAttribute('src'));
+                    introVideo.load();
+                }
+                introScreen.style.display = 'none';
             }, 850);
         };
 
@@ -395,17 +421,25 @@
         const searchDrawer = document.getElementById('search-bar-drawer');
         const searchInput = document.getElementById('global-search-input');
 
-        const handleScroll = () => {
+        let scrollTicking = false;
+        const updateOnScrollFrame = () => {
             if (window.scrollY > 16) {
                 siteChrome.classList.add('scrolled');
             } else {
                 siteChrome.classList.remove('scrolled');
             }
             updateActiveSectionNav();
+            scrollTicking = false;
+        };
+
+        const handleScroll = () => {
+            if (scrollTicking) return;
+            scrollTicking = true;
+            requestAnimationFrame(updateOnScrollFrame);
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
+        updateOnScrollFrame();
 
         // Al salir con el cursor de un item de menú, restaurar su capacidad de hover
         document.querySelectorAll('.nav-item').forEach(item => {
@@ -586,6 +620,7 @@
             // Desactivar loop para que el evento 'ended' se dispare exactamente al terminar el video completo
             slideVideo.loop = false;
             if (state.heroSlideIndex === 0) {
+                slideVideo.preload = 'none';
                 slideVideo.pause();
                 slideVideo.currentTime = 0;
             }
@@ -628,6 +663,7 @@
 
             if (slideVideo) {
                 if (state.heroSlideIndex === 1) {
+                    slideVideo.preload = 'auto';
                     slideVideo.loop = false;
                     slideVideo.currentTime = 0;
                     const playPromise = slideVideo.play();
@@ -653,6 +689,24 @@
                     goToSlide(0);
                 }
             });
+        }
+
+        const heroSection = document.querySelector('.hero-section');
+        if (heroSection && 'IntersectionObserver' in window) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        clearHeroTimer();
+                        if (slideVideo) slideVideo.pause();
+                    } else {
+                        if (slideVideo && state.heroSlideIndex === 1) {
+                            slideVideo.play().catch(() => {});
+                        }
+                        scheduleCurrentSlideAdvance();
+                    }
+                });
+            }, { threshold: 0.05 });
+            heroObserver.observe(heroSection);
         }
 
         dots.forEach(dot => {
@@ -923,6 +977,24 @@
             nextBtn.addEventListener('click', () => moveStoreCarousel(1));
         }
 
+        const track = document.getElementById('store-products-track');
+        if (track) {
+            track.addEventListener('click', (e) => {
+                const addBtn = e.target.closest('[data-add-cart]');
+                if (addBtn) {
+                    e.stopPropagation();
+                    const prodId = addBtn.getAttribute('data-add-cart');
+                    addToCart(prodId, 1);
+                    return;
+                }
+                const sheetTrigger = e.target.closest('[data-open-sheet]');
+                if (sheetTrigger) {
+                    const prodId = sheetTrigger.getAttribute('data-open-sheet');
+                    openProductSheet(prodId);
+                }
+            });
+        }
+
         window.addEventListener('resize', () => {
             updateStoreCarouselPosition();
         });
@@ -1016,12 +1088,54 @@
         return 'product-brand-pill';
     }
 
+    function buildStoreProductCardHTML(product, idx) {
+        const imgSrc = product.image_png || product.image;
+        const brandClass = getBrandPillClass(product.brand);
+        const eagerLoad = idx < 4;
+        return `
+            <article class="store-product-item" data-product-id="${product.id}">
+                <div class="product-item-top">
+                    <span class="${brandClass}">${product.brand}</span>
+                    <span class="product-category-label">${product.category}</span>
+                </div>
+
+                <div class="product-image-trigger" data-open-sheet="${product.id}" title="Ver ficha técnica de ${product.name}">
+                    ${renderPictureTag(imgSrc, product.name, 'product-img-cutout', '', 900, 600, eagerLoad)}
+                </div>
+
+                <div class="product-item-bottom">
+                    <div class="product-info-clickable" data-open-sheet="${product.id}">
+                        <h3 class="product-title-heading">${product.name}</h3>
+                    </div>
+                    <div class="product-price-cart-row">
+                        <div class="product-price-text" data-open-sheet="${product.id}">${formatCurrency(product.price)}</div>
+                        <button type="button" class="btn-product-cart" data-add-cart="${product.id}" aria-label="Agregar ${product.name} al carrito" title="Agregar al carrito">
+                            <img src="assets/images/carrito.svg" alt="Carrito" width="18" height="18" loading="lazy" decoding="async">
+                        </button>
+                    </div>
+                </div>
+            </article>
+        `;
+    }
+
     function renderStoreProducts() {
         const track = document.getElementById('store-products-track');
         const filterPill = document.getElementById('store-active-filter-pill');
 
         if (!track) return;
         if (filterPill) filterPill.textContent = state.activeFilterLabel;
+
+        state.storeRenderToken += 1;
+        const renderToken = state.storeRenderToken;
+        if (state.storeChunkTimer) {
+            clearTimeout(state.storeChunkTimer);
+            state.storeChunkTimer = null;
+        }
+
+        const storeViewport = track.closest('.store-carousel-viewport');
+        if (storeViewport) {
+            storeViewport.classList.add('revealed');
+        }
 
         if (!state.filteredProducts.length) {
             track.innerHTML = `
@@ -1043,54 +1157,49 @@
             return;
         }
 
-        // Diseño exacto a Trek-web-03.jpg:
-        // Marca + Categoría arriba en la misma fila, foto .png sin fondo en medio,
-        // Título café abajo y fila con Precio a la izquierda + Botón Carrito naranja a la derecha.
-        track.innerHTML = state.filteredProducts.map(product => {
-            const imgSrc = product.image_png || product.image;
-            const brandClass = getBrandPillClass(product.brand);
-            return `
-                <article class="store-product-item" data-product-id="${product.id}">
-                    <div class="product-item-top">
-                        <span class="${brandClass}">${product.brand}</span>
-                        <span class="product-category-label">${product.category}</span>
-                    </div>
+        const isMobileChunked = window.innerWidth <= 768 && state.filteredProducts.length > 8;
+        if (!isMobileChunked) {
+            track.innerHTML = state.filteredProducts
+                .map((product, idx) => buildStoreProductCardHTML(product, idx))
+                .join('');
+            updateStoreCarouselPosition();
+            return;
+        }
 
-                    <div class="product-image-trigger" data-open-sheet="${product.id}" title="Ver ficha técnica de ${product.name}">
-                        ${renderPictureTag(imgSrc, product.name, 'product-img-cutout')}
-                    </div>
-
-                    <div class="product-item-bottom">
-                        <div class="product-info-clickable" data-open-sheet="${product.id}">
-                            <h3 class="product-title-heading">${product.name}</h3>
-                        </div>
-                        <div class="product-price-cart-row">
-                            <div class="product-price-text" data-open-sheet="${product.id}">${formatCurrency(product.price)}</div>
-                            <button type="button" class="btn-product-cart" data-add-cart="${product.id}" aria-label="Agregar ${product.name} al carrito" title="Agregar al carrito">
-                                <img src="assets/images/carrito.svg" alt="Carrito" width="18" height="18" loading="lazy" decoding="async">
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            `;
-        }).join('');
-
-        track.querySelectorAll('[data-open-sheet]').forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const prodId = trigger.getAttribute('data-open-sheet');
-                openProductSheet(prodId);
-            });
-        });
-
-        track.querySelectorAll('[data-add-cart]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const prodId = btn.getAttribute('data-add-cart');
-                addToCart(prodId, 1);
-            });
-        });
-
+        const initialCount = 8;
+        const chunkSize = 10;
+        track.innerHTML = state.filteredProducts
+            .slice(0, initialCount)
+            .map((product, idx) => buildStoreProductCardHTML(product, idx))
+            .join('');
         updateStoreCarouselPosition();
+
+        let nextOffset = initialCount;
+        const appendNextChunk = () => {
+            if (renderToken !== state.storeRenderToken) return;
+            if (nextOffset >= state.filteredProducts.length) {
+                state.storeChunkTimer = null;
+                return;
+            }
+            const endOffset = Math.min(nextOffset + chunkSize, state.filteredProducts.length);
+            const chunkHTML = state.filteredProducts
+                .slice(nextOffset, endOffset)
+                .map((product, i) => buildStoreProductCardHTML(product, nextOffset + i))
+                .join('');
+            nextOffset = endOffset;
+
+            requestAnimationFrame(() => {
+                if (renderToken !== state.storeRenderToken) return;
+                track.insertAdjacentHTML('beforeend', chunkHTML);
+                if (nextOffset < state.filteredProducts.length) {
+                    state.storeChunkTimer = setTimeout(appendNextChunk, 40);
+                } else {
+                    state.storeChunkTimer = null;
+                }
+            });
+        };
+
+        state.storeChunkTimer = setTimeout(appendNextChunk, 180);
     }
 
     function getStoreVisibleCols() {
@@ -1703,14 +1812,14 @@
                 const isCutout = isTransparentCutoutUrl(imgUrl);
                 return `
                     <div class="bento-square-thumb ${isCutout ? 'contain-mode' : ''}" data-fs-index="${idx + 1}" title="Ampliar fotografía ${idx + 2} en alta resolución">
-                        ${renderPictureTag(imgUrl, `${product.name} vista ${idx + 2}`, '', '', 1000, 750)}
+                        ${renderPictureTag(imgUrl, `${product.name} vista ${idx + 2}`, '', '', 1000, 750, idx < 4)}
                     </div>
                 `;
             }).join('');
 
             bentoGallery.innerHTML = `
                 <div class="bento-main-photo ${isMainCutout ? 'contain-mode' : ''}" data-fs-index="0" title="Haz clic para abrir el carrusel en tamaño completo y alta resolución">
-                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750)}
+                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750, true)}
                 </div>
                 <div class="bento-subgrid">
                     ${subSquaresHTML}
@@ -1719,7 +1828,7 @@
         } else {
             bentoGallery.innerHTML = `
                 <div class="bento-main-photo single-photo-mode ${isMainCutout ? 'contain-mode' : ''}" data-fs-index="0" title="Haz clic para ampliar fotografía en tamaño completo">
-                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750)}
+                    ${renderPictureTag(galleryImages[0], product.name, '', '', 1000, 750, true)}
                 </div>
             `;
         }
@@ -3581,7 +3690,7 @@
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.02, rootMargin: '0px 0px -16px 0px' });
 
         elements.forEach(el => observer.observe(el));
     }
