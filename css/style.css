@@ -3490,7 +3490,7 @@ textarea.workshop-input {
     body {
         scrollbar-width: none;
         -ms-overflow-style: none;
-        overflow-x: hidden;
+        overflow-x: clip;
         width: 100%;
         max-width: 100%;
     }
@@ -3744,6 +3744,24 @@ textarea.workshop-input {
 
     /* TIENDA EN LÍNEA EN MÓVIL CELULAR:
        Navegación vertical en 2 columnas */
+    .textured-light-section,
+    .workshop-section {
+        clip-path: none;
+        -webkit-clip-path: none;
+        overflow: hidden;
+    }
+
+    .textured-light-section::before,
+    .workshop-section::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+        -webkit-transform: none;
+    }
+
     .store-section,
     .workshop-section,
     .news-section,
@@ -3761,6 +3779,8 @@ textarea.workshop-input {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px 12px;
         transform: none !important;
+        will-change: auto !important;
+        transition: none !important;
     }
 
     .store-product-item {
@@ -3769,6 +3789,9 @@ textarea.workshop-input {
         padding: 10px 8px 16px;
         border-right: none;
         border-bottom: 1px solid rgba(30, 30, 30, 0.16);
+        transition: none;
+        content-visibility: auto;
+        contain-intrinsic-size: auto 260px;
     }
 
     .store-product-item:nth-child(odd) {
@@ -3795,8 +3818,12 @@ textarea.workshop-input {
         margin: 4px 0 10px;
     }
 
-    .product-img-cutout {
+    .product-img-cutout,
+    .store-product-item:hover .product-img-cutout {
         max-height: 135px;
+        filter: none;
+        transition: none;
+        transform: none;
     }
 
     .product-title-heading {
@@ -3999,6 +4026,12 @@ textarea.workshop-input {
 
     .bento-main-photo.single-photo-mode {
         min-height: 250px;
+    }
+
+    .minimal-modal-backdrop {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background-color: rgba(18, 18, 18, 0.86);
     }
 
     .product-sheet-window,
