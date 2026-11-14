@@ -1348,6 +1348,7 @@ button {
 .product-image-trigger {
     position: relative;
     width: 100%;
+    min-width: 0;
     height: 250px;
     display: flex;
     align-items: center;
@@ -1355,13 +1356,15 @@ button {
     margin: 6px 0 16px;
     cursor: pointer;
     background: transparent;
+    overflow: hidden;
 }
 
 .product-img-cutout {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
     max-width: 100%;
     max-height: 240px;
-    width: auto;
-    height: auto;
     object-fit: contain;
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
     filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.14));
@@ -3771,13 +3774,18 @@ textarea.workshop-input {
     }
 
     .store-carousel-viewport {
-        overflow: visible;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
     }
 
     .store-products-track {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px 12px;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100%;
+        max-width: 100%;
+        gap: 18px 10px;
+        box-sizing: border-box;
         transform: none !important;
         will-change: auto !important;
         transition: none !important;
@@ -3785,8 +3793,12 @@ textarea.workshop-input {
 
     .store-product-item {
         flex: none;
+        width: 100%;
+        min-width: 0;
         max-width: 100%;
-        padding: 10px 8px 16px;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 10px 6px 14px;
         border-right: none;
         border-bottom: 1px solid rgba(30, 30, 30, 0.16);
         transition: none;
@@ -3796,6 +3808,14 @@ textarea.workshop-input {
 
     .store-product-item:nth-child(odd) {
         border-right: 1px solid rgba(30, 30, 30, 0.16);
+    }
+
+    .product-item-top,
+    .product-item-bottom,
+    .product-info-clickable {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     .product-item-top {
@@ -3827,16 +3847,32 @@ textarea.workshop-input {
     }
 
     .product-title-heading {
-        font-size: 1.15rem;
+        font-size: 1.08rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    .product-price-cart-row {
+        gap: 6px;
+        min-width: 0;
+        width: 100%;
     }
 
     .product-price-text {
-        font-size: 0.95rem;
+        font-size: clamp(0.78rem, 3.3vw, 0.92rem);
+        min-width: 0;
+        white-space: nowrap;
     }
 
     .btn-product-cart {
-        width: 42px;
-        height: 30px;
+        width: 34px;
+        height: 28px;
+        border-radius: 6px;
+    }
+
+    .btn-product-cart img {
+        width: 15px;
+        height: 15px;
     }
 
     /* Ocultar flechas horizontales de la tienda en móvil ya que es grid vertical */
